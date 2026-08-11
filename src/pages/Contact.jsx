@@ -181,7 +181,7 @@ export default function Contact() {
                 { icon: '📞', title: 'Phone & WhatsApp', desc: '+91 89873 67274' },
                 { icon: '✉️', title: 'Email', desc: 'ushadentalclinic@gmail.com' },
               ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(15,39,68,0.08)', alignItems: 'flex-start' }}>
+                <div key={i} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(13, 58, 36,0.08)', alignItems: 'flex-start' }}>
                   <div style={{ width: '44px', height: '44px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0, borderRadius: '2px' }}>{item.icon}</div>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontSize: '10px', color: 'var(--gold)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>{item.title}</div>
@@ -200,7 +200,7 @@ export default function Contact() {
               </a>
 
               {/* Map */}
-              <div style={{ marginTop: '32px', borderRadius: '2px', overflow: 'hidden', border: '1px solid rgba(15,39,68,0.1)', height: '220px' }}>
+              <div style={{ marginTop: '32px', borderRadius: '2px', overflow: 'hidden', border: '1px solid rgba(13, 58, 36,0.1)', height: '220px' }}>
                 <iframe
                   src="https://maps.google.com/maps?q=Usha%20Multi%20Speciality%20Dental%20Clinic%2C%20Bhavdepur%2C%20Sitamarhi%2C%20Bihar%20843302&output=embed"
                   width="100%" height="220" style={{ border: 0 }} allowFullScreen="" loading="lazy"

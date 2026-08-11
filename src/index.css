@@ -1,8 +1,8 @@
 :root {
-  --navy-900: #050c17;
-  --navy-800: #0d2340;
-  --navy-700: #163257;
-  --navy-600: #1c3d6a;
+  --navy-900: #051f13;
+  --navy-800: #0d3a24;
+  --navy-700: #145334;
+  --navy-600: #1c6b43;
   --teal: #8a5a2e;
   --teal-light: #b3763e;
   --gold: #C9A45C;
@@ -20,9 +20,9 @@
   --font-body: 'Jost', sans-serif;
 
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-sm: 0 2px 8px rgba(15, 39, 68, 0.1);
-  --shadow-md: 0 4px 24px rgba(15, 39, 68, 0.15);
-  --shadow-lg: 0 8px 48px rgba(15, 39, 68, 0.22);
+  --shadow-sm: 0 2px 8px rgba(13, 58, 36, 0.1);
+  --shadow-md: 0 4px 24px rgba(13, 58, 36, 0.15);
+  --shadow-lg: 0 8px 48px rgba(13, 58, 36, 0.22);
   --shadow-gold: 0 4px 20px rgba(199, 166, 106, 0.25);
 }
 
@@ -95,7 +95,7 @@ img { max-width: 100%; display: block; }
 .btn-outline-dark {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: var(--navy-800);
-  border: 1px solid rgba(15,39,68,0.3);
+  border: 1px solid rgba(13, 58, 36,0.3);
   padding: 13px 30px; border-radius: 2px;
   font-size: 13px; font-weight: 500; letter-spacing: 1px;
   text-transform: uppercase; transition: var(--transition);

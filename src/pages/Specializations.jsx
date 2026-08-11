@@ -203,7 +203,7 @@ export default function Specializations() {
       <section style={{ background: 'var(--gold)', padding: '70px 0', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 42px)', color: 'var(--navy-800)', marginBottom: '16px' }}>Ready to Book Your Visit?</h2>
-          <p style={{ fontSize: '15px', color: 'rgba(15,39,68,0.7)', marginBottom: '28px' }}>Get in touch and let us find the right treatment for you.</p>
+          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.7)', marginBottom: '28px' }}>Get in touch and let us find the right treatment for you.</p>
           <Link to="/contact">
             <button style={{ background: 'var(--navy-800)', color: 'var(--white)', border: 'none', padding: '14px 32px', borderRadius: '2px', fontSize: '13px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer' }}>
               Book an Appointment

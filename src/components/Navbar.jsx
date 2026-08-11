@@ -28,7 +28,7 @@ export default function Navbar() {
     <>
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
-        background: 'var(--gold)', borderBottom: '1px solid rgba(15,39,68,0.15)',
+        background: 'var(--gold)', borderBottom: '1px solid rgba(13, 58, 36,0.15)',
         overflow: 'hidden', whiteSpace: 'nowrap', padding: '6px 0',
       }}>
         <div style={{ display: 'inline-flex', animation: 'marquee-scroll 26s linear infinite' }}>

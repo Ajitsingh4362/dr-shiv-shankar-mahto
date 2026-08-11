@@ -122,7 +122,7 @@ export default function AdminDevices() {
             <div key={s.id} className="admin-device-card" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap',
               padding: '16px 20px', borderRadius: '8px',
-              background: 'var(--navy-800, #10233d)', border: s.id === currentSessionId ? '1px solid var(--gold, #c7a66a)' : '1px solid rgba(255,255,255,0.08)',
+              background: 'var(--navy-800, #0d3a24)', border: s.id === currentSessionId ? '1px solid var(--gold, #c7a66a)' : '1px solid rgba(255,255,255,0.08)',
             }}>
               <div style={{ minWidth: '200px', flex: 1 }}>
                 <p style={{ margin: 0, fontWeight: 600, fontSize: '15px', color: 'var(--ivory, #FAF8F4)' }}>

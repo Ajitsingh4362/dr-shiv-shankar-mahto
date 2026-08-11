@@ -14,38 +14,38 @@ const EMPTY_TEMPLATE = { name: '', category: 'General', condition_tags: [], medi
 function MedicineRow({ med, idx, onChange, onDelete, isOnly }) {
   const s = (key, val) => onChange(idx, { ...med, [key]: val })
   return (
-    <div style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.1)', borderRadius: '4px', padding: '14px 16px', position: 'relative' }}>
+    <div style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.1)', borderRadius: '4px', padding: '14px 16px', position: 'relative' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
         <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>{idx + 1}</div>
-        <input value={med.name} onChange={e => s('name', e.target.value)} placeholder="Medicine name (e.g. Pulsatilla)" style={{ flex: 1, padding: '8px 12px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.92rem', fontFamily: 'var(--font-body)', fontWeight: 600, outline: 'none', color: 'var(--navy-800)' }} />
+        <input value={med.name} onChange={e => s('name', e.target.value)} placeholder="Medicine name (e.g. Pulsatilla)" style={{ flex: 1, padding: '8px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.92rem', fontFamily: 'var(--font-body)', fontWeight: 600, outline: 'none', color: 'var(--navy-800)' }} />
         {!isOnly && <button onClick={() => onDelete(idx)} style={{ background: 'none', border: 'none', color: '#c0392b', cursor: 'pointer', fontSize: '18px', padding: '0 4px', flexShrink: 0 }}>×</button>}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr', gap: '8px' }}>
         <div>
           <label style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Dosage</label>
-          <select value={med.dosage} onChange={e => s('dosage', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+          <select value={med.dosage} onChange={e => s('dosage', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
             {DOSAGES.map(d => <option key={d}>{d}</option>)}
           </select>
         </div>
         <div>
           <label style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Frequency</label>
-          <select value={med.frequency} onChange={e => s('frequency', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+          <select value={med.frequency} onChange={e => s('frequency', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
             {FREQUENCIES.map(f => <option key={f}>{f}</option>)}
           </select>
         </div>
         <div>
           <label style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Timing</label>
-          <select value={med.timing} onChange={e => s('timing', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+          <select value={med.timing} onChange={e => s('timing', e.target.value)} style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
             {TIMINGS.map(t => <option key={t}>{t}</option>)}
           </select>
         </div>
         <div>
           <label style={{ fontSize: '9px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Duration</label>
-          <input value={med.duration} onChange={e => s('duration', e.target.value)} placeholder="e.g. 5 days" style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+          <input value={med.duration} onChange={e => s('duration', e.target.value)} placeholder="e.g. 5 days" style={{ width: '100%', padding: '7px 8px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
         </div>
       </div>
       <div style={{ marginTop: '8px' }}>
-        <input value={med.notes} onChange={e => s('notes', e.target.value)} placeholder="Special notes for this medicine (optional)" style={{ width: '100%', padding: '7px 10px', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none', color: 'var(--text-muted)' }} />
+        <input value={med.notes} onChange={e => s('notes', e.target.value)} placeholder="Special notes for this medicine (optional)" style={{ width: '100%', padding: '7px 10px', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', fontSize: '0.8rem', fontFamily: 'var(--font-body)', outline: 'none', color: 'var(--text-muted)' }} />
       </div>
     </div>
   )
@@ -168,7 +168,7 @@ export default function AdminPrescriptionTemplates() {
         <p style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: '10px' }}>Condition Tags (click to select)</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           {COMMON_TAGS.map(tag => (
-            <button key={tag} onClick={() => toggleTag(tag)} style={{ padding: '5px 12px', borderRadius: '100px', border: '1px solid', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 500, cursor: 'pointer', background: (form.condition_tags || []).includes(tag) ? 'var(--navy-800)' : 'var(--white)', color: (form.condition_tags || []).includes(tag) ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: (form.condition_tags || []).includes(tag) ? 'var(--navy-800)' : 'rgba(15,39,68,0.12)', transition: 'all 0.15s' }}>
+            <button key={tag} onClick={() => toggleTag(tag)} style={{ padding: '5px 12px', borderRadius: '100px', border: '1px solid', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 500, cursor: 'pointer', background: (form.condition_tags || []).includes(tag) ? 'var(--navy-800)' : 'var(--white)', color: (form.condition_tags || []).includes(tag) ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: (form.condition_tags || []).includes(tag) ? 'var(--navy-800)' : 'rgba(13, 58, 36,0.12)', transition: 'all 0.15s' }}>
               {tag}
             </button>
           ))}
@@ -191,7 +191,7 @@ export default function AdminPrescriptionTemplates() {
       {/* Instructions */}
       <div style={{ marginBottom: '16px' }}>
         <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>📋 Instructions for Patient</label>
-        <textarea value={form.instructions || ''} onChange={e => setF('instructions', e.target.value)} placeholder="e.g. Avoid hard/hot/cold food for 24 hrs. Rinse gently with warm salt water. Complete full course of antibiotics..." rows={3} style={{ width: '100%', padding: '10px 12px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical', lineHeight: 1.6 }} />
+        <textarea value={form.instructions || ''} onChange={e => setF('instructions', e.target.value)} placeholder="e.g. Avoid hard/hot/cold food for 24 hrs. Rinse gently with warm salt water. Complete full course of antibiotics..." rows={3} style={{ width: '100%', padding: '10px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical', lineHeight: 1.6 }} />
       </div>
 
       {/* Follow-up */}
@@ -199,7 +199,7 @@ export default function AdminPrescriptionTemplates() {
         <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>📅 Follow-up Duration</label>
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {FOLLOW_UPS.map(f => (
-            <button key={f} onClick={() => setF('follow_up_duration', f)} style={{ padding: '7px 16px', borderRadius: '2px', border: '1px solid', fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 500, cursor: 'pointer', background: form.follow_up_duration === f ? 'var(--navy-800)' : 'var(--white)', color: form.follow_up_duration === f ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: form.follow_up_duration === f ? 'var(--navy-800)' : 'rgba(15,39,68,0.12)', transition: 'all 0.15s' }}>
+            <button key={f} onClick={() => setF('follow_up_duration', f)} style={{ padding: '7px 16px', borderRadius: '2px', border: '1px solid', fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 500, cursor: 'pointer', background: form.follow_up_duration === f ? 'var(--navy-800)' : 'var(--white)', color: form.follow_up_duration === f ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: form.follow_up_duration === f ? 'var(--navy-800)' : 'rgba(13, 58, 36,0.12)', transition: 'all 0.15s' }}>
               {f}
             </button>
           ))}
@@ -229,7 +229,7 @@ export default function AdminPrescriptionTemplates() {
           { label: 'Categories', value: [...new Set(templates.map(t => t.category))].length, icon: '🏷️' },
           { label: 'Total Uses', value: templates.reduce((s, t) => s + (t.use_count || 0), 0), icon: '✅' },
         ].map((s, i) => (
-          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '2px', padding: '14px 16px' }}>
+          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '14px 16px' }}>
             <p style={{ fontSize: '18px', margin: '0 0 4px' }}>{s.icon}</p>
             <p style={{ fontFamily: s.small ? 'var(--font-body)' : 'var(--font-display)', fontSize: s.small ? '14px' : '22px', fontWeight: 700, color: 'var(--navy-800)', margin: '0 0 2px', lineHeight: 1.2 }}>{s.value}</p>
             <p style={{ fontSize: '10px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', margin: 0, fontWeight: 600 }}>{s.label}</p>
@@ -239,8 +239,8 @@ export default function AdminPrescriptionTemplates() {
 
       {/* Search + filter */}
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
-        <input placeholder="Search templates or conditions..." value={search} onChange={e => setSearch(e.target.value)} style={{ flex: 1, minWidth: '200px', padding: '9px 14px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
-        <select value={filterCat} onChange={e => setFilterCat(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+        <input placeholder="Search templates or conditions..." value={search} onChange={e => setSearch(e.target.value)} style={{ flex: 1, minWidth: '200px', padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+        <select value={filterCat} onChange={e => setFilterCat(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
           <option value="all">All Categories</option>
           {CATEGORIES.map(c => <option key={c}>{c}</option>)}
         </select>
@@ -253,8 +253,8 @@ export default function AdminPrescriptionTemplates() {
           {filtered.map(t => {
             const meds = Array.isArray(t.medicines) ? t.medicines : JSON.parse(t.medicines || '[]')
             return (
-              <div key={t.id} style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '4px', overflow: 'hidden', transition: 'box-shadow 0.2s' }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 20px rgba(15,39,68,0.08)'}
+              <div key={t.id} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '4px', overflow: 'hidden', transition: 'box-shadow 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.boxShadow = '0 4px 20px rgba(13, 58, 36,0.08)'}
                 onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}>
 
                 {/* Card header */}
@@ -275,7 +275,7 @@ export default function AdminPrescriptionTemplates() {
                 {(t.condition_tags || []).length > 0 && (
                   <div style={{ padding: '10px 16px 6px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {(t.condition_tags || []).map(tag => (
-                      <span key={tag} style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(15,39,68,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{tag}</span>
+                      <span key={tag} style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(13, 58, 36,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{tag}</span>
                     ))}
                   </div>
                 )}
@@ -302,7 +302,7 @@ export default function AdminPrescriptionTemplates() {
                 )}
 
                 {/* Actions */}
-                <div style={{ padding: '10px 16px 14px', borderTop: '1px solid rgba(15,39,68,0.06)', display: 'flex', gap: '6px' }}>
+                <div style={{ padding: '10px 16px 14px', borderTop: '1px solid rgba(13, 58, 36,0.06)', display: 'flex', gap: '6px' }}>
                   <button onClick={() => openEdit(t)} className="admin-btn-primary admin-btn-sm" style={{ flex: 1 }}>Edit</button>
                   <button onClick={() => duplicate(t)} className="admin-btn-outline admin-btn-sm" title="Duplicate">⧉ Copy</button>
                   <button onClick={() => remove(t.id)} className="admin-btn-danger admin-btn-sm">Del</button>

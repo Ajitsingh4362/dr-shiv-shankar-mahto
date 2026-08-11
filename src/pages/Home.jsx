@@ -274,7 +274,7 @@ export default function Home() {
                 display: 'inline-flex', alignItems: 'center', gap: '16px',
                 marginTop: '28px', marginBottom: '32px',
                 background: 'var(--gold)',
-                border: '1px solid rgba(15,39,68,0.15)',
+                border: '1px solid rgba(13, 58, 36,0.15)',
                 borderLeft: '3px solid var(--navy-800)',
                 borderRadius: '2px',
                 padding: '14px 22px',
@@ -406,7 +406,7 @@ export default function Home() {
       </section>
 
       {/* TAGLINE STRIP */}
-      <section style={{ background: 'var(--navy-700, #0f2744)', padding: '20px 0', borderBottom: '1px solid rgba(199,166,106,0.15)' }}>
+      <section style={{ background: 'var(--navy-700, #145334)', padding: '20px 0', borderBottom: '1px solid rgba(199,166,106,0.15)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 2vw, 22px)', color: 'var(--gold-pale)', fontWeight: 600, margin: 0, fontStyle: 'italic', letterSpacing: '0.3px' }}>
             "Healthy Smiles. Gentle Care. For the Whole Family."
@@ -428,7 +428,7 @@ export default function Home() {
                 fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600,
                 color: 'var(--navy-800)', letterSpacing: '1.5px', textTransform: 'uppercase',
                 padding: '6px 20px',
-                borderRight: i < 4 ? '1px solid rgba(15,39,68,0.3)' : 'none',
+                borderRight: i < 4 ? '1px solid rgba(13, 58, 36,0.3)' : 'none',
                 lineHeight: '1.4',
               }}>{t}</span>
             ))}
@@ -473,7 +473,7 @@ export default function Home() {
             ].map((d, i) => (
               <div key={i} style={{
                 flex: '0 0 260px', scrollSnapAlign: 'center', textAlign: 'center',
-                background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(15,39,68,0.08)',
+                background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(13, 58, 36,0.08)',
                 border: '1px solid rgba(199,166,106,0.2)',
               }}>
                 <div style={{ width: '150px', height: '150px', borderRadius: '50%', margin: '0 auto 16px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
@@ -505,7 +505,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2px', background: 'rgba(15,39,68,0.06)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2px', background: 'rgba(13, 58, 36,0.06)' }}>
             {HIGHLIGHTS.map((h, i) => (
               <div key={i} style={{
                 background: h.highlight ? 'var(--navy-800)' : 'var(--white)',
@@ -606,7 +606,7 @@ export default function Home() {
             ].map((step, i) => (
               <div key={i} style={{
                 padding: '36px 28px',
-                borderLeft: i === 0 ? 'none' : '1px solid rgba(15,39,68,0.08)',
+                borderLeft: i === 0 ? 'none' : '1px solid rgba(13, 58, 36,0.08)',
                 borderBottom: '3px solid transparent',
                 transition: 'var(--transition)',
                 background: 'var(--white)',
@@ -628,7 +628,7 @@ export default function Home() {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: '16px' }}>
             Don't Wait to Achieve the Smile You Deserve
           </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(15,39,68,0.7)', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.7)', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px', lineHeight: '1.8' }}>
             Book a check-up today and let our team find the right treatment plan for you.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -689,7 +689,7 @@ export default function Home() {
         @media (max-width: 600px) {
           .intro-strip-inner span {
             border-right: none !important;
-            border-bottom: 1px solid rgba(15,39,68,0.15) !important;
+            border-bottom: 1px solid rgba(13, 58, 36,0.15) !important;
             width: 100% !important;
             text-align: center !important;
             padding: 10px 16px !important;

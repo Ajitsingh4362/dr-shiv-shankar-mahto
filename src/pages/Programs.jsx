@@ -112,7 +112,7 @@ export default function Programs() {
             {PROGRAMS.map((prog, i) => (
               <div key={i} style={{
                 background: prog.highlight ? 'var(--navy-800)' : 'var(--white)',
-                border: prog.highlight ? 'none' : '1px solid rgba(15,39,68,0.08)',
+                border: prog.highlight ? 'none' : '1px solid rgba(13, 58, 36,0.08)',
                 position: 'relative', overflow: 'hidden',
               }}>
                 {prog.highlight && <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gold)' }} />}
@@ -224,7 +224,7 @@ export default function Programs() {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: '16px' }}>
             Ready to Begin Your Transformation?
           </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(15,39,68,0.65)', marginBottom: '36px', maxWidth: '500px', margin: '0 auto 36px', lineHeight: '1.8', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
+          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.65)', marginBottom: '36px', maxWidth: '500px', margin: '0 auto 36px', lineHeight: '1.8', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
             Schedule a detailed assessment to discover the most suitable healing program for your unique health needs.
           </p>
           <Link to="/contact">

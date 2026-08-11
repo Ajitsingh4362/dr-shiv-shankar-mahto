@@ -70,7 +70,7 @@ function ApptModal({ appt, onClose, onStatusChange }) {
         </div>
 
         {/* Actions */}
-        <div style={{ padding: '14px 24px 20px', display: 'flex', gap: '8px', flexWrap: 'wrap', borderTop: '1px solid rgba(15,39,68,0.08)' }}>
+        <div style={{ padding: '14px 24px 20px', display: 'flex', gap: '8px', flexWrap: 'wrap', borderTop: '1px solid rgba(13, 58, 36,0.08)' }}>
           {appt.status !== 'confirmed' && (
             <button onClick={() => onStatusChange(appt.id, 'confirmed')} style={{ background: '#1e6f6a', color: '#fff', border: 'none', padding: '9px 16px', borderRadius: '2px', fontSize: '11px', fontWeight: 600, fontFamily: 'var(--font-body)', cursor: 'pointer', letterSpacing: '0.5px' }}>
               ✅ Confirm & WhatsApp
@@ -188,16 +188,16 @@ export default function AdminCalendar() {
           {view === 'month' ? `${MONTHS[current.getMonth()]} ${current.getFullYear()}` : `Week of ${weekDays[0].toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`}
         </h1>
 
-        <button onClick={() => setCurrent(new Date())} style={{ padding: '7px 14px', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', color: 'var(--text-muted)' }}>Today</button>
+        <button onClick={() => setCurrent(new Date())} style={{ padding: '7px 14px', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', color: 'var(--text-muted)' }}>Today</button>
 
         <div style={{ display: 'flex', gap: '4px' }}>
-          <button onClick={prevPeriod} style={{ width: '32px', height: '32px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', fontSize: '14px' }}>‹</button>
-          <button onClick={nextPeriod} style={{ width: '32px', height: '32px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', fontSize: '14px' }}>›</button>
+          <button onClick={prevPeriod} style={{ width: '32px', height: '32px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', fontSize: '14px' }}>‹</button>
+          <button onClick={nextPeriod} style={{ width: '32px', height: '32px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', fontSize: '14px' }}>›</button>
         </div>
 
         <div style={{ display: 'flex', gap: '4px' }}>
           {['month', 'week'].map(v => (
-            <button key={v} onClick={() => setView(v)} style={{ padding: '7px 16px', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, border: '1px solid rgba(15,39,68,0.12)', borderRadius: '2px', cursor: 'pointer', background: view === v ? 'var(--navy-800)' : 'var(--white)', color: view === v ? 'var(--gold-pale)' : 'var(--text-muted)', textTransform: 'capitalize' }}>
+            <button key={v} onClick={() => setView(v)} style={{ padding: '7px 16px', fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: view === v ? 'var(--navy-800)' : 'var(--white)', color: view === v ? 'var(--gold-pale)' : 'var(--text-muted)', textTransform: 'capitalize' }}>
               {v}
             </button>
           ))}
@@ -225,12 +225,12 @@ export default function AdminCalendar() {
         <>
           {/* ===== MONTH VIEW ===== */}
           {view === 'month' && (
-            <div className="admin-cal-scroll" style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '2px', overflow: 'auto' }}>
+            <div className="admin-cal-scroll" style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', overflow: 'auto' }}>
               <div className="admin-cal-month-inner" style={{ minWidth: '640px' }}>
                 {/* Day headers */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', borderBottom: '1px solid rgba(15,39,68,0.08)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', borderBottom: '1px solid rgba(13, 58, 36,0.08)' }}>
                   {DAYS.map(d => (
-                    <div key={d} style={{ padding: '10px 8px', textAlign: 'center', fontSize: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', borderRight: '1px solid rgba(15,39,68,0.06)' }}>{d}</div>
+                    <div key={d} style={{ padding: '10px 8px', textAlign: 'center', fontSize: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', borderRight: '1px solid rgba(13, 58, 36,0.06)' }}>{d}</div>
                   ))}
                 </div>
 
@@ -242,7 +242,7 @@ export default function AdminCalendar() {
                     const isOtherMonth = !date
 
                     return (
-                      <div key={i} className="admin-cal-day-cell" style={{ minHeight: '100px', padding: '8px', borderRight: '1px solid rgba(15,39,68,0.06)', borderBottom: '1px solid rgba(15,39,68,0.06)', background: isOtherMonth ? 'rgba(15,39,68,0.02)' : 'var(--white)', transition: 'background 0.15s' }}
+                      <div key={i} className="admin-cal-day-cell" style={{ minHeight: '100px', padding: '8px', borderRight: '1px solid rgba(13, 58, 36,0.06)', borderBottom: '1px solid rgba(13, 58, 36,0.06)', background: isOtherMonth ? 'rgba(13, 58, 36,0.02)' : 'var(--white)', transition: 'background 0.15s' }}
                         onMouseEnter={e => { if (!isOtherMonth) e.currentTarget.style.background = 'rgba(199,166,106,0.03)' }}
                         onMouseLeave={e => { if (!isOtherMonth) e.currentTarget.style.background = 'var(--white)' }}>
 
@@ -268,15 +268,15 @@ export default function AdminCalendar() {
 
           {/* ===== WEEK VIEW ===== */}
           {view === 'week' && (
-            <div style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '2px', overflow: 'auto' }}>
+            <div style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', overflow: 'auto' }}>
               <div style={{ minWidth: '600px' }}>
                 {/* Day headers */}
-                <div style={{ display: 'grid', gridTemplateColumns: '80px repeat(7, 1fr)', borderBottom: '2px solid rgba(15,39,68,0.08)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '80px repeat(7, 1fr)', borderBottom: '2px solid rgba(13, 58, 36,0.08)' }}>
                   <div style={{ padding: '12px 8px' }} />
                   {weekDays.map((d, i) => {
                     const isToday = isSameDay(d, today)
                     return (
-                      <div key={i} style={{ padding: '12px 8px', textAlign: 'center', borderLeft: '1px solid rgba(15,39,68,0.06)', background: isToday ? 'rgba(199,166,106,0.05)' : 'transparent' }}>
+                      <div key={i} style={{ padding: '12px 8px', textAlign: 'center', borderLeft: '1px solid rgba(13, 58, 36,0.06)', background: isToday ? 'rgba(199,166,106,0.05)' : 'transparent' }}>
                         <p style={{ fontSize: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', margin: '0 0 4px' }}>{DAYS[d.getDay()]}</p>
                         <span style={{ width: '28px', height: '28px', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontFamily: 'var(--font-display)', fontWeight: isToday ? 700 : 400, background: isToday ? 'var(--navy-800)' : 'transparent', color: isToday ? 'var(--gold-pale)' : 'var(--charcoal)' }}>
                           {d.getDate()}
@@ -288,7 +288,7 @@ export default function AdminCalendar() {
 
                 {/* Time slots */}
                 {TIME_SLOTS.map(slot => (
-                  <div key={slot} style={{ display: 'grid', gridTemplateColumns: '80px repeat(7, 1fr)', borderBottom: '1px solid rgba(15,39,68,0.06)', minHeight: '64px' }}>
+                  <div key={slot} style={{ display: 'grid', gridTemplateColumns: '80px repeat(7, 1fr)', borderBottom: '1px solid rgba(13, 58, 36,0.06)', minHeight: '64px' }}>
                     <div style={{ padding: '8px', display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-end', paddingRight: '12px' }}>
                       <span style={{ fontSize: '10px', color: 'var(--text-light)', fontFamily: 'var(--font-body)', whiteSpace: 'nowrap', marginTop: '2px' }}>{slot}</span>
                     </div>
@@ -296,7 +296,7 @@ export default function AdminCalendar() {
                       const slotAppts = getApptsForSlot(d, slot)
                       const isToday = isSameDay(d, today)
                       return (
-                        <div key={i} style={{ padding: '4px 6px', borderLeft: '1px solid rgba(15,39,68,0.06)', background: isToday ? 'rgba(199,166,106,0.03)' : 'transparent', minHeight: '64px' }}>
+                        <div key={i} style={{ padding: '4px 6px', borderLeft: '1px solid rgba(13, 58, 36,0.06)', background: isToday ? 'rgba(199,166,106,0.03)' : 'transparent', minHeight: '64px' }}>
                           {slotAppts.map(a => <ApptPill key={a.id} appt={a} onClick={setSelected} />)}
                         </div>
                       )

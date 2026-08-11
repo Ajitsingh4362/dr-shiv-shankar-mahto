@@ -6,7 +6,7 @@ import { supabase } from '../../lib/supabase'
 
 function Card({ children, style }) {
   return (
-    <div className="analytics-card" style={{ background: 'var(--white)', border: '1px solid rgba(15,39,68,0.06)', borderRadius: '10px', padding: '24px', boxShadow: 'var(--shadow-sm)', ...style }}>
+    <div className="analytics-card" style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.06)', borderRadius: '10px', padding: '24px', boxShadow: 'var(--shadow-sm)', ...style }}>
       {children}
     </div>
   )
@@ -23,7 +23,7 @@ function SectionLabel({ children, style }) {
 
 function SegmentedControl({ options, value, onChange }) {
   return (
-    <div style={{ display: 'inline-flex', background: 'var(--ivory)', border: '1px solid rgba(15,39,68,0.08)', borderRadius: '100px', padding: '4px', gap: '2px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'inline-flex', background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '100px', padding: '4px', gap: '2px', flexWrap: 'wrap' }}>
       {options.map(([val, label]) => (
         <button
           key={val}
@@ -76,7 +76,7 @@ function BarChart({ data, color = 'var(--gold)', height = 150, label }) {
       {label && <SectionLabel style={{ marginBottom: '18px' }}>{label}</SectionLabel>}
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', height: `${H}px`, display: 'block', overflow: 'visible' }} preserveAspectRatio="none">
         {[0.25, 0.5, 0.75].map(f => (
-          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(15,39,68,0.07)" strokeWidth="1" />
+          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(13, 58, 36,0.07)" strokeWidth="1" />
         ))}
         {data.map((d, i) => {
           const x = i * slot + gap / 2
@@ -140,7 +140,7 @@ function AreaChart({ data, color = '#C9A45C', height = 160, label, money }) {
           </linearGradient>
         </defs>
         {[0.33, 0.66].map(f => (
-          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(15,39,68,0.06)" strokeWidth="1" />
+          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(13, 58, 36,0.06)" strokeWidth="1" />
         ))}
         <path d={areaPath} fill="url(#analyticsAreaGrad)" stroke="none" />
         <path d={linePath} fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -169,7 +169,7 @@ function RingChart({ segments, size = 148, strokeWidth = 18 }) {
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      <circle cx={cx} cy={cy} r={radius} fill="none" stroke="rgba(15,39,68,0.06)" strokeWidth={strokeWidth} />
+      <circle cx={cx} cy={cy} r={radius} fill="none" stroke="rgba(13, 58, 36,0.06)" strokeWidth={strokeWidth} />
       {segments.filter(seg => seg.value > 0).map((seg, i) => {
         const frac = seg.value / safeTotal
         const dash = Math.max(frac * circumference - 2, 0)
@@ -356,7 +356,7 @@ export default function AdminAnalytics() {
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
             <SegmentedControl value={revFilter} onChange={setRevFilter} options={[['today', 'Today'], ['week', 'This Week'], ['month', 'This Month'], ['custom', 'Pick a Date']]} />
             {revFilter === 'custom' && (
-              <input type="date" value={revDate} onChange={e => setRevDate(e.target.value)} style={{ padding: '8px 12px', border: '1px solid rgba(15,39,68,0.12)', borderRadius: '100px', fontSize: '11px', fontFamily: 'var(--font-body)', outline: 'none' }} />
+              <input type="date" value={revDate} onChange={e => setRevDate(e.target.value)} style={{ padding: '8px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '100px', fontSize: '11px', fontFamily: 'var(--font-body)', outline: 'none' }} />
             )}
           </div>
         </div>
@@ -414,8 +414,8 @@ export default function AdminAnalytics() {
                     <span style={{ fontSize: '12.5px', color: 'var(--navy-800)', fontFamily: 'var(--font-body)', fontWeight: 500 }}>{prog}</span>
                     <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>{count} · {pct}%</span>
                   </div>
-                  <div style={{ height: '6px', background: 'rgba(15,39,68,0.06)', borderRadius: '100px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: `${pct}%`, background: i === 0 ? 'var(--gold)' : i === 1 ? '#1e6f6a' : 'rgba(15,39,68,0.18)', borderRadius: '100px', transition: 'width 0.8s ease' }} />
+                  <div style={{ height: '6px', background: 'rgba(13, 58, 36,0.06)', borderRadius: '100px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${pct}%`, background: i === 0 ? 'var(--gold)' : i === 1 ? '#1e6f6a' : 'rgba(13, 58, 36,0.18)', borderRadius: '100px', transition: 'width 0.8s ease' }} />
                   </div>
                 </div>
               </div>
@@ -436,7 +436,7 @@ export default function AdminAnalytics() {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {recentAppts.map((a, i) => (
-              <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 0', borderBottom: i < recentAppts.length - 1 ? '1px solid rgba(15,39,68,0.06)' : 'none', flexWrap: 'wrap' }}>
+              <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 0', borderBottom: i < recentAppts.length - 1 ? '1px solid rgba(13, 58, 36,0.06)' : 'none', flexWrap: 'wrap' }}>
                 <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(199,166,106,0.18)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>
                   {(a.name || '?')[0].toUpperCase()}
                 </div>
@@ -453,7 +453,7 @@ export default function AdminAnalytics() {
       </Card>
 
       <style>{`
-        .analytics-seg-btn:not([data-active="true"]):hover { background: rgba(15,39,68,0.07) !important; color: var(--navy-800) !important; }
+        .analytics-seg-btn:not([data-active="true"]):hover { background: rgba(13, 58, 36,0.07) !important; color: var(--navy-800) !important; }
         @media (max-width: 760px) {
           .admin-panel [style*="grid-template-columns: 2fr 1fr"] { grid-template-columns: 1fr !important; }
           .admin-panel [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }

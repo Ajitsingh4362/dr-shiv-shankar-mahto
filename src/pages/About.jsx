@@ -121,7 +121,7 @@ export default function About() {
 
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 {['General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Implantology', 'Pediatric Dentistry', 'Emergency Care', 'Root Canal Specialist', 'Family Dentistry'].map((tag, i) => (
-                  <span key={i} style={{ background: 'rgba(15,39,68,0.06)', border: '1px solid rgba(15,39,68,0.12)', color: 'var(--navy-800)', fontSize: '11px', padding: '5px 14px', borderRadius: '2px', fontWeight: 500, letterSpacing: '0.5px' }}>{tag}</span>
+                  <span key={i} style={{ background: 'rgba(13, 58, 36,0.06)', border: '1px solid rgba(13, 58, 36,0.12)', color: 'var(--navy-800)', fontSize: '11px', padding: '5px 14px', borderRadius: '2px', fontWeight: 500, letterSpacing: '0.5px' }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -142,7 +142,7 @@ export default function About() {
               <div key={i} style={{ display: 'flex', gap: '24px', marginBottom: '2px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
                   <div style={{ width: '52px', height: '52px', borderRadius: '2px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', border: '1px solid rgba(199,166,106,0.2)' }}>{q.icon}</div>
-                  {i < QUALS.length - 1 && <div style={{ width: '1px', flex: 1, background: 'rgba(15,39,68,0.1)', margin: '4px 0' }} />}
+                  {i < QUALS.length - 1 && <div style={{ width: '1px', flex: 1, background: 'rgba(13, 58, 36,0.1)', margin: '4px 0' }} />}
                 </div>
                 <div style={{ background: 'var(--ivory)', padding: '20px 24px', flex: 1, marginBottom: i < QUALS.length - 1 ? '4px' : 0, borderBottom: '2px solid transparent', transition: 'var(--transition)' }}
                   onMouseEnter={e => e.currentTarget.style.borderBottom = '2px solid var(--gold)'}

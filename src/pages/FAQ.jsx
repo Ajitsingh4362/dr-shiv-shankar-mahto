@@ -23,12 +23,12 @@ function FAQItem({ faq, index }) {
   const answerRef = useRef(null)
 
   return (
-    <div style={{ borderBottom: '1px solid rgba(15,39,68,0.08)', overflow: 'hidden' }}>
+    <div style={{ borderBottom: '1px solid rgba(13, 58, 36,0.08)', overflow: 'hidden' }}>
       <button
         onClick={() => setOpen(p => !p)}
         style={{ width: '100%', padding: '22px 0', background: 'none', border: 'none', display: 'flex', alignItems: 'center', gap: '16px', cursor: 'pointer', textAlign: 'left' }}>
         {/* Number */}
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 600, color: open ? 'var(--gold)' : 'rgba(15,39,68,0.2)', minWidth: '28px', transition: 'color 0.2s' }}>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 600, color: open ? 'var(--gold)' : 'rgba(13, 58, 36,0.2)', minWidth: '28px', transition: 'color 0.2s' }}>
           {String(index + 1).padStart(2, '0')}
         </span>
 
@@ -38,7 +38,7 @@ function FAQItem({ faq, index }) {
         </span>
 
         {/* Toggle icon */}
-        <span style={{ width: '32px', height: '32px', borderRadius: '50%', border: `1.5px solid ${open ? 'var(--gold)' : 'rgba(15,39,68,0.15)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: open ? 'var(--gold)' : 'rgba(15,39,68,0.35)', fontSize: '18px', flexShrink: 0, transition: 'all 0.25s', transform: open ? 'rotate(45deg)' : 'none' }}>
+        <span style={{ width: '32px', height: '32px', borderRadius: '50%', border: `1.5px solid ${open ? 'var(--gold)' : 'rgba(13, 58, 36,0.15)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: open ? 'var(--gold)' : 'rgba(13, 58, 36,0.35)', fontSize: '18px', flexShrink: 0, transition: 'all 0.25s', transform: open ? 'rotate(45deg)' : 'none' }}>
           +
         </span>
       </button>
@@ -131,7 +131,7 @@ export default function FAQPage() {
           {categories.length > 2 && (
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '48px' }}>
               {categories.map(cat => (
-                <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 20px', borderRadius: '100px', border: '1px solid', fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', background: activeCategory === cat ? 'var(--navy-800)' : 'var(--white)', color: activeCategory === cat ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: activeCategory === cat ? 'var(--navy-800)' : 'rgba(15,39,68,0.12)' }}>
+                <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 20px', borderRadius: '100px', border: '1px solid', fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', background: activeCategory === cat ? 'var(--navy-800)' : 'var(--white)', color: activeCategory === cat ? 'var(--gold-pale)' : 'var(--text-muted)', borderColor: activeCategory === cat ? 'var(--navy-800)' : 'rgba(13, 58, 36,0.12)' }}>
                   {cat} {cat !== 'All' && `(${faqs.filter(f => f.category === cat).length})`}
                 </button>
               ))}
@@ -144,7 +144,7 @@ export default function FAQPage() {
           ) : shown.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>No FAQs in this category.</div>
           ) : (
-            <div style={{ background: 'var(--white)', borderRadius: '4px', padding: '8px 32px', border: '1px solid rgba(15,39,68,0.08)', boxShadow: '0 4px 24px rgba(15,39,68,0.04)' }}>
+            <div style={{ background: 'var(--white)', borderRadius: '4px', padding: '8px 32px', border: '1px solid rgba(13, 58, 36,0.08)', boxShadow: '0 4px 24px rgba(13, 58, 36,0.04)' }}>
               {shown.map((faq, i) => <FAQItem key={faq.id} faq={faq} index={i} />)}
             </div>
           )}
