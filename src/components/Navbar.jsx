@@ -28,7 +28,7 @@ export default function Navbar() {
     <>
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
-        background: 'var(--gold)', borderBottom: '1px solid rgba(13, 58, 36,0.15)',
+        background: 'var(--gold)', borderBottom: '1px solid rgba(15, 33, 56,0.15)',
         overflow: 'hidden', whiteSpace: 'nowrap', padding: '6px 0',
       }}>
         <div style={{ display: 'inline-flex', animation: 'marquee-scroll 26s linear infinite' }}>
@@ -57,7 +57,7 @@ export default function Navbar() {
         position: 'fixed', top: '28px', left: 0, right: 0, zIndex: 1000,
         background: scrolled ? 'rgba(7,15,28,0.97)' : 'rgba(7,15,28,0.5)',
         backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(199,166,106,0.12)',
+        borderBottom: '1px solid rgba(13, 148, 136,0.12)',
         padding: scrolled ? '10px 0' : '14px 0',
         transition: 'all 0.4s ease',
       }}>
@@ -133,7 +133,7 @@ export default function Navbar() {
           style={{ height: '80px', width: 'auto', marginBottom: '8px' }}
         />
 
-        <div style={{ width: '40px', height: '1px', background: 'rgba(199,166,106,0.3)' }} />
+        <div style={{ width: '40px', height: '1px', background: 'rgba(13, 148, 136,0.3)' }} />
 
         {links.map(link => (
           <NavLink key={link.to} to={link.to} end={link.to === '/'}

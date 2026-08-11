@@ -73,11 +73,11 @@ export async function generatePatientPDF({ patient, medical, consultations, auto
 
   const tx = margin + 36
   wt('Usha Multi Speciality Dental Clinic', tx, 14, WHITE, 'bold', 14)
-  wt('Dr. Suresh Kumar', tx, 20, [220,195,140], 'normal', 8.5)
+  wt('Dr. Shiv Shankar Mahto', tx, 20, [220,195,140], 'normal', 8.5)
   wt('Consultant Implantologist, MDS', tx, 26, [180,160,120], 'normal', 7.5)
   wt('General Dentistry  ·  Orthodontics  ·  Implants  ·  Root Canal  ·  Pediatric Care', tx, 31.5, [160,140,100], 'normal', 7)
   wt('Sitamarhi, Bihar', tx, 37, [140,120,90], 'normal', 7)
-  wt('PATIENT REPORT', W - margin, 13, [199,166,106], 'bold', 8, { align: 'right' })
+  wt('PATIENT REPORT', W - margin, 13, [13, 148, 136], 'bold', 8, { align: 'right' })
   wt('Generated: ' + new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' }), W - margin, 20, [160,140,100], 'normal', 7, { align:'right' })
   wt('Report ID: UMDC-' + Date.now().toString().slice(-6), W - margin, 26, [140,120,90], 'normal', 7, { align:'right' })
 
@@ -243,7 +243,7 @@ export async function generatePatientPDF({ patient, medical, consultations, auto
     doc.setTextColor(...TEAL); sf('bold', 7)
     doc.textWithLink('www.ushadental.com', margin + 39, H - 16, { url: 'https://www.ushadental.com' })
 
-    wt('Usha Multi Speciality Dental Clinic  ·  Dr. Suresh Kumar', margin, H - 10, NAVY, 'bold', 7.5)
+    wt('Usha Multi Speciality Dental Clinic  ·  Dr. Shiv Shankar Mahto', margin, H - 10, NAVY, 'bold', 7.5)
     wt('Near Bhawdepur Chowk, Shiv Mandir, Mata Vaishno Mandir Road, Bhavdepur, Sitamarhi - 843302, Bihar  ·  Confidential, for medical use only.', margin, H - 5.5, GREY, 'normal', 5.8)
     wt('Page ' + pg + ' of ' + totalPages, W - margin, H - 10, GOLD, 'bold', 7.5, { align:'right' })
   }

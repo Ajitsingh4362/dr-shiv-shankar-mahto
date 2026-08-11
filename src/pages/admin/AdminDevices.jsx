@@ -122,13 +122,13 @@ export default function AdminDevices() {
             <div key={s.id} className="admin-device-card" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap',
               padding: '16px 20px', borderRadius: '8px',
-              background: 'var(--navy-800, #0d3a24)', border: s.id === currentSessionId ? '1px solid var(--gold, #c7a66a)' : '1px solid rgba(255,255,255,0.08)',
+              background: 'var(--navy-800, #0f2138)', border: s.id === currentSessionId ? '1px solid var(--gold, #0d9488)' : '1px solid rgba(255,255,255,0.08)',
             }}>
               <div style={{ minWidth: '200px', flex: 1 }}>
                 <p style={{ margin: 0, fontWeight: 600, fontSize: '15px', color: 'var(--ivory, #FAF8F4)' }}>
                   {s.device_name || 'Unknown device'}
                   {s.id === currentSessionId && (
-                    <span style={{ marginLeft: '10px', fontSize: '11px', color: 'var(--gold, #c7a66a)', fontWeight: 600 }}>THIS DEVICE</span>
+                    <span style={{ marginLeft: '10px', fontSize: '11px', color: 'var(--gold, #0d9488)', fontWeight: 600 }}>THIS DEVICE</span>
                   )}
                 </p>
                 <p style={{ margin: '4px 0 0', fontSize: '13px', color: 'var(--gold-pale, #f0ddb5)', opacity: 0.85 }}>

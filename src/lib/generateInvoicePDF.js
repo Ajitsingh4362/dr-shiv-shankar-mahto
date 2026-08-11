@@ -59,11 +59,11 @@ export async function generateInvoicePDF({ patient, invoice, autoPrint = false }
 
   const tx = margin + 36
   wt('Usha Multi Speciality Dental Clinic', tx, 14, WHITE, 'bold', 14)
-  wt('Dr. Suresh Kumar', tx, 20, [220, 195, 140], 'normal', 8.5)
+  wt('Dr. Shiv Shankar Mahto', tx, 20, [220, 195, 140], 'normal', 8.5)
   wt('Consultant Implantologist, MDS', tx, 26, [180, 160, 120], 'normal', 7.5)
   wt('General Dentistry  \u00B7  Orthodontics  \u00B7  Implants  \u00B7  Root Canal  \u00B7  Pediatric Care', tx, 31.5, [160, 140, 100], 'normal', 7)
   wt('Sitamarhi, Bihar', tx, 37, [140, 120, 90], 'normal', 7)
-  wt('INVOICE', W - margin, 13, [199, 166, 106], 'bold', 10, { align: 'right' })
+  wt('INVOICE', W - margin, 13, [13, 148, 136], 'bold', 10, { align: 'right' })
   wt('Date: ' + new Date(invoice.date || Date.now()).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }), W - margin, 20, [160, 140, 100], 'normal', 7, { align: 'right' })
   wt('Invoice #: ' + (invoice.invoice_number || '-'), W - margin, 26, [140, 120, 90], 'normal', 7, { align: 'right' })
 
@@ -135,7 +135,7 @@ export async function generateInvoicePDF({ patient, invoice, autoPrint = false }
   wt('Book your appointment:', margin, H - 16, GREY, 'normal', 7)
   doc.setTextColor(...TEAL); sf('bold', 7)
   doc.textWithLink('www.ushadental.com', margin + 39, H - 16, { url: 'https://www.ushadental.com' })
-  wt('Usha Multi Speciality Dental Clinic  \u00B7  Dr. Suresh Kumar', margin, H - 10, NAVY, 'bold', 7.5)
+  wt('Usha Multi Speciality Dental Clinic  \u00B7  Dr. Shiv Shankar Mahto', margin, H - 10, NAVY, 'bold', 7.5)
   wt('Near Bhawdepur Chowk, Shiv Mandir, Mata Vaishno Mandir Road, Bhavdepur, Sitamarhi - 843302, Bihar  \u00B7  Confidential, for medical use only.', margin, H - 5.5, GREY, 'normal', 5.8)
 
   const filename = 'UMDC-Invoice-' + (invoice.invoice_number || Date.now()) + '-' + (patient?.name || 'Patient').replace(/\s+/g, '-') + '.pdf'

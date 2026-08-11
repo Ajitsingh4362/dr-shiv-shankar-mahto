@@ -49,7 +49,7 @@ export default function AdminAppointments() {
     if (status === 'confirmed') {
       const dateStr = appt.preferred_date ? new Date(appt.preferred_date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : 'a date our team will confirm'
       const timeStr = appt.preferred_time ? ` at ${appt.preferred_time}` : ''
-      const msg = `Hi ${appt.name}, this is Usha Multi Speciality Dental Clinic confirming your appointment with Dr. Suresh Kumar for ${appt.service || 'consultation'} on ${dateStr}${timeStr}. Looking forward to seeing you!${WHATSAPP_FOOTER}`
+      const msg = `Hi ${appt.name}, this is Usha Multi Speciality Dental Clinic confirming your appointment with Dr. Shiv Shankar Mahto for ${appt.service || 'consultation'} on ${dateStr}${timeStr}. Looking forward to seeing you!${WHATSAPP_FOOTER}`
 
       try {
         const res = await fetch(`${WHATSAPP_API}/notify`, {

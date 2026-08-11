@@ -30,7 +30,7 @@ export default function SocialService() {
               { icon: '🤝', title: 'Community Outreach', desc: 'Supporting local initiatives focused on health awareness and accessible dental care.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 100}>
-                <div style={{ background: 'var(--white)', borderRadius: '8px', padding: '32px 26px', textAlign: 'center', border: '1px solid rgba(199,166,106,0.2)', height: '100%' }}>
+                <div style={{ background: 'var(--white)', borderRadius: '8px', padding: '32px 26px', textAlign: 'center', border: '1px solid rgba(13, 148, 136,0.2)', height: '100%' }}>
                   <div style={{ fontSize: '36px', marginBottom: '16px' }}>{item.icon}</div>
                   <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--navy-800)', marginBottom: '10px', fontWeight: 600 }}>{item.title}</h3>
                   <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.8' }}>{item.desc}</p>

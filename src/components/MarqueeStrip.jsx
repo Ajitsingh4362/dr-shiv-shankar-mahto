@@ -14,7 +14,7 @@ export default function MarqueeStrip({ text = 'Usha Multi Speciality Dental Clin
   )
   return (
     <div style={{
-      background: 'var(--navy-900)', borderBottom: '1px solid rgba(199,166,106,0.25)',
+      background: 'var(--navy-900)', borderBottom: '1px solid rgba(13, 148, 136,0.25)',
       overflow: 'hidden', whiteSpace: 'nowrap', padding: '7px 0',
     }}>
       <div style={{ display: 'inline-flex', animation: 'marquee-scroll 26s linear infinite' }}>

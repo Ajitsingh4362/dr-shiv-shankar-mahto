@@ -69,7 +69,7 @@ export default function Programs() {
 
       {/* HERO */}
       <section style={{ background: 'linear-gradient(160deg, var(--navy-900), var(--navy-800))', padding: '168px 0 80px', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(199,166,106,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(13, 148, 136,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container">
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
             <div style={{ width: '32px', height: '1px', background: 'var(--gold)' }} />
@@ -112,7 +112,7 @@ export default function Programs() {
             {PROGRAMS.map((prog, i) => (
               <div key={i} style={{
                 background: prog.highlight ? 'var(--navy-800)' : 'var(--white)',
-                border: prog.highlight ? 'none' : '1px solid rgba(13, 58, 36,0.08)',
+                border: prog.highlight ? 'none' : '1px solid rgba(15, 33, 56,0.08)',
                 position: 'relative', overflow: 'hidden',
               }}>
                 {prog.highlight && <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gold)' }} />}
@@ -124,7 +124,7 @@ export default function Programs() {
                     <div style={{ gridColumn: '1 / 2' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
                         <span style={{ fontSize: '32px' }}>{prog.icon}</span>
-                        <span style={{ fontSize: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--gold)', background: 'rgba(199,166,106,0.1)', padding: '4px 12px', borderRadius: '2px', border: '1px solid rgba(199,166,106,0.25)' }}>{prog.tag}</span>
+                        <span style={{ fontSize: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--gold)', background: 'rgba(13, 148, 136,0.1)', padding: '4px 12px', borderRadius: '2px', border: '1px solid rgba(13, 148, 136,0.25)' }}>{prog.tag}</span>
                       </div>
                       <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2vw, 26px)', fontWeight: 600, color: prog.highlight ? 'var(--gold-pale)' : 'var(--navy-800)', marginBottom: '16px', lineHeight: 1.3 }}>{prog.name}</h3>
                       <p style={{ fontSize: '13px', color: prog.highlight ? 'rgba(255,255,255,0.55)' : 'var(--text-muted)', lineHeight: '1.85', fontFamily: 'var(--font-body)', fontWeight: 300, marginBottom: '24px' }}>{prog.desc}</p>
@@ -192,8 +192,8 @@ export default function Programs() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2px' }}>
             {WHY.map((w, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(199,166,106,0.08)', padding: '24px 20px', display: 'flex', alignItems: 'flex-start', gap: '12px', transition: 'var(--transition)' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(199,166,106,0.06)'}
+              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(13, 148, 136,0.08)', padding: '24px 20px', display: 'flex', alignItems: 'flex-start', gap: '12px', transition: 'var(--transition)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(13, 148, 136,0.06)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}>
                 <span style={{ color: 'var(--gold)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>✔</span>
                 <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6', fontFamily: 'var(--font-body)' }}>{w}</span>
@@ -224,7 +224,7 @@ export default function Programs() {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: '16px' }}>
             Ready to Begin Your Transformation?
           </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.65)', marginBottom: '36px', maxWidth: '500px', margin: '0 auto 36px', lineHeight: '1.8', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
+          <p style={{ fontSize: '15px', color: 'rgba(15, 33, 56,0.65)', marginBottom: '36px', maxWidth: '500px', margin: '0 auto 36px', lineHeight: '1.8', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
             Schedule a detailed assessment to discover the most suitable healing program for your unique health needs.
           </p>
           <Link to="/contact">

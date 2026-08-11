@@ -73,7 +73,7 @@ export default function AdminPatients() {
           { label: 'Active', value: stats.active, icon: '✅' },
           { label: 'New This Month', value: stats.new_this_month, icon: '🆕' },
         ].map((s, i) => (
-          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '18px 20px' }}>
+          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '18px 20px' }}>
             <p style={{ fontSize: '22px', margin: '0 0 4px' }}>{s.icon}</p>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 700, color: 'var(--navy-800)', margin: '0 0 4px' }}>{s.value}</p>
             <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, letterSpacing: '1px', textTransform: 'uppercase', fontFamily: 'var(--font-body)' }}>{s.label}</p>
@@ -95,15 +95,15 @@ export default function AdminPatients() {
           placeholder="Search name, phone, email..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          style={{ padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', flex: '1', minWidth: '200px' }}
+          style={{ padding: '9px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', flex: '1', minWidth: '200px' }}
         />
-        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
           <option value="all">All Status</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
           <option value="completed">Completed</option>
         </select>
-        <select value={filterTag} onChange={e => setFilterTag(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+        <select value={filterTag} onChange={e => setFilterTag(e.target.value)} style={{ padding: '9px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
           <option value="">All Tags</option>
           {TAGS.map(t => <option key={t}>{t}</option>)}
         </select>
@@ -112,9 +112,9 @@ export default function AdminPatients() {
       {loading ? <p className="admin-empty">Loading...</p> : filtered.length === 0 ? (
         <p className="admin-empty">No patients found.</p>
       ) : (
-        <div style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
           {filtered.map((p, i) => (
-            <div key={p.id} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px 20px', borderBottom: i < filtered.length - 1 ? '1px solid rgba(13, 58, 36,0.06)' : 'none', flexWrap: 'wrap' }}>
+            <div key={p.id} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px 20px', borderBottom: i < filtered.length - 1 ? '1px solid rgba(15, 33, 56,0.06)' : 'none', flexWrap: 'wrap' }}>
               {/* Avatar */}
               <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: p.avatar_color || '#b9914f', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '15px', flexShrink: 0, fontFamily: 'var(--font-display)' }}>
                 {initials(p.name)}
@@ -124,7 +124,7 @@ export default function AdminPatients() {
               <div style={{ flex: 1, minWidth: '160px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                   <p style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--navy-800)', margin: 0, fontFamily: 'var(--font-body)' }}>{p.name}</p>
-                  <span style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '0.5px', background: p.status === 'active' ? 'rgba(30,111,106,0.12)' : 'rgba(199,166,106,0.15)', color: p.status === 'active' ? '#1e6f6a' : '#9c7a3c' }}>
+                  <span style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '0.5px', background: p.status === 'active' ? 'rgba(30,111,106,0.12)' : 'rgba(13, 148, 136,0.15)', color: p.status === 'active' ? '#1e6f6a' : '#9c7a3c' }}>
                     {p.status}
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export default function AdminPatients() {
                 {(p.tags || []).length > 0 && (
                   <div style={{ display: 'flex', gap: '4px', marginTop: '5px', flexWrap: 'wrap' }}>
                     {p.tags.map(t => (
-                      <span key={t} style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(13, 58, 36,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{t}</span>
+                      <span key={t} style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(15, 33, 56,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{t}</span>
                     ))}
                   </div>
                 )}

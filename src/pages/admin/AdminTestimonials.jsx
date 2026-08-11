@@ -22,7 +22,7 @@ function StarRating({ value, onChange }) {
   return (
     <div style={{ display: 'flex', gap: '4px' }}>
       {[1, 2, 3, 4, 5].map(s => (
-        <span key={s} onClick={() => onChange?.(s)} style={{ fontSize: '20px', cursor: onChange ? 'pointer' : 'default', color: s <= value ? '#b9914f' : 'rgba(13, 58, 36,0.15)', transition: 'color 0.15s' }}>★</span>
+        <span key={s} onClick={() => onChange?.(s)} style={{ fontSize: '20px', cursor: onChange ? 'pointer' : 'default', color: s <= value ? '#b9914f' : 'rgba(15, 33, 56,0.15)', transition: 'color 0.15s' }}>★</span>
       ))}
     </div>
   )
@@ -124,7 +124,7 @@ export default function AdminTestimonials() {
           { label: 'Featured', value: featured.length },
           { label: 'Avg Rating', value: list.length ? (list.reduce((s, t) => s + t.rating, 0) / list.length).toFixed(1) + ' ★' : '—' },
         ].map((s, i) => (
-          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '14px 20px', minWidth: '100px' }}>
+          <div key={i} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '14px 20px', minWidth: '100px' }}>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 700, color: 'var(--navy-800)', margin: '0 0 2px' }}>{s.value}</p>
             <p style={{ fontSize: '10px', letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', margin: 0, fontWeight: 600 }}>{s.label}</p>
           </div>
@@ -137,7 +137,7 @@ export default function AdminTestimonials() {
 
       {/* ADD / EDIT FORM */}
       {editing && (
-        <div style={{ background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.1)', borderRadius: '2px', padding: '24px', marginBottom: '24px', position: 'relative' }}>
+        <div style={{ background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.1)', borderRadius: '2px', padding: '24px', marginBottom: '24px', position: 'relative' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gold)' }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 600, color: 'var(--navy-800)', margin: 0 }}>
@@ -147,7 +147,7 @@ export default function AdminTestimonials() {
           </div>
 
           {/* Preview */}
-          <div style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '20px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+          <div style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '20px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: form.avatar_color, overflow: 'hidden', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {form.photo_url ? <img src={form.photo_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <span style={{ color: '#fff', fontWeight: 700, fontSize: '16px', fontFamily: 'var(--font-display)' }}>{initials(form.name || 'P')}</span>}
             </div>
@@ -163,17 +163,17 @@ export default function AdminTestimonials() {
             {/* Name */}
             <div>
               <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Patient Name *</label>
-              <input value={form.name} onChange={e => setF('name', e.target.value)} placeholder="Priya Sharma" style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+              <input value={form.name} onChange={e => setF('name', e.target.value)} placeholder="Priya Sharma" style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
             </div>
             {/* Location */}
             <div>
               <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Location</label>
-              <input value={form.location} onChange={e => setF('location', e.target.value)} placeholder="Bangalore" style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+              <input value={form.location} onChange={e => setF('location', e.target.value)} placeholder="Bangalore" style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
             </div>
             {/* Program */}
             <div>
               <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Program</label>
-              <select value={form.program} onChange={e => setF('program', e.target.value)} style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
+              <select value={form.program} onChange={e => setF('program', e.target.value)} style={{ width: '100%', padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none' }}>
                 <option value="">Select program</option>
                 {PROGRAMS.map(p => <option key={p}>{p}</option>)}
               </select>
@@ -188,7 +188,7 @@ export default function AdminTestimonials() {
           {/* Review */}
           <div style={{ marginTop: '14px' }}>
             <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>Review / Testimonial *</label>
-            <textarea value={form.review} onChange={e => setF('review', e.target.value)} rows={4} placeholder="Patient's experience in their own words..." style={{ width: '100%', padding: '10px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical' }} />
+            <textarea value={form.review} onChange={e => setF('review', e.target.value)} rows={4} placeholder="Patient's experience in their own words..." style={{ width: '100%', padding: '10px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical' }} />
           </div>
 
           {/* Avatar color + photo */}
@@ -238,7 +238,7 @@ export default function AdminTestimonials() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {all.map((t, i) => (
-            <div key={t.id} className="admin-testi-row" style={{ background: 'var(--white)', border: `1px solid ${t.featured ? 'rgba(199,166,106,0.3)' : 'rgba(13, 58, 36,0.08)'}`, borderRadius: '2px', padding: '16px 20px', display: 'flex', gap: '16px', alignItems: 'flex-start', opacity: t.visible ? 1 : 0.55 }}>
+            <div key={t.id} className="admin-testi-row" style={{ background: 'var(--white)', border: `1px solid ${t.featured ? 'rgba(13, 148, 136,0.3)' : 'rgba(15, 33, 56,0.08)'}`, borderRadius: '2px', padding: '16px 20px', display: 'flex', gap: '16px', alignItems: 'flex-start', opacity: t.visible ? 1 : 0.55 }}>
               {/* Avatar */}
               <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: t.avatar_color, overflow: 'hidden', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {t.photo_url ? <img src={t.photo_url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <span style={{ color: '#fff', fontWeight: 700, fontSize: '14px', fontFamily: 'var(--font-display)' }}>{initials(t.name)}</span>}
@@ -250,8 +250,8 @@ export default function AdminTestimonials() {
                   <span style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{t.name}</span>
                   {t.location && <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>{t.location}</span>}
                   <StarRating value={t.rating} />
-                  {t.featured && <span style={{ fontSize: '10px', padding: '1px 8px', borderRadius: '100px', background: 'rgba(199,166,106,0.15)', color: '#9c7a3c', fontFamily: 'var(--font-body)', fontWeight: 600 }}>⭐ Featured</span>}
-                  {!t.visible && <span style={{ fontSize: '10px', padding: '1px 8px', borderRadius: '100px', background: 'rgba(13, 58, 36,0.06)', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Hidden</span>}
+                  {t.featured && <span style={{ fontSize: '10px', padding: '1px 8px', borderRadius: '100px', background: 'rgba(13, 148, 136,0.15)', color: '#9c7a3c', fontFamily: 'var(--font-body)', fontWeight: 600 }}>⭐ Featured</span>}
+                  {!t.visible && <span style={{ fontSize: '10px', padding: '1px 8px', borderRadius: '100px', background: 'rgba(15, 33, 56,0.06)', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Hidden</span>}
                 </div>
                 {t.program && <p style={{ fontSize: '11px', color: 'var(--gold-deep)', fontFamily: 'var(--font-body)', margin: '0 0 6px', fontWeight: 600 }}>{t.program}</p>}
                 <p style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontStyle: 'italic', lineHeight: '1.6', margin: 0, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>"{t.review}"</p>
@@ -260,11 +260,11 @@ export default function AdminTestimonials() {
               {/* Controls */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexShrink: 0 }}>
                 <div style={{ display: 'flex', gap: '4px' }}>
-                  <button onClick={() => moveUp(i)} disabled={i === 0} style={{ width: '28px', height: '28px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: i === 0 ? 'default' : 'pointer', background: 'var(--white)', fontSize: '12px', opacity: i === 0 ? 0.3 : 1 }}>↑</button>
-                  <button onClick={() => moveDown(i)} disabled={i === list.length - 1} style={{ width: '28px', height: '28px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: i === list.length - 1 ? 'default' : 'pointer', background: 'var(--white)', fontSize: '12px', opacity: i === list.length - 1 ? 0.3 : 1 }}>↓</button>
+                  <button onClick={() => moveUp(i)} disabled={i === 0} style={{ width: '28px', height: '28px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', cursor: i === 0 ? 'default' : 'pointer', background: 'var(--white)', fontSize: '12px', opacity: i === 0 ? 0.3 : 1 }}>↑</button>
+                  <button onClick={() => moveDown(i)} disabled={i === list.length - 1} style={{ width: '28px', height: '28px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', cursor: i === list.length - 1 ? 'default' : 'pointer', background: 'var(--white)', fontSize: '12px', opacity: i === list.length - 1 ? 0.3 : 1 }}>↓</button>
                 </div>
-                <button onClick={() => toggle(t.id, 'featured', !t.featured)} style={{ padding: '4px 8px', fontSize: '11px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: t.featured ? 'rgba(199,166,106,0.15)' : 'var(--white)', color: t.featured ? '#9c7a3c' : 'var(--text-muted)', fontFamily: 'var(--font-body)' }} title="Toggle featured">⭐</button>
-                <button onClick={() => toggle(t.id, 'visible', !t.visible)} style={{ padding: '4px 8px', fontSize: '11px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }} title="Toggle visibility">{t.visible ? '👁' : '🚫'}</button>
+                <button onClick={() => toggle(t.id, 'featured', !t.featured)} style={{ padding: '4px 8px', fontSize: '11px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', cursor: 'pointer', background: t.featured ? 'rgba(13, 148, 136,0.15)' : 'var(--white)', color: t.featured ? '#9c7a3c' : 'var(--text-muted)', fontFamily: 'var(--font-body)' }} title="Toggle featured">⭐</button>
+                <button onClick={() => toggle(t.id, 'visible', !t.visible)} style={{ padding: '4px 8px', fontSize: '11px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', cursor: 'pointer', background: 'var(--white)', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }} title="Toggle visibility">{t.visible ? '👁' : '🚫'}</button>
                 <button onClick={() => openEdit(t)} className="admin-btn-outline admin-btn-sm">Edit</button>
                 <button onClick={() => remove(t.id)} className="admin-btn-danger admin-btn-sm">Del</button>
               </div>

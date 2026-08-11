@@ -82,8 +82,8 @@ function InsertChipRow({ options, onPick, tone = 'muted', highlightSet }) {
             title={isHighlighted ? 'This patient is tagged with this condition' : undefined}
             style={{
               padding: isBold ? '7px 14px' : '5px 12px', borderRadius: '100px',
-              border: isHighlighted ? '1px solid var(--gold)' : (isBold ? '1px solid rgba(199,166,106,0.4)' : '1px solid rgba(13, 58, 36,0.15)'),
-              background: isHighlighted ? 'var(--gold)' : (isBold ? 'rgba(199,166,106,0.12)' : 'var(--white)'),
+              border: isHighlighted ? '1px solid var(--gold)' : (isBold ? '1px solid rgba(13, 148, 136,0.4)' : '1px solid rgba(15, 33, 56,0.15)'),
+              background: isHighlighted ? 'var(--gold)' : (isBold ? 'rgba(13, 148, 136,0.12)' : 'var(--white)'),
               color: isHighlighted ? '#fff' : (isBold ? 'var(--gold-deep)' : 'var(--text-muted)'),
               fontSize: isBold ? '11.5px' : '11px', fontFamily: 'var(--font-body)',
               fontWeight: isBold || isHighlighted ? 600 : 500, cursor: 'pointer', whiteSpace: 'nowrap',
@@ -122,7 +122,7 @@ function ChipGroup({ options, value, onSelect }) {
             onClick={() => onSelect(val)}
             style={{
               padding: '7px 14px', borderRadius: '100px', border: '1px solid',
-              borderColor: active ? 'var(--navy-800)' : 'rgba(13, 58, 36,0.15)',
+              borderColor: active ? 'var(--navy-800)' : 'rgba(15, 33, 56,0.15)',
               background: active ? 'var(--navy-800)' : 'var(--white)',
               color: active ? 'var(--gold-pale)' : 'var(--text-muted)',
               fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600,
@@ -140,7 +140,7 @@ function ChipGroup({ options, value, onSelect }) {
 function MedicineChipRow({ med, idx, onChange, onDelete, isOnly }) {
   const s = (key, val) => onChange(idx, { ...med, [key]: val })
   return (
-    <div style={{ background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.1)', borderRadius: '4px', padding: '14px 16px', marginBottom: '10px' }}>
+    <div style={{ background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.1)', borderRadius: '4px', padding: '14px 16px', marginBottom: '10px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
         <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>{idx + 1}</div>
         <input
@@ -148,7 +148,7 @@ function MedicineChipRow({ med, idx, onChange, onDelete, isOnly }) {
           value={med.name}
           onChange={e => s('name', e.target.value)}
           placeholder="Type or pick medicine name..."
-          style={{ flex: 1, padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.92rem', fontFamily: 'var(--font-body)', fontWeight: 600, outline: 'none', color: 'var(--navy-800)' }}
+          style={{ flex: 1, padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.92rem', fontFamily: 'var(--font-body)', fontWeight: 600, outline: 'none', color: 'var(--navy-800)' }}
         />
         {!isOnly && <button type="button" onClick={() => onDelete(idx)} style={{ background: 'none', border: 'none', color: '#c0392b', cursor: 'pointer', fontSize: '18px', padding: '0 4px', flexShrink: 0 }}>×</button>}
       </div>
@@ -184,7 +184,7 @@ function initials(name) {
 }
 
 function Field({ label, value, onChange, type = 'text', multiline, options }) {
-  const style = { padding: '10px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', width: '100%', background: 'var(--white)', resize: 'vertical' }
+  const style = { padding: '10px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', width: '100%', background: 'var(--white)', resize: 'vertical' }
   return (
     <div style={{ marginBottom: '16px' }}>
       <label style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, display: 'block', marginBottom: '6px' }}>{label}</label>
@@ -234,7 +234,7 @@ export default function AdminPatientProfile() {
       // Phir WhatsApp kholo with message
       const phone = (patient.phone || '').replace(/[^\d]/g, '')
       const msg = encodeURIComponent(
-        `Dear ${patient.name},\n\nYour health report from Usha Multi Speciality Dental Clinic has been downloaded on your device.\n\nPlease find it in your Downloads folder and attach it here if needed.\n\nFor appointments: ushamultispecialitydentalclinic.com\n\n— Dr. Suresh Kumar, Usha Multi Speciality Dental Clinic`
+        `Dear ${patient.name},\n\nYour health report from Usha Multi Speciality Dental Clinic has been downloaded on your device.\n\nPlease find it in your Downloads folder and attach it here if needed.\n\nFor appointments: ushamultispecialitydentalclinic.com\n\n— Dr. Shiv Shankar Mahto, Usha Multi Speciality Dental Clinic`
       )
       setTimeout(() => {
         window.open(`https://wa.me/${phone}?text=${msg}`, '_blank')
@@ -732,7 +732,7 @@ export default function AdminPatientProfile() {
             <button
               onClick={() => setShowPdfDropdown(p => !p)}
               disabled={pdfLoading}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 14px', border: '1px solid rgba(13, 58, 36,0.15)', borderRadius: '2px', background: 'var(--white)', fontSize: '11px', fontWeight: 600, fontFamily: 'var(--font-body)', cursor: 'pointer', color: 'var(--navy-800)', letterSpacing: '0.5px' }}>
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 14px', border: '1px solid rgba(15, 33, 56,0.15)', borderRadius: '2px', background: 'var(--white)', fontSize: '11px', fontWeight: 600, fontFamily: 'var(--font-body)', cursor: 'pointer', color: 'var(--navy-800)', letterSpacing: '0.5px' }}>
               {pdfLoading ? '⏳' : '📄'} {pdfLoading ? 'Generating...' : 'Report'} {!pdfLoading && '▾'}
             </button>
 
@@ -747,7 +747,7 @@ export default function AdminPatientProfile() {
                   right: '0',
                   background: 'var(--white)',
                   border: 'none',
-                  borderTop: '1px solid rgba(13, 58, 36,0.1)',
+                  borderTop: '1px solid rgba(15, 33, 56,0.1)',
                   borderRadius: '16px 16px 0 0',
                   boxShadow: '0 -8px 32px rgba(7,15,28,0.15)',
                   zIndex: 99,
@@ -757,26 +757,26 @@ export default function AdminPatientProfile() {
                 }}>
                   {/* Handle bar */}
                   <div style={{ display: 'flex', justifyContent: 'center', padding: '10px 0 4px' }}>
-                    <div style={{ width: '36px', height: '4px', borderRadius: '2px', background: 'rgba(13, 58, 36,0.15)' }} />
+                    <div style={{ width: '36px', height: '4px', borderRadius: '2px', background: 'rgba(15, 33, 56,0.15)' }} />
                   </div>
 
                   {/* Title */}
-                  <div style={{ padding: '8px 20px 14px', borderBottom: '1px solid rgba(13, 58, 36,0.06)' }}>
+                  <div style={{ padding: '8px 20px 14px', borderBottom: '1px solid rgba(15, 33, 56,0.06)' }}>
                     <p style={{ margin: 0, fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 600, color: 'var(--navy-800)' }}>Patient Report</p>
                     <p style={{ margin: '2px 0 0', fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>{patient.name}</p>
                   </div>
 
-                  <button onClick={downloadPDF} style={{ width: '100%', padding: '16px 20px', border: 'none', borderBottom: '1px solid rgba(13, 58, 36,0.06)', background: 'none', display: 'flex', alignItems: 'center', gap: '14px', fontFamily: 'var(--font-body)', cursor: 'pointer', textAlign: 'left' }}
+                  <button onClick={downloadPDF} style={{ width: '100%', padding: '16px 20px', border: 'none', borderBottom: '1px solid rgba(15, 33, 56,0.06)', background: 'none', display: 'flex', alignItems: 'center', gap: '14px', fontFamily: 'var(--font-body)', cursor: 'pointer', textAlign: 'left' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--ivory)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(13, 58, 36,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>⬇️</div>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(15, 33, 56,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>⬇️</div>
                     <div>
                       <p style={{ margin: 0, fontWeight: 600, fontSize: '14px', color: 'var(--navy-800)' }}>Download PDF</p>
                       <p style={{ margin: '2px 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>Save report to device</p>
                     </div>
                   </button>
 
-                  <button onClick={shareOnWhatsApp} style={{ width: '100%', padding: '16px 20px', border: 'none', borderBottom: '1px solid rgba(13, 58, 36,0.06)', background: 'none', display: 'flex', alignItems: 'center', gap: '14px', fontFamily: 'var(--font-body)', cursor: 'pointer', textAlign: 'left' }}
+                  <button onClick={shareOnWhatsApp} style={{ width: '100%', padding: '16px 20px', border: 'none', borderBottom: '1px solid rgba(15, 33, 56,0.06)', background: 'none', display: 'flex', alignItems: 'center', gap: '14px', fontFamily: 'var(--font-body)', cursor: 'pointer', textAlign: 'left' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--ivory)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(37,211,102,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>💬</div>
@@ -789,7 +789,7 @@ export default function AdminPatientProfile() {
                   <button onClick={printPDF} style={{ width: '100%', padding: '16px 20px', border: 'none', background: 'none', display: 'flex', alignItems: 'center', gap: '14px', fontFamily: 'var(--font-body)', cursor: 'pointer', textAlign: 'left' }}
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--ivory)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(13, 58, 36,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>🖨️</div>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(15, 33, 56,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>🖨️</div>
                     <div>
                       <p style={{ margin: 0, fontWeight: 600, fontSize: '14px', color: 'var(--navy-800)' }}>Print</p>
                       <p style={{ margin: '2px 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>Open print dialog</p>
@@ -798,7 +798,7 @@ export default function AdminPatientProfile() {
 
                   {/* Cancel button */}
                   <div style={{ padding: '8px 16px 24px' }}>
-                    <button onClick={() => setShowPdfDropdown(false)} style={{ width: '100%', padding: '13px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '8px', background: 'var(--ivory)', fontSize: '14px', fontWeight: 600, fontFamily: 'var(--font-body)', cursor: 'pointer', color: 'var(--text-muted)' }}>
+                    <button onClick={() => setShowPdfDropdown(false)} style={{ width: '100%', padding: '13px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '8px', background: 'var(--ivory)', fontSize: '14px', fontWeight: 600, fontFamily: 'var(--font-body)', cursor: 'pointer', color: 'var(--text-muted)' }}>
                       Cancel
                     </button>
                   </div>
@@ -818,7 +818,7 @@ export default function AdminPatientProfile() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
           {/* Avatar with color picker */}
           <div style={{ position: 'relative' }}>
-            <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: patient.avatar_color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '22px', fontFamily: 'var(--font-display)', border: '3px solid rgba(199,166,106,0.4)' }}>
+            <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: patient.avatar_color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '22px', fontFamily: 'var(--font-display)', border: '3px solid rgba(13, 148, 136,0.4)' }}>
               {initials(patient.name || 'P')}
             </div>
             <div style={{ display: 'flex', gap: '4px', marginTop: '8px', flexWrap: 'wrap', maxWidth: '80px' }}>
@@ -837,14 +837,14 @@ export default function AdminPatientProfile() {
             )}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {TAGS.map(tag => (
-                <span key={tag} onClick={() => toggleTag(tag)} style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', cursor: 'pointer', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '0.5px', background: (patient.tags || []).includes(tag) ? 'rgba(199,166,106,0.25)' : 'rgba(255,255,255,0.06)', color: (patient.tags || []).includes(tag) ? 'var(--gold-pale)' : 'rgba(255,255,255,0.4)', border: (patient.tags || []).includes(tag) ? '1px solid rgba(199,166,106,0.4)' : '1px solid rgba(255,255,255,0.1)', transition: 'all 0.2s' }}>
+                <span key={tag} onClick={() => toggleTag(tag)} style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', cursor: 'pointer', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '0.5px', background: (patient.tags || []).includes(tag) ? 'rgba(13, 148, 136,0.25)' : 'rgba(255,255,255,0.06)', color: (patient.tags || []).includes(tag) ? 'var(--gold-pale)' : 'rgba(255,255,255,0.4)', border: (patient.tags || []).includes(tag) ? '1px solid rgba(13, 148, 136,0.4)' : '1px solid rgba(255,255,255,0.1)', transition: 'all 0.2s' }}>
                   {tag}
                 </span>
               ))}
             </div>
           </div>
 
-          <select value={patient.status} onChange={e => setP('status', e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(199,166,106,0.2)', borderRadius: '2px', padding: '8px 14px', color: 'var(--gold-pale)', fontFamily: 'var(--font-body)', fontSize: '0.85rem', outline: 'none' }}>
+          <select value={patient.status} onChange={e => setP('status', e.target.value)} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(13, 148, 136,0.2)', borderRadius: '2px', padding: '8px 14px', color: 'var(--gold-pale)', fontFamily: 'var(--font-body)', fontSize: '0.85rem', outline: 'none' }}>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
             <option value="completed">Completed</option>
@@ -853,7 +853,7 @@ export default function AdminPatientProfile() {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '2px', marginBottom: '24px', borderBottom: '1px solid rgba(13, 58, 36,0.1)', overflowX: 'auto' }}>
+      <div style={{ display: 'flex', gap: '2px', marginBottom: '24px', borderBottom: '1px solid rgba(15, 33, 56,0.1)', overflowX: 'auto' }}>
         {(isNew ? ['Overview', 'Medical History'] : TABS).map(tab => (
           <button key={tab} onClick={() => setActiveTab(tab)} style={{ background: 'none', border: 'none', padding: '10px 18px', fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600, letterSpacing: '0.5px', cursor: 'pointer', borderBottom: activeTab === tab ? '2px solid var(--gold)' : '2px solid transparent', color: activeTab === tab ? 'var(--navy-800)' : 'var(--text-muted)', whiteSpace: 'nowrap', transition: 'color 0.2s' }}>
             {tab}
@@ -875,7 +875,7 @@ export default function AdminPatientProfile() {
             <Field label="Referred By" value={patient.referred_by} onChange={v => setP('referred_by', v)} />
           </div>
           <Field label="Address" value={patient.address} onChange={v => setP('address', v)} multiline />
-          <div style={{ borderTop: '1px solid rgba(13, 58, 36,0.08)', paddingTop: '16px', marginTop: '8px' }}>
+          <div style={{ borderTop: '1px solid rgba(15, 33, 56,0.08)', paddingTop: '16px', marginTop: '8px' }}>
             <p style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: '12px' }}>Emergency Contact</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <Field label="Contact Name" value={patient.emergency_contact_name} onChange={v => setP('emergency_contact_name', v)} />
@@ -883,7 +883,7 @@ export default function AdminPatientProfile() {
             </div>
           </div>
 
-          <div style={{ borderTop: '1px solid rgba(13, 58, 36,0.08)', paddingTop: '16px', marginTop: '16px' }}>
+          <div style={{ borderTop: '1px solid rgba(15, 33, 56,0.08)', paddingTop: '16px', marginTop: '16px' }}>
             <p style={{ fontSize: '10px', letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 600, marginBottom: '12px' }}>Appointment Fees</p>
             <div style={{ maxWidth: '260px' }}>
               <Field label="Amount (₹)" value={appointmentFee} onChange={setAppointmentFee} type="number" />
@@ -968,7 +968,7 @@ export default function AdminPatientProfile() {
                     const catColors = { Homeopathy: '#1e6f6a', Psychotherapy: '#4a3d8f', Lifestyle: '#6b8f3d', Nutrition: '#8f6b3d', Integrative: '#b9914f' }
                     return (
                       <div key={t.id} onClick={() => applyTemplate(t)}
-                        style={{ padding: '14px 20px', borderBottom: '1px solid rgba(13, 58, 36,0.06)', cursor: 'pointer', transition: 'background 0.15s' }}
+                        style={{ padding: '14px 20px', borderBottom: '1px solid rgba(15, 33, 56,0.06)', cursor: 'pointer', transition: 'background 0.15s' }}
                         onMouseEnter={e => e.currentTarget.style.background = 'var(--ivory)'}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
@@ -980,7 +980,7 @@ export default function AdminPatientProfile() {
                         </div>
                         <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '6px' }}>
                           {(t.condition_tags || []).map(tag => (
-                            <span key={tag} style={{ fontSize: '10px', padding: '1px 7px', borderRadius: '100px', background: 'rgba(13, 58, 36,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{tag}</span>
+                            <span key={tag} style={{ fontSize: '10px', padding: '1px 7px', borderRadius: '100px', background: 'rgba(15, 33, 56,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{tag}</span>
                           ))}
                         </div>
                         <p style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', margin: 0 }}>
@@ -996,7 +996,7 @@ export default function AdminPatientProfile() {
           )}
 
           {showConsultForm && (
-            <div style={{ background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '20px', marginBottom: '20px' }}>
+            <div style={{ background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '20px', marginBottom: '20px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <Field label="Date" value={newConsult.date} onChange={v => setNewConsult(c => ({ ...c, date: v }))} type="date" />
                 <Field label="Type" value={newConsult.consultation_type} onChange={v => setNewConsult(c => ({ ...c, consultation_type: v }))} options={['in-person', 'video-call', 'phone-call', 'whatsapp']} />
@@ -1040,11 +1040,11 @@ export default function AdminPatientProfile() {
           {consultations.length === 0 ? <p className="admin-empty">No consultations recorded yet.</p> : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {consultations.map(c => (
-                <div key={c.id} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '18px 20px' }}>
+                <div key={c.id} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '18px 20px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                     <div>
                       <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{fmtDate(c.date)}</span>
-                      <span style={{ marginLeft: '10px', fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(13, 58, 36,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{c.consultation_type}</span>
+                      <span style={{ marginLeft: '10px', fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: 'rgba(15, 33, 56,0.06)', color: 'var(--navy-800)', fontFamily: 'var(--font-body)' }}>{c.consultation_type}</span>
                       {c.follow_up_date && <span style={{ marginLeft: '8px', fontSize: '11px', color: 'var(--gold-deep)', fontFamily: 'var(--font-body)' }}>Follow-up: {fmtDate(c.follow_up_date)}</span>}
                     </div>
                     <button className="admin-btn-danger admin-btn-sm" onClick={() => deleteConsultation(c.id)}>Delete</button>
@@ -1083,7 +1083,7 @@ export default function AdminPatientProfile() {
 
           {/* New Invoice Form */}
           {showInvoiceForm && (
-            <div style={{ background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '20px', marginBottom: '20px' }}>
+            <div style={{ background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '20px', marginBottom: '20px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                 <Field label="Invoice Date" value={newInvoice.date} onChange={v => setNewInvoice(inv => ({ ...inv, date: v }))} type="date" />
               </div>
@@ -1095,14 +1095,14 @@ export default function AdminPatientProfile() {
                     placeholder="Description (e.g. RCT - Molar)"
                     value={item.description}
                     onChange={e => setInvoiceItem(idx, 'description', e.target.value)}
-                    style={{ flex: 3, padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.85rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+                    style={{ flex: 3, padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.85rem', fontFamily: 'var(--font-body)', outline: 'none' }}
                   />
                   <input
                     type="number"
                     placeholder="Amount"
                     value={item.amount}
                     onChange={e => setInvoiceItem(idx, 'amount', e.target.value)}
-                    style={{ flex: 1, padding: '9px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.85rem', fontFamily: 'var(--font-body)', outline: 'none' }}
+                    style={{ flex: 1, padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.85rem', fontFamily: 'var(--font-body)', outline: 'none' }}
                   />
                   {newInvoice.items.length > 1 && (
                     <button onClick={() => removeInvoiceItemRow(idx)} style={{ background: 'none', border: 'none', color: '#c0392b', cursor: 'pointer', fontSize: '16px', padding: '4px 8px' }}>✕</button>
@@ -1141,7 +1141,7 @@ export default function AdminPatientProfile() {
             const statusColor = inv.status === 'paid' ? '#1e8f5a' : (inv.status === 'partial' ? '#b98d1f' : '#c0392b')
             const statusBg = inv.status === 'paid' ? 'rgba(30,143,90,0.1)' : (inv.status === 'partial' ? 'rgba(185,141,31,0.1)' : 'rgba(192,57,43,0.08)')
             return (
-              <div key={inv.id} style={{ border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '12px' }}>
+              <div key={inv.id} style={{ border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '12px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
                   <div>
                     <p style={{ fontWeight: 600, fontSize: '13px', color: 'var(--navy-800)', margin: '0 0 2px', fontFamily: 'var(--font-body)' }}>{inv.invoice_number}</p>
@@ -1174,23 +1174,23 @@ export default function AdminPatientProfile() {
       {/* TAB: Notes */}
       {activeTab === 'Notes' && (
         <div>
-          <div style={{ background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '20px' }}>
+          <div style={{ background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '16px', marginBottom: '20px' }}>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
               {['general', 'important', 'follow-up', 'personal'].map(t => (
-                <button key={t} onClick={() => setNoteType(t)} style={{ background: noteType === t ? 'var(--navy-800)' : 'var(--white)', color: noteType === t ? 'var(--gold-pale)' : 'var(--text-muted)', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '100px', padding: '4px 14px', fontSize: '11px', fontFamily: 'var(--font-body)', cursor: 'pointer' }}>{t}</button>
+                <button key={t} onClick={() => setNoteType(t)} style={{ background: noteType === t ? 'var(--navy-800)' : 'var(--white)', color: noteType === t ? 'var(--gold-pale)' : 'var(--text-muted)', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '100px', padding: '4px 14px', fontSize: '11px', fontFamily: 'var(--font-body)', cursor: 'pointer' }}>{t}</button>
               ))}
             </div>
-            <textarea value={newNote} onChange={e => setNewNote(e.target.value)} placeholder="Add a quick note about this patient..." rows={3} style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical' }} />
+            <textarea value={newNote} onChange={e => setNewNote(e.target.value)} placeholder="Add a quick note about this patient..." rows={3} style={{ width: '100%', padding: '10px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', resize: 'vertical' }} />
             <button className="admin-btn-primary admin-btn-sm" style={{ marginTop: '10px' }} onClick={addNote}>Add Note</button>
           </div>
 
           {notes.length === 0 ? <p className="admin-empty">No notes yet.</p> : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {notes.map(n => (
-                <div key={n.id} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
+                <div key={n.id} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '14px 16px', display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', gap: '8px', marginBottom: '6px', alignItems: 'center' }}>
-                      <span style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: n.note_type === 'important' ? 'rgba(192,57,43,0.1)' : 'rgba(13, 58, 36,0.06)', color: n.note_type === 'important' ? '#c0392b' : 'var(--navy-800)', fontFamily: 'var(--font-body)', fontWeight: 600 }}>{n.note_type}</span>
+                      <span style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '100px', background: n.note_type === 'important' ? 'rgba(192,57,43,0.1)' : 'rgba(15, 33, 56,0.06)', color: n.note_type === 'important' ? '#c0392b' : 'var(--navy-800)', fontFamily: 'var(--font-body)', fontWeight: 600 }}>{n.note_type}</span>
                       <span style={{ fontSize: '11px', color: 'var(--text-light)', fontFamily: 'var(--font-body)' }}>{new Date(n.created_at).toLocaleString('en-IN')}</span>
                     </div>
                     <p style={{ fontSize: '13px', color: 'var(--charcoal)', margin: 0, fontFamily: 'var(--font-body)', lineHeight: '1.6' }}>{n.note}</p>
@@ -1217,7 +1217,7 @@ export default function AdminPatientProfile() {
           {docs.length === 0 ? <p className="admin-empty">No documents uploaded. Upload lab reports, prescriptions, or any relevant files.</p> : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
               {docs.map(d => (
-                <div key={d.id} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div key={d.id} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <div style={{ fontSize: '28px', textAlign: 'center' }}>{d.file_type?.includes('pdf') ? '📄' : d.file_type?.includes('image') ? '🖼️' : '📎'}</div>
                   <p style={{ fontSize: '12px', color: 'var(--navy-800)', fontFamily: 'var(--font-body)', fontWeight: 600, margin: 0, textAlign: 'center', wordBreak: 'break-all' }}>{d.name}</p>
                   <p style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', margin: 0, textAlign: 'center' }}>{new Date(d.created_at).toLocaleDateString('en-IN')}</p>
@@ -1239,14 +1239,14 @@ export default function AdminPatientProfile() {
           {appointments.length === 0 ? <p className="admin-empty">No appointments linked to this patient yet.</p> : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {appointments.map(a => (
-                <div key={a.id} style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                <div key={a.id} style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
                   <div>
                     <p style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--navy-800)', margin: '0 0 4px', fontFamily: 'var(--font-body)' }}>{a.service || 'General Consultation'}</p>
                     <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0, fontFamily: 'var(--font-body)' }}>
                       {fmtDate(a.preferred_date)} {a.preferred_time ? `· ${a.preferred_time}` : ''} · {new Date(a.created_at).toLocaleDateString('en-IN')}
                     </p>
                   </div>
-                  <span style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(199,166,106,0.15)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c' }}>{a.status}</span>
+                  <span style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(13, 148, 136,0.15)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c' }}>{a.status}</span>
                 </div>
               ))}
             </div>

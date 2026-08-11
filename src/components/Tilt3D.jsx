@@ -42,15 +42,15 @@ export default function Tilt3D({ image, alt = '', maxTilt = 14 }) {
           transition: 'transform 0.15s ease-out',
           borderRadius: '14px',
           overflow: 'hidden',
-          border: '2px solid rgba(199,166,106,0.4)',
-          boxShadow: '0 30px 60px -20px rgba(0,0,0,0.5), 0 0 0 1px rgba(199,166,106,0.15)',
+          border: '2px solid rgba(13, 148, 136,0.4)',
+          boxShadow: '0 30px 60px -20px rgba(0,0,0,0.5), 0 0 0 1px rgba(13, 148, 136,0.15)',
           position: 'relative',
         }}
       >
         <img src={image} alt={alt} style={{ width: '100%', height: 'auto', display: 'block' }} />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, rgba(199,166,106,0.12), transparent 50%)',
+          background: 'linear-gradient(135deg, rgba(13, 148, 136,0.12), transparent 50%)',
           pointerEvents: 'none',
         }} />
       </div>

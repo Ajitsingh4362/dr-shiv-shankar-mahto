@@ -6,7 +6,7 @@ import { supabase } from '../../lib/supabase'
 
 function Card({ children, style }) {
   return (
-    <div className="analytics-card" style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.06)', borderRadius: '10px', padding: '24px', boxShadow: 'var(--shadow-sm)', ...style }}>
+    <div className="analytics-card" style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.06)', borderRadius: '10px', padding: '24px', boxShadow: 'var(--shadow-sm)', ...style }}>
       {children}
     </div>
   )
@@ -23,7 +23,7 @@ function SectionLabel({ children, style }) {
 
 function SegmentedControl({ options, value, onChange }) {
   return (
-    <div style={{ display: 'inline-flex', background: 'var(--ivory)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '100px', padding: '4px', gap: '2px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'inline-flex', background: 'var(--ivory)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '100px', padding: '4px', gap: '2px', flexWrap: 'wrap' }}>
       {options.map(([val, label]) => (
         <button
           key={val}
@@ -76,7 +76,7 @@ function BarChart({ data, color = 'var(--gold)', height = 150, label }) {
       {label && <SectionLabel style={{ marginBottom: '18px' }}>{label}</SectionLabel>}
       <svg viewBox={`0 0 ${W} ${H}`} style={{ width: '100%', height: `${H}px`, display: 'block', overflow: 'visible' }} preserveAspectRatio="none">
         {[0.25, 0.5, 0.75].map(f => (
-          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(13, 58, 36,0.07)" strokeWidth="1" />
+          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(15, 33, 56,0.07)" strokeWidth="1" />
         ))}
         {data.map((d, i) => {
           const x = i * slot + gap / 2
@@ -98,7 +98,7 @@ function BarChart({ data, color = 'var(--gold)', height = 150, label }) {
 }
 
 // SVG area chart — smooth line + soft gradient fill, used for the revenue trend
-function AreaChart({ data, color = '#C9A45C', height = 160, label, money }) {
+function AreaChart({ data, color = '#0d9488', height = 160, label, money }) {
   const max = Math.max(...data.map(d => d.value), 1)
   const n = data.length
   const W = 600, H = height
@@ -140,7 +140,7 @@ function AreaChart({ data, color = '#C9A45C', height = 160, label, money }) {
           </linearGradient>
         </defs>
         {[0.33, 0.66].map(f => (
-          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(13, 58, 36,0.06)" strokeWidth="1" />
+          <line key={f} x1={0} x2={W} y1={padTop + chartH * (1 - f)} y2={padTop + chartH * (1 - f)} stroke="rgba(15, 33, 56,0.06)" strokeWidth="1" />
         ))}
         <path d={areaPath} fill="url(#analyticsAreaGrad)" stroke="none" />
         <path d={linePath} fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -169,7 +169,7 @@ function RingChart({ segments, size = 148, strokeWidth = 18 }) {
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      <circle cx={cx} cy={cy} r={radius} fill="none" stroke="rgba(13, 58, 36,0.06)" strokeWidth={strokeWidth} />
+      <circle cx={cx} cy={cy} r={radius} fill="none" stroke="rgba(15, 33, 56,0.06)" strokeWidth={strokeWidth} />
       {segments.filter(seg => seg.value > 0).map((seg, i) => {
         const frac = seg.value / safeTotal
         const dash = Math.max(frac * circumference - 2, 0)
@@ -341,9 +341,9 @@ export default function AdminAnalytics() {
       {/* OVERVIEW */}
       <SectionLabel>Overview</SectionLabel>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '14px', marginBottom: '36px' }}>
-        <StatCard icon="📅" label="Total Bookings" value={rangeAppts.length} sub={`${prevAppts.length} in prev period`} trend={rangeAppts.length - prevAppts.length} color="var(--navy-800)" tint="rgba(199,166,106,0.16)" />
+        <StatCard icon="📅" label="Total Bookings" value={rangeAppts.length} sub={`${prevAppts.length} in prev period`} trend={rangeAppts.length - prevAppts.length} color="var(--navy-800)" tint="rgba(13, 148, 136,0.16)" />
         <StatCard icon="✅" label="Confirmed" value={confirmed} sub={`${conversionRate}% conversion`} color="#1e6f6a" tint="rgba(30,111,106,0.1)" />
-        <StatCard icon="⏳" label="Pending" value={pending} sub="Awaiting confirmation" color="#9c7a3c" tint="rgba(199,166,106,0.16)" />
+        <StatCard icon="⏳" label="Pending" value={pending} sub="Awaiting confirmation" color="#9c7a3c" tint="rgba(13, 148, 136,0.16)" />
         <StatCard icon="👥" label="New Patients" value={rangePatients.length} sub={`${prevPatients.length} in prev period`} trend={rangePatients.length - prevPatients.length} color="#4a3d8f" tint="rgba(74,61,143,0.1)" />
         <StatCard icon="📊" label="Total Patients" value={patients.length} sub="All time" color="var(--navy-800)" tint="rgba(13,35,64,0.07)" />
       </div>
@@ -356,7 +356,7 @@ export default function AdminAnalytics() {
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
             <SegmentedControl value={revFilter} onChange={setRevFilter} options={[['today', 'Today'], ['week', 'This Week'], ['month', 'This Month'], ['custom', 'Pick a Date']]} />
             {revFilter === 'custom' && (
-              <input type="date" value={revDate} onChange={e => setRevDate(e.target.value)} style={{ padding: '8px 12px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '100px', fontSize: '11px', fontFamily: 'var(--font-body)', outline: 'none' }} />
+              <input type="date" value={revDate} onChange={e => setRevDate(e.target.value)} style={{ padding: '8px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '100px', fontSize: '11px', fontFamily: 'var(--font-body)', outline: 'none' }} />
             )}
           </div>
         </div>
@@ -365,10 +365,10 @@ export default function AdminAnalytics() {
           <StatCard icon="🧾" label="Billed" value={money(revBilled)} sub={`${revInvoiceCount} invoice${revInvoiceCount !== 1 ? 's' : ''}`} color="var(--navy-800)" tint="rgba(13,35,64,0.07)" />
           <StatCard icon="✅" label="Collected" value={money(revCollected)} sub={revLabel} color="#1e6f6a" tint="rgba(30,111,106,0.1)" />
           <StatCard icon="⏳" label="Outstanding" value={money(revDue)} sub={revLabel} color="#c0392b" tint="rgba(192,57,43,0.08)" />
-          <StatCard icon="📈" label="All-Time Collected" value={money(allTimeCollected)} sub={`${money(allTimeDue)} due overall`} color="var(--gold-deep)" tint="rgba(199,166,106,0.16)" />
+          <StatCard icon="📈" label="All-Time Collected" value={money(allTimeCollected)} sub={`${money(allTimeDue)} due overall`} color="var(--gold-deep)" tint="rgba(13, 148, 136,0.16)" />
         </div>
 
-        <AreaChart data={revenueTrend} label="Collections — Last 7 Days" color="#C9A45C" height={160} money={money} />
+        <AreaChart data={revenueTrend} label="Collections — Last 7 Days" color="#0d9488" height={160} money={money} />
       </Card>
 
       {/* TRENDS */}
@@ -383,11 +383,11 @@ export default function AdminAnalytics() {
           <SectionLabel style={{ alignSelf: 'flex-start' }}>Booking Status</SectionLabel>
           <RingChart size={140} strokeWidth={17} segments={[
             { value: confirmed, color: '#1e6f6a' },
-            { value: pending, color: '#C9A45C' },
+            { value: pending, color: '#0d9488' },
             { value: cancelled, color: '#c0392b' },
           ]} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '18px', width: '100%' }}>
-            {[['#1e6f6a', 'Confirmed', confirmed], ['#C9A45C', 'Pending', pending], ['#c0392b', 'Cancelled', cancelled]].map(([color, lbl, val]) => (
+            {[['#1e6f6a', 'Confirmed', confirmed], ['#0d9488', 'Pending', pending], ['#c0392b', 'Cancelled', cancelled]].map(([color, lbl, val]) => (
               <div key={lbl} style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
                 <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: color, flexShrink: 0 }} />
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)', flex: 1 }}>{lbl}</span>
@@ -414,8 +414,8 @@ export default function AdminAnalytics() {
                     <span style={{ fontSize: '12.5px', color: 'var(--navy-800)', fontFamily: 'var(--font-body)', fontWeight: 500 }}>{prog}</span>
                     <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>{count} · {pct}%</span>
                   </div>
-                  <div style={{ height: '6px', background: 'rgba(13, 58, 36,0.06)', borderRadius: '100px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: `${pct}%`, background: i === 0 ? 'var(--gold)' : i === 1 ? '#1e6f6a' : 'rgba(13, 58, 36,0.18)', borderRadius: '100px', transition: 'width 0.8s ease' }} />
+                  <div style={{ height: '6px', background: 'rgba(15, 33, 56,0.06)', borderRadius: '100px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${pct}%`, background: i === 0 ? 'var(--gold)' : i === 1 ? '#1e6f6a' : 'rgba(15, 33, 56,0.18)', borderRadius: '100px', transition: 'width 0.8s ease' }} />
                   </div>
                 </div>
               </div>
@@ -436,15 +436,15 @@ export default function AdminAnalytics() {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {recentAppts.map((a, i) => (
-              <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 0', borderBottom: i < recentAppts.length - 1 ? '1px solid rgba(13, 58, 36,0.06)' : 'none', flexWrap: 'wrap' }}>
-                <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(199,166,106,0.18)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>
+              <div key={a.id} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 0', borderBottom: i < recentAppts.length - 1 ? '1px solid rgba(15, 33, 56,0.06)' : 'none', flexWrap: 'wrap' }}>
+                <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(13, 148, 136,0.18)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>
                   {(a.name || '?')[0].toUpperCase()}
                 </div>
                 <div style={{ flex: 1, minWidth: '120px' }}>
                   <p style={{ fontWeight: 600, fontSize: '13px', color: 'var(--navy-800)', margin: '0 0 2px', fontFamily: 'var(--font-body)' }}>{a.name}</p>
                   <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, fontFamily: 'var(--font-body)' }}>{a.service || 'General'} · {a.phone}</p>
                 </div>
-                <span style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(199,166,106,0.15)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c' }}>{a.status}</span>
+                <span style={{ fontSize: '10px', padding: '3px 10px', borderRadius: '100px', fontFamily: 'var(--font-body)', fontWeight: 600, background: a.status === 'confirmed' ? 'rgba(30,111,106,0.12)' : a.status === 'cancelled' ? 'rgba(192,57,43,0.1)' : 'rgba(13, 148, 136,0.15)', color: a.status === 'confirmed' ? '#1e6f6a' : a.status === 'cancelled' ? '#c0392b' : '#9c7a3c' }}>{a.status}</span>
                 <span style={{ fontSize: '11px', color: 'var(--text-light)', fontFamily: 'var(--font-body)', whiteSpace: 'nowrap' }}>{fmtDate(a.created_at)}</span>
               </div>
             ))}
@@ -453,7 +453,7 @@ export default function AdminAnalytics() {
       </Card>
 
       <style>{`
-        .analytics-seg-btn:not([data-active="true"]):hover { background: rgba(13, 58, 36,0.07) !important; color: var(--navy-800) !important; }
+        .analytics-seg-btn:not([data-active="true"]):hover { background: rgba(15, 33, 56,0.07) !important; color: var(--navy-800) !important; }
         @media (max-width: 760px) {
           .admin-panel [style*="grid-template-columns: 2fr 1fr"] { grid-template-columns: 1fr !important; }
           .admin-panel [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }

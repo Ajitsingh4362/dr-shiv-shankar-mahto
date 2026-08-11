@@ -45,8 +45,8 @@ export default function HealingMap() {
 
       // Ambient aura
       const aura = ctx.createRadialGradient(cx, H * 0.42, 20, cx, H * 0.42, H * 0.45)
-      aura.addColorStop(0, 'rgba(199,166,106,0.10)')
-      aura.addColorStop(1, 'rgba(199,166,106,0)')
+      aura.addColorStop(0, 'rgba(13, 148, 136,0.10)')
+      aura.addColorStop(1, 'rgba(13, 148, 136,0)')
       ctx.fillStyle = aura
       ctx.fillRect(0, 0, W, H)
 
@@ -54,7 +54,7 @@ export default function HealingMap() {
       ;[0.42, 0.30].forEach((rf, i) => {
         ctx.beginPath()
         ctx.arc(cx, H * 0.42, H * rf, 0, Math.PI * 2)
-        ctx.strokeStyle = `rgba(199,166,106,${0.08 - i * 0.02})`
+        ctx.strokeStyle = `rgba(13, 148, 136,${0.08 - i * 0.02})`
         ctx.lineWidth = 1
         ctx.stroke()
       })
@@ -68,12 +68,12 @@ export default function HealingMap() {
         const alpha = 0.12 + 0.1 * Math.sin(t * 0.02 + i)
         ctx.beginPath()
         ctx.arc(px, py, 1.4, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(199,166,106,${alpha})`
+        ctx.fillStyle = `rgba(13, 148, 136,${alpha})`
         ctx.fill()
       }
 
       ctx.save()
-      ctx.shadowColor = 'rgba(199,166,106,0.35)'
+      ctx.shadowColor = 'rgba(13, 148, 136,0.35)'
       ctx.shadowBlur = 18
 
       // Head
@@ -83,9 +83,9 @@ export default function HealingMap() {
       ctx.ellipse(cx, headY, headR * 0.82, headR, 0, 0, Math.PI * 2)
       const headGrad = ctx.createRadialGradient(cx - headR * 0.2, headY - headR * 0.2, 2, cx, headY, headR)
       headGrad.addColorStop(0, 'rgba(223,192,138,0.18)')
-      headGrad.addColorStop(1, 'rgba(199,166,106,0.05)')
+      headGrad.addColorStop(1, 'rgba(13, 148, 136,0.05)')
       ctx.fillStyle = headGrad
-      ctx.strokeStyle = 'rgba(199,166,106,0.45)'
+      ctx.strokeStyle = 'rgba(13, 148, 136,0.45)'
       ctx.lineWidth = 1.2
       ctx.fill(); ctx.stroke()
       ctx.restore()
@@ -97,8 +97,8 @@ export default function HealingMap() {
       ctx.lineTo(cx + W * 0.038, headY + headR * 1.4)
       ctx.lineTo(cx - W * 0.038, headY + headR * 1.4)
       ctx.closePath()
-      ctx.fillStyle = 'rgba(199,166,106,0.06)'
-      ctx.strokeStyle = 'rgba(199,166,106,0.25)'
+      ctx.fillStyle = 'rgba(13, 148, 136,0.06)'
+      ctx.strokeStyle = 'rgba(13, 148, 136,0.25)'
       ctx.lineWidth = 1
       ctx.fill(); ctx.stroke()
 
@@ -116,11 +116,11 @@ export default function HealingMap() {
       ctx.bezierCurveTo(cx + waistW, torsoTop + torsoH * 0.55, cx + shoulderW * 1.08, torsoTop + torsoH * 0.15, cx + shoulderW, torsoTop)
       ctx.closePath()
       const torsoGrad = ctx.createLinearGradient(cx - shoulderW, torsoTop, cx + shoulderW, torsoTop + torsoH)
-      torsoGrad.addColorStop(0, 'rgba(199,166,106,0.10)')
+      torsoGrad.addColorStop(0, 'rgba(13, 148, 136,0.10)')
       torsoGrad.addColorStop(0.5, 'rgba(30,111,106,0.06)')
-      torsoGrad.addColorStop(1, 'rgba(199,166,106,0.05)')
+      torsoGrad.addColorStop(1, 'rgba(13, 148, 136,0.05)')
       ctx.fillStyle = torsoGrad
-      ctx.strokeStyle = 'rgba(199,166,106,0.35)'
+      ctx.strokeStyle = 'rgba(13, 148, 136,0.35)'
       ctx.lineWidth = 1.4
       ctx.fill(); ctx.stroke()
 
@@ -130,7 +130,7 @@ export default function HealingMap() {
         const rw = (shoulderW * (1 - r * 0.06)) - (r > 2 ? (r - 2) * 9 : 0)
         ctx.beginPath()
         ctx.ellipse(cx, ry, rw * 0.85, torsoH * 0.035, 0, 0, Math.PI * 2)
-        ctx.strokeStyle = `rgba(199,166,106,${0.1 - r * 0.012})`
+        ctx.strokeStyle = `rgba(13, 148, 136,${0.1 - r * 0.012})`
         ctx.lineWidth = 0.8
         ctx.stroke()
       }
@@ -139,7 +139,7 @@ export default function HealingMap() {
       ctx.beginPath()
       ctx.moveTo(cx, headY + headR)
       ctx.lineTo(cx, torsoTop + torsoH)
-      ctx.strokeStyle = 'rgba(199,166,106,0.08)'
+      ctx.strokeStyle = 'rgba(13, 148, 136,0.08)'
       ctx.lineWidth = 1
       ctx.setLineDash([4, 6])
       ctx.stroke()
@@ -154,7 +154,7 @@ export default function HealingMap() {
           cx + side * (shoulderW + W * 0.05), torsoTop + torsoH * 0.65,
           cx + side * (shoulderW + W * 0.035), torsoTop + torsoH * 0.9
         )
-        ctx.strokeStyle = 'rgba(199,166,106,0.18)'
+        ctx.strokeStyle = 'rgba(13, 148, 136,0.18)'
         ctx.lineWidth = W * 0.04
         ctx.lineCap = 'round'
         ctx.stroke()
@@ -169,7 +169,7 @@ export default function HealingMap() {
           cx + side * hipW * 0.55, torsoTop + torsoH + H * 0.2,
           cx + side * hipW * 0.5, torsoTop + torsoH + H * 0.3
         )
-        ctx.strokeStyle = 'rgba(199,166,106,0.15)'
+        ctx.strokeStyle = 'rgba(13, 148, 136,0.15)'
         ctx.lineWidth = W * 0.055
         ctx.lineCap = 'round'
         ctx.stroke()
@@ -185,19 +185,19 @@ export default function HealingMap() {
         if (isActive) {
           ctx.beginPath()
           ctx.arc(ox, oy, o.r + 12, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(199,166,106,0.12)'
+          ctx.fillStyle = 'rgba(13, 148, 136,0.12)'
           ctx.fill()
           ctx.beginPath()
           ctx.arc(ox, oy, o.r + 6, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(199,166,106,0.22)'
+          ctx.fillStyle = 'rgba(13, 148, 136,0.22)'
           ctx.fill()
         }
 
         ctx.beginPath()
         ctx.arc(ox, oy, isActive ? o.r * 0.6 : o.r * 0.45 * pulse, 0, Math.PI * 2)
-        ctx.fillStyle = isActive ? 'rgba(240,221,181,0.95)' : `rgba(199,166,106,${0.55 * pulse})`
+        ctx.fillStyle = isActive ? 'rgba(240,221,181,0.95)' : `rgba(13, 148, 136,${0.55 * pulse})`
         ctx.fill()
-        ctx.strokeStyle = isActive ? 'rgba(240,221,181,1)' : 'rgba(199,166,106,0.7)'
+        ctx.strokeStyle = isActive ? 'rgba(240,221,181,1)' : 'rgba(13, 148, 136,0.7)'
         ctx.lineWidth = 1.4
         ctx.stroke()
       })

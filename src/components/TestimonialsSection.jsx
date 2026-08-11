@@ -17,7 +17,7 @@ function StarRating({ value }) {
   return (
     <div style={{ display: 'flex', gap: '2px', marginBottom: '14px' }}>
       {[1, 2, 3, 4, 5].map(s => (
-        <span key={s} style={{ fontSize: '14px', color: s <= value ? '#b9914f' : 'rgba(199,166,106,0.2)' }}>★</span>
+        <span key={s} style={{ fontSize: '14px', color: s <= value ? '#b9914f' : 'rgba(13, 148, 136,0.2)' }}>★</span>
       ))}
     </div>
   )
@@ -55,10 +55,10 @@ export default function TestimonialsSection() {
   return (
     <section style={{ padding: '100px 0', background: 'linear-gradient(160deg, var(--navy-900), var(--navy-800))', position: 'relative', overflow: 'hidden' }}>
       {/* Background grid */}
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(199,166,106,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(13, 148, 136,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px', pointerEvents: 'none' }} />
 
       {/* Gold accent */}
-      <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(199,166,106,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(13, 148, 136,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Header */}
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
         {/* Main testimonial */}
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           {/* Quote marks */}
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: '80px', color: 'rgba(199,166,106,0.2)', lineHeight: 0.8, marginBottom: '24px', userSelect: 'none' }}>"</div>
+          <div style={{ fontFamily: 'Georgia, serif', fontSize: '80px', color: 'rgba(13, 148, 136,0.2)', lineHeight: 0.8, marginBottom: '24px', userSelect: 'none' }}>"</div>
 
           {/* Review text */}
           <div style={{ opacity: animating ? 0 : 1, transform: animating ? 'translateY(8px)' : 'translateY(0)', transition: 'opacity 0.3s, transform 0.3s' }}>
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
 
             {/* Author */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-              <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: t.avatar_color, overflow: 'hidden', border: '2px solid rgba(199,166,106,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: t.avatar_color, overflow: 'hidden', border: '2px solid rgba(13, 148, 136,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 {t.photo_url
                   ? <img src={t.photo_url} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   : <span style={{ color: '#fff', fontWeight: 700, fontSize: '18px', fontFamily: 'var(--font-display)' }}>{initials(t.name)}</span>
@@ -106,7 +106,7 @@ export default function TestimonialsSection() {
         {testimonials.length > 1 && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '48px' }}>
             {testimonials.map((_, i) => (
-              <button key={i} onClick={() => goTo(i)} style={{ width: i === active ? '28px' : '8px', height: '8px', borderRadius: '100px', background: i === active ? 'var(--gold)' : 'rgba(199,166,106,0.25)', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0 }} />
+              <button key={i} onClick={() => goTo(i)} style={{ width: i === active ? '28px' : '8px', height: '8px', borderRadius: '100px', background: i === active ? 'var(--gold)' : 'rgba(13, 148, 136,0.25)', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0 }} />
             ))}
           </div>
         )}
@@ -115,7 +115,7 @@ export default function TestimonialsSection() {
         {testimonials.length > 1 && (
           <div style={{ marginTop: '64px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
             {testimonials.map((t2, i) => (
-              <div key={t2.id} onClick={() => goTo(i)} style={{ background: i === active ? 'rgba(199,166,106,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${i === active ? 'rgba(199,166,106,0.35)' : 'rgba(199,166,106,0.08)'}`, borderRadius: '2px', padding: '14px 16px', cursor: 'pointer', transition: 'all 0.25s' }}
+              <div key={t2.id} onClick={() => goTo(i)} style={{ background: i === active ? 'rgba(13, 148, 136,0.1)' : 'rgba(255,255,255,0.03)', border: `1px solid ${i === active ? 'rgba(13, 148, 136,0.35)' : 'rgba(13, 148, 136,0.08)'}`, borderRadius: '2px', padding: '14px 16px', cursor: 'pointer', transition: 'all 0.25s' }}
                 onMouseEnter={e => { if (i !== active) e.currentTarget.style.background = 'rgba(255,255,255,0.05)' }}
                 onMouseLeave={e => { if (i !== active) e.currentTarget.style.background = 'rgba(255,255,255,0.03)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
@@ -125,7 +125,7 @@ export default function TestimonialsSection() {
                   <div>
                     <p style={{ fontSize: '12px', fontWeight: 600, color: i === active ? 'var(--gold-pale)' : 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-body)', margin: 0 }}>{t2.name}</p>
                     <div style={{ display: 'flex', gap: '2px' }}>
-                      {[1,2,3,4,5].map(s => <span key={s} style={{ fontSize: '9px', color: s <= t2.rating ? '#b9914f' : 'rgba(199,166,106,0.2)' }}>★</span>)}
+                      {[1,2,3,4,5].map(s => <span key={s} style={{ fontSize: '9px', color: s <= t2.rating ? '#b9914f' : 'rgba(13, 148, 136,0.2)' }}>★</span>)}
                     </div>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ export default function TermsConditions() {
           </Section>
 
           <Section title="4. Not a Substitute for In-Person Diagnosis">
-            <p>Content on this website, including descriptions of treatments and services, is provided for general informational purposes only and does not constitute medical advice. Any dental condition should be evaluated in person by Dr. Suresh Kumar or Dr. Preeti Rajguru before treatment.</p>
+            <p>Content on this website, including descriptions of treatments and services, is provided for general informational purposes only and does not constitute medical advice. Any dental condition should be evaluated in person by Dr. Shiv Shankar Mahto or Dr. Preeti Rajguru before treatment.</p>
           </Section>
 
           <Section title="5. Payments">

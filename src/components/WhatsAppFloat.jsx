@@ -10,7 +10,7 @@ export default function WhatsAppFloat() {
       style={{ position: 'fixed', bottom: '28px', right: '28px', zIndex: 998, display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
       aria-label="Chat on WhatsApp">
       {hovered && (
-        <span style={{ background: 'var(--navy-800)', color: 'var(--gold-pale)', fontSize: '12px', fontFamily: 'var(--font-body)', padding: '6px 14px', borderRadius: '2px', whiteSpace: 'nowrap', border: '1px solid rgba(199,166,106,0.3)', boxShadow: 'var(--shadow-md)' }}>
+        <span style={{ background: 'var(--navy-800)', color: 'var(--gold-pale)', fontSize: '12px', fontFamily: 'var(--font-body)', padding: '6px 14px', borderRadius: '2px', whiteSpace: 'nowrap', border: '1px solid rgba(13, 148, 136,0.3)', boxShadow: 'var(--shadow-md)' }}>
           Chat with Us
         </span>
       )}

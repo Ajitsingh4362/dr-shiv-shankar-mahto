@@ -14,7 +14,7 @@ export default function AutoSwipe({ images, interval = 2000 }) {
     <div style={{
       position: 'relative', width: '100%',
       borderRadius: '14px', overflow: 'hidden',
-      border: '2px solid rgba(199,166,106,0.35)',
+      border: '2px solid rgba(13, 148, 136,0.35)',
       boxShadow: '0 30px 60px -20px rgba(0,0,0,0.5)',
     }}>
       {images.map((img, i) => (

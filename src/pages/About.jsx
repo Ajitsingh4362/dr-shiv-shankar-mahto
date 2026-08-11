@@ -24,13 +24,13 @@ export default function About() {
             <span style={{ fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2.5px', textTransform: 'uppercase' }}>About</span>
           </div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(38px, 5vw, 68px)', color: 'var(--white)', fontWeight: 600, marginBottom: '20px' }}>
-            Dr. Suresh Kumar & Dr. Preeti Rajguru
+            Dr. Shiv Shankar Mahto & Dr. Preeti Rajguru
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--gold)', fontFamily: 'var(--font-display)', fontStyle: 'italic', marginBottom: '16px' }}>
             Gentle, Modern Dental Care for the Whole Family.
           </p>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', maxWidth: '580px', lineHeight: '1.8', fontWeight: 300 }}>
-            Dr. Suresh Kumar and Dr. Preeti Rajguru (MDS) lead Usha Multi Speciality Dental Clinic, Sitamarhi.
+            Dr. Shiv Shankar Mahto and Dr. Preeti Rajguru (MDS) lead Usha Multi Speciality Dental Clinic, Sitamarhi.
           </p>
         </div>
       </section>
@@ -46,9 +46,9 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '32px', maxWidth: '640px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '160px', height: '160px', borderRadius: '50%', margin: '0 auto 18px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
-                <img src="/dr-suresh-kumar.jpg" alt="Dr. Suresh Kumar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/dr-suresh-kumar.jpg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--navy-800)', fontWeight: 600 }}>Dr. Suresh Kumar</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--navy-800)', fontWeight: 600 }}>Dr. Shiv Shankar Mahto</div>
               <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>Consultant Implantologist</div>
             </div>
             <div style={{ textAlign: 'center' }}>
@@ -68,15 +68,15 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '72px', alignItems: 'start' }} className="two-col-grid">
 
             {/* Card */}
-            <div style={{ background: 'var(--navy-800)', borderRadius: '2px', padding: '40px', border: '1px solid rgba(199,166,106,0.15)', position: 'sticky', top: '100px' }}>
-              <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '2px solid rgba(199,166,106,0.3)' }}>
-                <img src="/dr-suresh-kumar.jpg" alt="Dr. Suresh Kumar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ background: 'var(--navy-800)', borderRadius: '2px', padding: '40px', border: '1px solid rgba(13, 148, 136,0.15)', position: 'sticky', top: '100px' }}>
+              <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '2px solid rgba(13, 148, 136,0.3)' }}>
+                <img src="/dr-suresh-kumar.jpg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--gold-pale)', fontWeight: 600 }}>Dr. Suresh Kumar</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--gold-pale)', fontWeight: 600 }}>Dr. Shiv Shankar Mahto</div>
                 <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '6px' }}>Usha Multi Speciality Dental Clinic</div>
               </div>
-              <div style={{ borderTop: '1px solid rgba(199,166,106,0.15)', paddingTop: '24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ borderTop: '1px solid rgba(13, 148, 136,0.15)', paddingTop: '24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {[
                   { label: 'Qualification', value: 'Consultant Implantologist' },
                   { label: 'Established', value: '2010' },
@@ -103,13 +103,13 @@ export default function About() {
                 Dedicated to Your Dental Health
               </h2>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '20px' }}>
-                Dr. Suresh Kumar leads Usha Multi Speciality Dental Clinic in Sitamarhi, offering complete dental care under one roof — from routine check-ups to advanced procedures — with a focus on painless treatment and patient comfort.
+                Dr. Shiv Shankar Mahto leads Usha Multi Speciality Dental Clinic in Sitamarhi, offering complete dental care under one roof — from routine check-ups to advanced procedures — with a focus on painless treatment and patient comfort.
               </p>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '20px' }}>
                 The clinic is equipped with modern technology to ensure precise diagnosis and effective treatment, covering general dentistry, cosmetic dentistry, orthodontics, implantology, and pediatric dentistry.
               </p>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '36px' }}>
-                Dr. Suresh Kumar is committed to painless, patient-friendly dentistry — using modern equipment and techniques so every visit is as comfortable as possible.
+                Dr. Shiv Shankar Mahto is committed to painless, patient-friendly dentistry — using modern equipment and techniques so every visit is as comfortable as possible.
               </p>
 
               <div style={{ background: 'var(--navy-800)', borderLeft: '3px solid var(--gold)', padding: '24px 28px', marginBottom: '36px' }}>
@@ -121,7 +121,7 @@ export default function About() {
 
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 {['General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Implantology', 'Pediatric Dentistry', 'Emergency Care', 'Root Canal Specialist', 'Family Dentistry'].map((tag, i) => (
-                  <span key={i} style={{ background: 'rgba(13, 58, 36,0.06)', border: '1px solid rgba(13, 58, 36,0.12)', color: 'var(--navy-800)', fontSize: '11px', padding: '5px 14px', borderRadius: '2px', fontWeight: 500, letterSpacing: '0.5px' }}>{tag}</span>
+                  <span key={i} style={{ background: 'rgba(15, 33, 56,0.06)', border: '1px solid rgba(15, 33, 56,0.12)', color: 'var(--navy-800)', fontSize: '11px', padding: '5px 14px', borderRadius: '2px', fontWeight: 500, letterSpacing: '0.5px' }}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -141,8 +141,8 @@ export default function About() {
             {QUALS.map((q, i) => (
               <div key={i} style={{ display: 'flex', gap: '24px', marginBottom: '2px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                  <div style={{ width: '52px', height: '52px', borderRadius: '2px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', border: '1px solid rgba(199,166,106,0.2)' }}>{q.icon}</div>
-                  {i < QUALS.length - 1 && <div style={{ width: '1px', flex: 1, background: 'rgba(13, 58, 36,0.1)', margin: '4px 0' }} />}
+                  <div style={{ width: '52px', height: '52px', borderRadius: '2px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', border: '1px solid rgba(13, 148, 136,0.2)' }}>{q.icon}</div>
+                  {i < QUALS.length - 1 && <div style={{ width: '1px', flex: 1, background: 'rgba(15, 33, 56,0.1)', margin: '4px 0' }} />}
                 </div>
                 <div style={{ background: 'var(--ivory)', padding: '20px 24px', flex: 1, marginBottom: i < QUALS.length - 1 ? '4px' : 0, borderBottom: '2px solid transparent', transition: 'var(--transition)' }}
                   onMouseEnter={e => e.currentTarget.style.borderBottom = '2px solid var(--gold)'}

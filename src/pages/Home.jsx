@@ -74,7 +74,7 @@ function HeroVisual() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%,-50%)',
         width: '260px', height: '260px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(199,166,106,0.18) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(13, 148, 136,0.18) 0%, transparent 70%)',
         animation: 'pulse-ring 4s ease-in-out infinite',
       }} />
 
@@ -83,13 +83,13 @@ function HeroVisual() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%,-50%)',
         width: '440px', height: '440px', borderRadius: '50%',
-        border: '1px solid rgba(199,166,106,0.12)',
+        border: '1px solid rgba(13, 148, 136,0.12)',
       }} />
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%,-50%)',
         width: '320px', height: '320px', borderRadius: '50%',
-        border: '1px solid rgba(199,166,106,0.08)',
+        border: '1px solid rgba(13, 148, 136,0.08)',
       }} />
 
       {/* Centre card */}
@@ -97,8 +97,8 @@ function HeroVisual() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%,-50%)',
         width: '170px', height: '170px', borderRadius: '50%',
-        background: 'linear-gradient(135deg, rgba(199,166,106,0.22) 0%, rgba(30,111,106,0.15) 100%)',
-        border: '1px solid rgba(199,166,106,0.3)',
+        background: 'linear-gradient(135deg, rgba(13, 148, 136,0.22) 0%, rgba(30,111,106,0.15) 100%)',
+        border: '1px solid rgba(13, 148, 136,0.3)',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         textAlign: 'center', padding: '20px',
@@ -114,7 +114,7 @@ function HeroVisual() {
         animation: 'orbitA 8s linear infinite',
         marginTop: '-8px', marginLeft: '-8px',
       }}>
-        <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: 'var(--gold)', opacity: 0.9, boxShadow: '0 0 12px rgba(199,166,106,0.6)' }} />
+        <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: 'var(--gold)', opacity: 0.9, boxShadow: '0 0 12px rgba(13, 148, 136,0.6)' }} />
       </div>
 
       {/* Orbit dot B */}
@@ -132,14 +132,14 @@ function HeroVisual() {
         animation: 'orbitC 16s linear infinite',
         marginTop: '-5px', marginLeft: '-5px',
       }}>
-        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(199,166,106,0.5)', boxShadow: '0 0 8px rgba(199,166,106,0.4)' }} />
+        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(13, 148, 136,0.5)', boxShadow: '0 0 8px rgba(13, 148, 136,0.4)' }} />
       </div>
 
       {/* Floating tag 1 — top left */}
       <div style={{
         position: 'absolute', top: '60px', left: '20px',
         background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(8px)',
-        border: '1px solid rgba(199,166,106,0.2)',
+        border: '1px solid rgba(13, 148, 136,0.2)',
         borderRadius: '8px', padding: '12px 16px',
         animation: 'float-tag 3.5s ease-in-out infinite',
         minWidth: '140px',
@@ -166,7 +166,7 @@ function HeroVisual() {
         position: 'absolute', top: '50%', right: '0px',
         transform: 'translateY(-50%)',
         background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(8px)',
-        border: '1px solid rgba(199,166,106,0.15)',
+        border: '1px solid rgba(13, 148, 136,0.15)',
         borderRadius: '8px', padding: '12px 16px',
         animation: 'float-tag 5s ease-in-out infinite 1.5s',
         minWidth: '130px',
@@ -179,7 +179,7 @@ function HeroVisual() {
       <div style={{
         position: 'absolute', top: '30px', right: '60px',
         width: '60px', height: '60px',
-        border: '1px solid rgba(199,166,106,0.15)',
+        border: '1px solid rgba(13, 148, 136,0.15)',
         transform: 'rotate(45deg)',
         animation: 'drift1 7s ease-in-out infinite',
       }} />
@@ -236,7 +236,7 @@ export default function Home() {
       }}>
         {/* Background decorative blobs */}
         <div style={{ position: 'absolute', top: '-5%', right: '-8%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(30,111,106,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(199,166,106,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(13, 148, 136,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         {/* Top-right dot pattern */}
         <div className="hero-corner-pattern" style={{
@@ -274,7 +274,7 @@ export default function Home() {
                 display: 'inline-flex', alignItems: 'center', gap: '16px',
                 marginTop: '28px', marginBottom: '32px',
                 background: 'var(--gold)',
-                border: '1px solid rgba(13, 58, 36,0.15)',
+                border: '1px solid rgba(15, 33, 56,0.15)',
                 borderLeft: '3px solid var(--navy-800)',
                 borderRadius: '2px',
                 padding: '14px 22px',
@@ -289,7 +289,7 @@ export default function Home() {
                     letterSpacing: '0.5px',
                     lineHeight: 1.2,
                   }}>
-                    <Typewriter text="Dr. Suresh Kumar" speed={70} loop pauseAfter={5000} />
+                    <Typewriter text="Dr. Shiv Shankar Mahto" speed={70} loop pauseAfter={5000} />
                   </div>
                   <div style={{
                     fontSize: '10px', color: '#000000',
@@ -352,7 +352,7 @@ export default function Home() {
               {/* Stats */}
               <div style={{
                 display: 'flex', gap: '44px', flexWrap: 'wrap',
-                paddingTop: '36px', borderTop: '1px solid rgba(199,166,106,0.15)',
+                paddingTop: '36px', borderTop: '1px solid rgba(13, 148, 136,0.15)',
               }}>
                 {[
                   { num: '2010', label: 'Established' },
@@ -374,7 +374,7 @@ export default function Home() {
               <div style={{
                 position: 'absolute', top: '-30px', right: '-30px',
                 width: '90%', height: '90%',
-                background: 'radial-gradient(circle, rgba(199,166,106,0.18) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(13, 148, 136,0.18) 0%, transparent 70%)',
                 filter: 'blur(20px)', pointerEvents: 'none', zIndex: 0,
               }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -383,7 +383,7 @@ export default function Home() {
               {/* Floating trust badge */}
               <div style={{
                 position: 'absolute', left: '-24px', bottom: '-24px', zIndex: 2,
-                background: 'var(--navy-800)', border: '1px solid rgba(199,166,106,0.35)',
+                background: 'var(--navy-800)', border: '1px solid rgba(13, 148, 136,0.35)',
                 borderRadius: '10px', padding: '16px 20px',
                 boxShadow: '0 16px 40px rgba(0,0,0,0.4)',
                 display: 'flex', alignItems: 'center', gap: '12px',
@@ -406,7 +406,7 @@ export default function Home() {
       </section>
 
       {/* TAGLINE STRIP */}
-      <section style={{ background: 'var(--navy-700, #145334)', padding: '20px 0', borderBottom: '1px solid rgba(199,166,106,0.15)' }}>
+      <section style={{ background: 'var(--navy-700, #16324f)', padding: '20px 0', borderBottom: '1px solid rgba(13, 148, 136,0.15)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 2vw, 22px)', color: 'var(--gold-pale)', fontWeight: 600, margin: 0, fontStyle: 'italic', letterSpacing: '0.3px' }}>
             "Healthy Smiles. Gentle Care. For the Whole Family."
@@ -428,7 +428,7 @@ export default function Home() {
                 fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600,
                 color: 'var(--navy-800)', letterSpacing: '1.5px', textTransform: 'uppercase',
                 padding: '6px 20px',
-                borderRight: i < 4 ? '1px solid rgba(13, 58, 36,0.3)' : 'none',
+                borderRight: i < 4 ? '1px solid rgba(15, 33, 56,0.3)' : 'none',
                 lineHeight: '1.4',
               }}>{t}</span>
             ))}
@@ -468,13 +468,13 @@ export default function Home() {
             padding: '4px 4px 16px', maxWidth: '640px', margin: '0 auto',
           }}>
             {[
-              { photo: '/dr-suresh-kumar.jpg', name: 'Dr. Suresh Kumar', qual: 'Consultant Implantologist' },
+              { photo: '/dr-suresh-kumar.jpg', name: 'Dr. Shiv Shankar Mahto', qual: 'Consultant Implantologist' },
               { photo: '/dr-preeti-rajguru.jpg', name: 'Dr. Preeti Rajguru', qual: 'MDS' },
             ].map((d, i) => (
               <div key={i} style={{
                 flex: '0 0 260px', scrollSnapAlign: 'center', textAlign: 'center',
-                background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(13, 58, 36,0.08)',
-                border: '1px solid rgba(199,166,106,0.2)',
+                background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(15, 33, 56,0.08)',
+                border: '1px solid rgba(13, 148, 136,0.2)',
               }}>
                 <div style={{ width: '150px', height: '150px', borderRadius: '50%', margin: '0 auto 16px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
                   <img src={d.photo} alt={d.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -505,7 +505,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2px', background: 'rgba(13, 58, 36,0.06)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2px', background: 'rgba(15, 33, 56,0.06)' }}>
             {HIGHLIGHTS.map((h, i) => (
               <div key={i} style={{
                 background: h.highlight ? 'var(--navy-800)' : 'var(--white)',
@@ -575,7 +575,7 @@ export default function Home() {
               {WHY.map((w, i) => (
                 <div key={i} style={{
                   background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(199,166,106,0.1)',
+                  border: '1px solid rgba(13, 148, 136,0.1)',
                   padding: '20px 18px',
                   display: 'flex', alignItems: 'flex-start', gap: '10px',
                 }}>
@@ -606,7 +606,7 @@ export default function Home() {
             ].map((step, i) => (
               <div key={i} style={{
                 padding: '36px 28px',
-                borderLeft: i === 0 ? 'none' : '1px solid rgba(13, 58, 36,0.08)',
+                borderLeft: i === 0 ? 'none' : '1px solid rgba(15, 33, 56,0.08)',
                 borderBottom: '3px solid transparent',
                 transition: 'var(--transition)',
                 background: 'var(--white)',
@@ -628,7 +628,7 @@ export default function Home() {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: '16px' }}>
             Don't Wait to Achieve the Smile You Deserve
           </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.7)', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '15px', color: 'rgba(15, 33, 56,0.7)', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px', lineHeight: '1.8' }}>
             Book a check-up today and let our team find the right treatment plan for you.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -689,7 +689,7 @@ export default function Home() {
         @media (max-width: 600px) {
           .intro-strip-inner span {
             border-right: none !important;
-            border-bottom: 1px solid rgba(13, 58, 36,0.15) !important;
+            border-bottom: 1px solid rgba(15, 33, 56,0.15) !important;
             width: 100% !important;
             text-align: center !important;
             padding: 10px 16px !important;

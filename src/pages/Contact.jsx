@@ -138,7 +138,7 @@ export default function Contact() {
 
   const inp = {
     width: '100%', background: 'rgba(255,255,255,0.05)',
-    border: '1px solid rgba(199,166,106,0.2)', borderRadius: '2px',
+    border: '1px solid rgba(13, 148, 136,0.2)', borderRadius: '2px',
     padding: '13px 16px', color: 'var(--white)',
     fontSize: '14px', fontFamily: 'var(--font-body)',
     outline: 'none', transition: 'border-color 0.25s', boxSizing: 'border-box',
@@ -181,7 +181,7 @@ export default function Contact() {
                 { icon: '📞', title: 'Phone & WhatsApp', desc: '+91 89873 67274' },
                 { icon: '✉️', title: 'Email', desc: 'ushadentalclinic@gmail.com' },
               ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(13, 58, 36,0.08)', alignItems: 'flex-start' }}>
+                <div key={i} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(15, 33, 56,0.08)', alignItems: 'flex-start' }}>
                   <div style={{ width: '44px', height: '44px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0, borderRadius: '2px' }}>{item.icon}</div>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontSize: '10px', color: 'var(--gold)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>{item.title}</div>
@@ -200,7 +200,7 @@ export default function Contact() {
               </a>
 
               {/* Map */}
-              <div style={{ marginTop: '32px', borderRadius: '2px', overflow: 'hidden', border: '1px solid rgba(13, 58, 36,0.1)', height: '220px' }}>
+              <div style={{ marginTop: '32px', borderRadius: '2px', overflow: 'hidden', border: '1px solid rgba(15, 33, 56,0.1)', height: '220px' }}>
                 <iframe
                   src="https://maps.google.com/maps?q=Usha%20Multi%20Speciality%20Dental%20Clinic%2C%20Bhavdepur%2C%20Sitamarhi%2C%20Bihar%20843302&output=embed"
                   width="100%" height="220" style={{ border: 0 }} allowFullScreen="" loading="lazy"
@@ -213,12 +213,12 @@ export default function Contact() {
               <span className="section-tag">Clinic Hours</span>
               <div className="gold-line" />
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--navy-800)', marginBottom: '20px' }}>OPD Timings</h3>
-              <div style={{ background: 'var(--navy-800)', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(199,166,106,0.15)' }}>
+              <div style={{ background: 'var(--navy-800)', borderRadius: '4px', overflow: 'hidden', border: '1px solid rgba(13, 148, 136,0.15)' }}>
                 {OPD_TIMINGS.map((row, i) => (
                   <div key={i} style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: '14px 20px',
-                    borderBottom: i < OPD_TIMINGS.length - 1 ? '1px solid rgba(199,166,106,0.08)' : 'none',
+                    borderBottom: i < OPD_TIMINGS.length - 1 ? '1px solid rgba(13, 148, 136,0.08)' : 'none',
                     background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
                     gap: '12px',
                   }}>
@@ -229,7 +229,7 @@ export default function Contact() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
                       <span style={{ fontSize: '12px', color: row.open ? 'rgba(255,255,255,0.85)' : 'rgba(255,100,100,0.8)', fontFamily: 'var(--font-body)', whiteSpace: 'nowrap' }}>{row.morning}</span>
                       {row.evening && (
-                        <span style={{ fontSize: '12px', color: row.open ? 'rgba(199,166,106,0.8)' : 'rgba(255,180,100,0.8)', fontFamily: 'var(--font-body)', whiteSpace: 'nowrap' }}>{row.evening}</span>
+                        <span style={{ fontSize: '12px', color: row.open ? 'rgba(13, 148, 136,0.8)' : 'rgba(255,180,100,0.8)', fontFamily: 'var(--font-body)', whiteSpace: 'nowrap' }}>{row.evening}</span>
                       )}
                     </div>
 
@@ -241,7 +241,7 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div className="contact-form-col" style={{ background: 'var(--navy-800)', padding: '40px', borderRadius: '2px', border: '1px solid rgba(199,166,106,0.15)', minWidth: 0, position: 'relative', overflow: 'hidden' }}>
+            <div className="contact-form-col" style={{ background: 'var(--navy-800)', padding: '40px', borderRadius: '2px', border: '1px solid rgba(13, 148, 136,0.15)', minWidth: 0, position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gold)' }} />
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--gold-pale)', marginBottom: '6px' }}>Book an Appointment</h3>
               <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', marginBottom: '28px' }}>We will reach out within 24 hours to confirm your appointment.</p>
@@ -251,22 +251,22 @@ export default function Contact() {
                   <div>
                     <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Full Name *</label>
                     <input name="name" value={form.name} onChange={handleChange} placeholder="Your name" style={inp}
-                      onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                      onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'} />
+                      onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                      onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                   </div>
                   <div>
                     <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Phone / WhatsApp *</label>
                     <input name="phone" value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" style={inp}
-                      onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                      onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'} />
+                      onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                      onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                   </div>
                 </div>
 
                 <div>
                   <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Email Address</label>
                   <input name="email" value={form.email} onChange={handleChange} placeholder="email@example.com" style={inp}
-                    onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                    onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'} />
+                    onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                    onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                 </div>
 
                 <div>
@@ -280,8 +280,8 @@ export default function Contact() {
                 <div>
                   <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Dental Concern *</label>
                   <input name="concern" value={form.concern} onChange={handleChange} placeholder="Brief description of your dental concern" style={inp}
-                    onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                    onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'} />
+                    onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                    onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                 </div>
 
                 {/* Date & Time */}
@@ -295,8 +295,8 @@ export default function Contact() {
                       onChange={handleChange}
                       min={new Date().toISOString().split('T')[0]}
                       style={{ ...inp, colorScheme: 'dark', cursor: 'pointer' }}
-                      onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                      onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'}
+                      onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                      onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'}
                     />
                   </div>
                   <div>
@@ -325,8 +325,8 @@ export default function Contact() {
                   <textarea name="message" value={form.message} onChange={handleChange}
                     placeholder="Any additional context, questions, or information..." rows={4}
                     style={{ ...inp, resize: 'vertical', lineHeight: '1.7' }}
-                    onFocus={e => e.target.style.borderColor = 'rgba(199,166,106,0.6)'}
-                    onBlur={e => e.target.style.borderColor = 'rgba(199,166,106,0.2)'} />
+                    onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
+                    onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                 </div>
 
                 {/* ── PAYMENT MODE ── */}
@@ -340,8 +340,8 @@ export default function Contact() {
                       <div key={opt.id} onClick={() => setPayMode(opt.id)}
                         style={{
                           padding: '14px 16px', borderRadius: '4px', cursor: 'pointer',
-                          border: payMode === opt.id ? '1.5px solid var(--gold)' : '1px solid rgba(199,166,106,0.2)',
-                          background: payMode === opt.id ? 'rgba(199,166,106,0.1)' : 'rgba(255,255,255,0.03)',
+                          border: payMode === opt.id ? '1.5px solid var(--gold)' : '1px solid rgba(13, 148, 136,0.2)',
+                          background: payMode === opt.id ? 'rgba(13, 148, 136,0.1)' : 'rgba(255,255,255,0.03)',
                           transition: 'all 0.2s',
                         }}>
                         <div style={{ fontSize: '20px', marginBottom: '6px' }}>{opt.icon}</div>
@@ -351,7 +351,7 @@ export default function Contact() {
                     ))}
                   </div>
                   {payMode === 'online' && (
-                    <p style={{ fontSize: '11px', color: 'rgba(199,166,106,0.6)', marginTop: '10px', lineHeight: '1.6' }}>
+                    <p style={{ fontSize: '11px', color: 'rgba(13, 148, 136,0.6)', marginTop: '10px', lineHeight: '1.6' }}>
                       💡 Razorpay payment window will open after you click Book Appointment.
                     </p>
                   )}
@@ -372,7 +372,7 @@ export default function Contact() {
 
                 <button onClick={handleSubmit} disabled={status === 'loading'}
                   style={{
-                    width: '100%', background: status === 'loading' ? 'rgba(199,166,106,0.5)' : 'var(--gold)',
+                    width: '100%', background: status === 'loading' ? 'rgba(13, 148, 136,0.5)' : 'var(--gold)',
                     color: 'var(--navy-800)', border: 'none', padding: '16px',
                     borderRadius: '2px', fontSize: '13px', fontWeight: 700,
                     cursor: status === 'loading' ? 'not-allowed' : 'pointer',

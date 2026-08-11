@@ -100,15 +100,15 @@ export default function AdminOldPatients() {
         placeholder="Search name, phone, address..."
         value={search}
         onChange={e => setSearch(e.target.value)}
-        style={{ padding: '9px 14px', border: '1px solid rgba(13, 58, 36,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', width: '100%', marginBottom: '20px' }}
+        style={{ padding: '9px 14px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', outline: 'none', width: '100%', marginBottom: '20px' }}
       />
 
       {loading ? <p className="admin-empty">Loading...</p> : filtered.length === 0 ? (
         <p className="admin-empty">No old patients found.</p>
       ) : (
-        <div style={{ background: 'var(--white)', border: '1px solid rgba(13, 58, 36,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--white)', border: '1px solid rgba(15, 33, 56,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
           {filtered.map((p, i) => (
-            <div key={p.id} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px 20px', borderBottom: i < filtered.length - 1 ? '1px solid rgba(13, 58, 36,0.06)' : 'none', flexWrap: 'wrap' }}>
+            <div key={p.id} style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '14px 20px', borderBottom: i < filtered.length - 1 ? '1px solid rgba(15, 33, 56,0.06)' : 'none', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: '180px' }}>
                 <p style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--navy-800)', margin: 0, fontFamily: 'var(--font-body)' }}>
                   {p.name} {p.age ? <span style={{ fontWeight: 400, color: 'var(--text-muted)' }}>· {p.age}y</span> : ''}
@@ -155,4 +155,4 @@ export default function AdminOldPatients() {
 }
 
 const labelStyle = { display: 'block', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.5px', color: 'var(--text-muted)', margin: '12px 0 5px', fontFamily: 'var(--font-body)' }
-const inputStyle = { width: '100%', padding: '10px 12px', border: '1px solid rgba(13, 58, 36,0.15)', borderRadius: '2px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }
+const inputStyle = { width: '100%', padding: '10px 12px', border: '1px solid rgba(15, 33, 56,0.15)', borderRadius: '2px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }

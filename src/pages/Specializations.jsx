@@ -103,9 +103,9 @@ export default function Specializations() {
             {SPECS.filter(s => s.highlight).map((s, i) => (
               <div key={i} style={{ background: s.color, padding: '48px 40px', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'var(--gold)' }} />
-                <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', width: '120px', height: '120px', borderRadius: '50%', background: 'rgba(199,166,106,0.06)' }} />
+                <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', width: '120px', height: '120px', borderRadius: '50%', background: 'rgba(13, 148, 136,0.06)' }} />
                 {s.image && (
-                  <img src={s.image} alt={s.title} style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '6px', marginBottom: '20px', border: '1px solid rgba(199,166,106,0.3)' }} />
+                  <img src={s.image} alt={s.title} style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '6px', marginBottom: '20px', border: '1px solid rgba(13, 148, 136,0.3)' }} />
                 )}
                 <div style={{ fontSize: '40px', marginBottom: '20px' }}>{s.icon}</div>
                 <div style={{ fontSize: '10px', color: 'var(--gold)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Core Specialty</div>
@@ -115,7 +115,7 @@ export default function Specializations() {
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {s.points.map((p, j) => (
                     <li key={j} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', fontSize: '13px', color: 'rgba(255,255,255,0.7)' }}>
-                      <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: 'rgba(199,166,106,0.2)', border: '1px solid rgba(199,166,106,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
+                      <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: 'rgba(13, 148, 136,0.2)', border: '1px solid rgba(13, 148, 136,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
                         <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--gold)' }} />
                       </div>
                       {p}
@@ -173,8 +173,8 @@ export default function Specializations() {
               'Hygienic, Well-Equipped Clinic',
               'Trusted Care in Sitamarhi',
             ].map((w, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(199,166,106,0.08)', padding: '24px 20px', display: 'flex', alignItems: 'flex-start', gap: '12px', transition: 'var(--transition)' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(199,166,106,0.06)'}
+              <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(13, 148, 136,0.08)', padding: '24px 20px', display: 'flex', alignItems: 'flex-start', gap: '12px', transition: 'var(--transition)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(13, 148, 136,0.06)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}>
                 <span style={{ color: 'var(--gold)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>✔</span>
                 <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6', fontFamily: 'var(--font-body)' }}>{w}</span>
@@ -203,7 +203,7 @@ export default function Specializations() {
       <section style={{ background: 'var(--gold)', padding: '70px 0', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 42px)', color: 'var(--navy-800)', marginBottom: '16px' }}>Ready to Book Your Visit?</h2>
-          <p style={{ fontSize: '15px', color: 'rgba(13, 58, 36,0.7)', marginBottom: '28px' }}>Get in touch and let us find the right treatment for you.</p>
+          <p style={{ fontSize: '15px', color: 'rgba(15, 33, 56,0.7)', marginBottom: '28px' }}>Get in touch and let us find the right treatment for you.</p>
           <Link to="/contact">
             <button style={{ background: 'var(--navy-800)', color: 'var(--white)', border: 'none', padding: '14px 32px', borderRadius: '2px', fontSize: '13px', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer' }}>
               Book an Appointment
