@@ -306,6 +306,7 @@ export default function Admin() {
   const [pw, setPw] = useState('')
   const [error, setError] = useState('')
   const [loggingIn, setLoggingIn] = useState(false)
+  const [mode, setMode] = useState('signin') // 'signin' | 'signup' — signup is only for creating the first admin account
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [checked, setChecked] = useState(false)
   const [installPrompt, setInstallPrompt] = useState(null)
@@ -365,6 +366,19 @@ export default function Admin() {
     setLoggingIn(false)
   }
 
+  async function signup() {
+    setLoggingIn(true)
+    setError('')
+    const { error } = await authClient.signUp.email({ name: 'Admin', email, password: pw })
+    if (error) {
+      setError(error.message || 'Could not create account')
+    } else {
+      setAuthed(true)
+      try { recordSession() } catch {}
+    }
+    setLoggingIn(false)
+  }
+
   async function logout() {
     await authClient.signOut()
     setAuthed(false)
@@ -380,7 +394,7 @@ export default function Admin() {
         <div className="admin-login-box">
           <img src="/clinic-logo.png" alt="Mahto Clinic" style={{ height: '70px', width: 'auto', display: 'block', margin: '0 auto 12px' }} />
           <p className="admin-login-logo">Mahto Clinic</p>
-          <h2>Admin Login</h2>
+          <h2>{mode === 'signup' ? 'Create Admin Account' : 'Admin Login'}</h2>
           <input
             type="email"
             placeholder="Admin email"
@@ -390,15 +404,26 @@ export default function Admin() {
           />
           <input
             type="password"
-            placeholder="Enter admin password"
+            placeholder={mode === 'signup' ? 'Choose a password (min 8 characters)' : 'Enter admin password'}
             value={pw}
             onChange={e => setPw(e.target.value)}
-            onKeyDown={e => e.key === 'Enter' && login()}
+            onKeyDown={e => e.key === 'Enter' && (mode === 'signup' ? signup() : login())}
             className={error ? 'error' : ''}
           />
           {error && <p className="admin-error-text">{error}</p>}
-          <button className="admin-btn-primary admin-login-btn" onClick={login} disabled={loggingIn}>
-            {loggingIn ? 'Logging in...' : 'Login'}
+          {mode === 'signup' ? (
+            <button className="admin-btn-primary admin-login-btn" onClick={signup} disabled={loggingIn || pw.length < 8}>
+              {loggingIn ? 'Creating account...' : 'Create Account'}
+            </button>
+          ) : (
+            <button className="admin-btn-primary admin-login-btn" onClick={login} disabled={loggingIn}>
+              {loggingIn ? 'Logging in...' : 'Login'}
+            </button>
+          )}
+          <button
+            onClick={() => { setMode(mode === 'signup' ? 'signin' : 'signup'); setError('') }}
+            style={{ background: 'none', border: 'none', color: 'var(--gold, #0d9488)', fontSize: '12px', cursor: 'pointer', marginTop: '10px', textDecoration: 'underline' }}>
+            {mode === 'signup' ? '← Already have an account? Login' : 'First time here? Create the admin account'}
           </button>
           <Link to="/" className="admin-back-to-site">← Back to website</Link>
         </div>
