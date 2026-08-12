@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 
 const PROGRAMS = [
-  'Root Canal Treatment',
-  'Cosmetic Dentistry / Smile Makeover',
-  'Dental Implant',
-  'Orthodontics (Braces)',
-  'Pediatric Dentistry',
-  'Emergency Dental Care',
   'General Consultation',
+  'General & Minor Surgery',
+  'Fever & Infections',
+  'Diabetes & Hypertension',
+  'Vaccination',
+  'Emergency Care',
+  'Child & Family Care',
   'Other',
 ]
 

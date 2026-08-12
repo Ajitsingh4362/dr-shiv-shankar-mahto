@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false)
   const phone = '918987367274'
-  const msg = encodeURIComponent("Hello, I'd like to book an appointment at Usha Multi Speciality Dental Clinic.")
+  const msg = encodeURIComponent("Hello, I'd like to book an appointment at Mahto Clinic.")
   return (
     <a href={`https://wa.me/${phone}?text=${msg}`} target="_blank" rel="noopener noreferrer"
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}

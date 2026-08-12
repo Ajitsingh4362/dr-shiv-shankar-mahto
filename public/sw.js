@@ -2,10 +2,10 @@
 // Lets the admin dashboard install like a native app and open instantly on
 // mobile. Supabase/API calls always go straight to the network — only the
 // static app shell (icons, manifest) is cached, so data is never stale.
-const CACHE_NAME = 'usha-admin-shell-v1'
+const CACHE_NAME = 'mahto-admin-shell-v1'
 const SHELL_ASSETS = [
   '/manifest.json',
-  '/usha-dental-logo.png',
+  '/clinic-logo.png',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/apple-touch-icon.png',
@@ -55,8 +55,8 @@ self.addEventListener('push', function(event) {
   const data = event.data ? event.data.json() : {}
   const options = {
     body: data.body || 'New appointment request',
-    icon: '/usha-dental-logo.png',
-    badge: '/usha-dental-logo.png',
+    icon: '/clinic-logo.png',
+    badge: '/clinic-logo.png',
     vibrate: [200, 100, 200],
     data: { url: data.url || '/admin/appointments' },
     actions: [

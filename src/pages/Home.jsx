@@ -8,22 +8,22 @@ import ConsultationPopup from '../components/ConsultationPopup'
 import TestimonialsSection from '../components/TestimonialsSection'
 
 const HIGHLIGHTS = [
-  { icon: '🦷', title: 'Root Canal Treatment', desc: 'Painless, precise RCT using modern techniques — relieving pain while saving your natural tooth.', highlight: true },
-  { icon: '✨', title: 'Cosmetic Dentistry', desc: 'Smile makeovers, teeth whitening, veneers, and bonding — designed around how you want to look and feel.', highlight: true },
-  { icon: '🦴', title: 'Dental Implants', desc: 'Permanent, natural-looking replacements for missing teeth, planned and placed with precision.' },
-  { icon: '📐', title: 'Orthodontics', desc: 'Braces and aligners for children and adults — straighter teeth, better bite, and more confident smiles.' },
-  { icon: '🧒', title: 'Child Dentistry', desc: 'Gentle, friendly dental care for kids — building healthy habits and easing dental anxiety early.' },
-  { icon: '🚨', title: 'Emergency Dental Care', desc: 'Sudden tooth pain, breakage, or injury — prompt attention when you need it most.' },
+  { icon: '🩺', title: 'General Consultation', desc: 'Thorough check-ups and accurate diagnosis for everyday health concerns, for every age group.', highlight: true },
+  { icon: '🔬', title: 'General & Minor Surgery', desc: 'Skilled, precise surgical care for minor procedures — safe, sterile, and comfort-focused.', highlight: true },
+  { icon: '🌡️', title: 'Fever & Infections', desc: 'Fast, accurate treatment for fevers, viral and bacterial infections, and seasonal illness.' },
+  { icon: '❤️', title: 'Diabetes & Hypertension', desc: 'Ongoing management of diabetes, blood pressure, and other chronic conditions.' },
+  { icon: '💉', title: 'Vaccination', desc: 'Immunization for children and adults, following recommended health schedules.' },
+  { icon: '🚑', title: 'Emergency Care', desc: 'Prompt attention for urgent medical situations and minor trauma — when you need it most.' },
 ]
 
 const WHY = [
-  'Multi-Speciality Dental Care',
-  'Painless, Modern Procedures',
-  'Family & Cosmetic Dentistry',
-  'Advanced Dental Technology',
-  'Child-Friendly Treatment',
+  'Complete Family Healthcare',
+  'Skilled Surgical Care',
+  'Chronic Disease Management',
+  'Modern Diagnostic Approach',
+  'Child-Friendly Vaccination',
   'Emergency Care Available',
-  'Experienced Dental Team',
+  'Experienced Medical Team',
   'Comfortable, Hygienic Clinic',
 ]
 
@@ -296,20 +296,14 @@ export default function Home() {
                     letterSpacing: '2px', textTransform: 'uppercase',
                     marginTop: '4px', fontFamily: 'var(--font-body)', fontWeight: 600,
                   }}>
-                    <Typewriter text="Multi-Speciality Dental Care" speed={40} startDelay={1400} cursor={false} loop pauseAfter={5000} />
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-display)', fontSize: '15px', color: '#000000',
-                    fontWeight: 600, marginTop: '10px',
-                  }}>
-                    <Typewriter text="Dr. Preeti Rajguru" speed={70} startDelay={800} loop pauseAfter={5000} />
+                    <Typewriter text="General Physician & Surgeon" speed={40} startDelay={1400} cursor={false} loop pauseAfter={5000} />
                   </div>
                   <div style={{
                     fontSize: '10px', color: '#000000',
                     letterSpacing: '2px', textTransform: 'uppercase',
                     marginTop: '4px', fontFamily: 'var(--font-body)', fontWeight: 600,
                   }}>
-                    <Typewriter text="MDS" speed={70} startDelay={2200} cursor={false} loop pauseAfter={5000} />
+                    <Typewriter text="MBBS" speed={70} startDelay={2200} cursor={false} loop pauseAfter={5000} />
                   </div>
                 </div>
               </div>
@@ -320,9 +314,9 @@ export default function Home() {
                 fontWeight: 600, color: 'var(--white)',
                 lineHeight: 1.1, marginBottom: '24px',
               }}>
-                Gentle Care<br />for a{' '}
+                Trusted Care<br />for a{' '}
                 <span style={{ color: 'var(--gold)', fontStyle: 'italic', display: 'block' }}>
-                  Healthy, Confident<br />Smile
+                  Healthy, Confident<br />Family
                 </span>
               </h1>
 
@@ -331,8 +325,8 @@ export default function Home() {
                 lineHeight: '1.85', maxWidth: '520px', marginBottom: '14px',
                 fontFamily: 'var(--font-body)', fontWeight: 300,
               }}>
-                Complete dental care in Sitamarhi — from routine check-ups and fillings to
-                root canals, implants, and smile makeovers — delivered with a gentle, patient-first
+                Complete general healthcare in Sitamarhi — from routine check-ups and
+                fevers to chronic care and minor surgery — delivered with a careful, patient-first
                 approach.
               </p>
               <p style={{
@@ -340,8 +334,8 @@ export default function Home() {
                 lineHeight: '1.7', maxWidth: '480px', marginBottom: '36px',
                 fontFamily: 'var(--font-body)',
               }}>
-                From children's first check-ups to advanced cosmetic and emergency care —
-                every treatment plan is built around your comfort.
+                From a child's first check-up to ongoing care for chronic conditions —
+                every treatment plan is built around you.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '48px' }}>
@@ -355,10 +349,10 @@ export default function Home() {
                 paddingTop: '36px', borderTop: '1px solid rgba(13, 148, 136,0.15)',
               }}>
                 {[
-                  { num: '2010', label: 'Established' },
-                  { num: 'RCT', label: 'Painless Root Canal' },
-                  { num: 'Braces', label: 'Orthodontics' },
-                  { num: 'Implants', label: 'Tooth Replacement' },
+                  { num: 'MBBS', label: 'Qualified Physician' },
+                  { num: 'Surgery', label: 'General & Minor' },
+                  { num: '24x7', label: 'Emergency Support' },
+                  { num: 'Family', label: 'Care for All Ages' },
                 ].map((s, i) => (
                   <div key={i}>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '40px', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>{s.num}</div>
@@ -378,7 +372,7 @@ export default function Home() {
                 filter: 'blur(20px)', pointerEvents: 'none', zIndex: 0,
               }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <AutoSwipe images={['/smile-closeup.png', '/natures-care.png']} interval={2000} />
+                <AutoSwipe images={['/illustration-consult.svg', '/illustration-care.svg']} interval={2800} />
               </div>
               {/* Floating trust badge */}
               <div style={{
@@ -409,21 +403,35 @@ export default function Home() {
       <section style={{ background: 'var(--navy-700, #16324f)', padding: '20px 0', borderBottom: '1px solid rgba(13, 148, 136,0.15)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 2vw, 22px)', color: 'var(--gold-pale)', fontWeight: 600, margin: 0, fontStyle: 'italic', letterSpacing: '0.3px' }}>
-            "Healthy Smiles. Gentle Care. For the Whole Family."
+            "Trusted Diagnosis. Careful Treatment. For the Whole Family."
           </p>
         </div>
       </section>
 
       {/* PROMO BANNER */}
-      <section style={{ background: 'var(--white)', padding: '0' }}>
-        <img src="/clinic-banner.png" alt="Usha Multi Speciality Dental Clinic — Premium Care for Healthy Smiles" style={{ width: '100%', height: 'auto', display: 'block' }} />
+      <section style={{ background: 'linear-gradient(135deg, var(--navy-800), var(--navy-700))', padding: '56px 0' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '32px', textAlign: 'center' }}>
+            {[
+              { icon: '🩺', label: 'Advanced Diagnosis' },
+              { icon: '🛡️', label: 'Safe, Sterile Procedures' },
+              { icon: '👨‍👩‍👧', label: 'Experienced, Caring Team' },
+              { icon: '❤️', label: 'Complete Family Care' },
+            ].map((f, i) => (
+              <div key={i}>
+                <div style={{ fontSize: '30px', marginBottom: '10px' }}>{f.icon}</div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.75)', letterSpacing: '0.5px', fontFamily: 'var(--font-body)', fontWeight: 500 }}>{f.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* INTRO STRIP */}
       <section style={{ background: 'var(--gold)', padding: '28px 0' }}>
         <div className="container">
           <div className="intro-strip-inner" style={{ display: 'flex', gap: '0', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', textAlign: 'center' }}>
-            {['General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Pediatric Dentistry', 'Emergency Care'].map((t, i) => (
+            {['General Medicine', 'Minor Surgery', 'Chronic Care', 'Vaccination', 'Emergency Care'].map((t, i) => (
               <span key={t} style={{
                 fontSize: '12px', fontFamily: 'var(--font-body)', fontWeight: 600,
                 color: 'var(--navy-800)', letterSpacing: '1.5px', textTransform: 'uppercase',
@@ -444,7 +452,7 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* MEET THE DOCTORS — swipeable */}
+      {/* MEET THE DOCTOR */}
       <section className="doctors-section" style={{
         padding: '90px 0',
         background: 'var(--ivory)',
@@ -458,33 +466,23 @@ export default function Home() {
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <span className="section-tag">Our Doctors</span>
+            <span className="section-tag">Your Doctor</span>
             <div className="gold-line center" />
-            <h2 className="section-title">Meet the Team</h2>
+            <h2 className="section-title">Meet Dr. Shiv Shankar Mahto</h2>
           </div>
-          <div className="doctor-swipe" style={{
-            display: 'flex', gap: '24px', overflowX: 'auto',
-            scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch',
-            padding: '4px 4px 16px', maxWidth: '640px', margin: '0 auto',
-          }}>
-            {[
-              { photo: '/dr-suresh-kumar.jpg', name: 'Dr. Shiv Shankar Mahto', qual: 'Consultant Implantologist' },
-              { photo: '/dr-preeti-rajguru.jpg', name: 'Dr. Preeti Rajguru', qual: 'MDS' },
-            ].map((d, i) => (
-              <div key={i} style={{
-                flex: '0 0 260px', scrollSnapAlign: 'center', textAlign: 'center',
-                background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(15, 33, 56,0.08)',
-                border: '1px solid rgba(13, 148, 136,0.2)',
-              }}>
-                <div style={{ width: '150px', height: '150px', borderRadius: '50%', margin: '0 auto 16px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
-                  <img src={d.photo} alt={d.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--navy-800)', fontWeight: 600 }}>{d.name}</div>
-                <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>{d.qual}</div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{
+              flex: '0 0 280px', textAlign: 'center',
+              background: 'var(--white)', borderRadius: '8px', padding: '28px 20px', boxShadow: '0 8px 24px rgba(15, 33, 56,0.08)',
+              border: '1px solid rgba(13, 148, 136,0.2)',
+            }}>
+              <div style={{ width: '150px', height: '150px', borderRadius: '50%', margin: '0 auto 16px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
+                <img src="/doctor-avatar.svg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-            ))}
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--navy-800)', fontWeight: 600 }}>Dr. Shiv Shankar Mahto</div>
+              <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>MBBS · General Physician &amp; Surgeon</div>
+            </div>
           </div>
-          <p style={{ textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', marginTop: '8px' }}>← Swipe to see both doctors →</p>
         </div>
       </section>
 
@@ -499,9 +497,9 @@ export default function Home() {
           <div style={{ textAlign: 'center', marginBottom: '64px' }}>
             <span className="section-tag">Healing Areas</span>
             <div className="gold-line center" />
-            <h2 className="section-title">Our Dental Services</h2>
+            <h2 className="section-title">Our Medical Services</h2>
             <p className="section-desc" style={{ margin: '0 auto' }}>
-              From routine care to advanced procedures, every treatment is delivered with modern technology and a gentle, patient-first approach.
+              From routine check-ups to minor surgery, every treatment is delivered with careful diagnosis and a patient-first approach.
             </p>
           </div>
 
@@ -563,11 +561,11 @@ export default function Home() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="two-col-grid">
             <div>
-              <span className="section-tag">Why Usha Dental Clinic</span>
+              <span className="section-tag">Why Mahto Clinic</span>
               <div className="gold-line" />
-              <h2 className="section-title light">Dental Care You Can Trust</h2>
+              <h2 className="section-title light">Healthcare You Can Trust</h2>
               <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', marginBottom: '32px', fontWeight: 300 }}>
-                A multi-speciality clinic in Sitamarhi focused on painless procedures, modern technology, and care for every member of the family.
+                A general medicine clinic in Sitamarhi focused on careful diagnosis, skilled surgical care, and attention for every member of the family.
               </p>
               <Link to="/contact"><button className="btn-primary">Book an Appointment</button></Link>
             </div>
@@ -598,11 +596,11 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0' }}>
             {[
-              { num: '01', title: 'Initial Consultation', desc: 'A thorough check-up and discussion of your dental concerns and goals.' },
-              { num: '02', title: 'Diagnosis', desc: 'Careful examination, and X-rays where needed, to pinpoint the exact issue.' },
-              { num: '03', title: 'Treatment Plan', desc: 'A clear, personalised plan — procedures, timeline, and what to expect.' },
-              { num: '04', title: 'Treatment', desc: 'Painless, precise procedures using modern equipment and techniques.' },
-              { num: '05', title: 'Follow-Up Care', desc: 'Check-ins and guidance to keep your smile healthy long after treatment.' },
+              { num: '01', title: 'Initial Consultation', desc: 'A thorough check-up and discussion of your symptoms and health concerns.' },
+              { num: '02', title: 'Diagnosis', desc: 'Careful examination, and lab tests where needed, to pinpoint the exact issue.' },
+              { num: '03', title: 'Treatment Plan', desc: 'A clear, personalised plan — medication or procedure, timeline, and what to expect.' },
+              { num: '04', title: 'Treatment', desc: 'Careful, precise treatment or minor surgery, delivered safely and comfortably.' },
+              { num: '05', title: 'Follow-Up Care', desc: 'Check-ins and guidance to keep you healthy long after treatment.' },
             ].map((step, i) => (
               <div key={i} style={{
                 padding: '36px 28px',
@@ -626,10 +624,10 @@ export default function Home() {
       <section style={{ background: 'var(--gold)', padding: '80px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 600, color: 'var(--navy-800)', marginBottom: '16px' }}>
-            Don't Wait to Achieve the Smile You Deserve
+            Don't Wait — Your Health Comes First
           </h2>
           <p style={{ fontSize: '15px', color: 'rgba(15, 33, 56,0.7)', marginBottom: '36px', maxWidth: '520px', margin: '0 auto 36px', lineHeight: '1.8' }}>
-            Book a check-up today and let our team find the right treatment plan for you.
+            Book a check-up today and let Dr. Mahto find the right treatment plan for you.
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact">
@@ -654,10 +652,10 @@ export default function Home() {
             <div className="gold-line center" />
             <h2 className="section-title light">Our Clinic, Up Close</h2>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', maxWidth: '480px', margin: '0 auto', lineHeight: '1.85', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
-              Move your cursor over the image for a closer look at Usha Multi Speciality Dental Clinic.
+              Move your cursor over the image for a closer look at Mahto Clinic.
             </p>
           </div>
-          <Tilt3D image="/clinic-banner-2.png" alt="Usha Multi Speciality Dental Clinic" />
+          <Tilt3D image="/clinic-showcase.svg" alt="Mahto Clinic" />
           <div className="mobile-book-cta-wrap" style={{ padding: '32px 0 0', background: 'transparent', textAlign: 'center' }}>
             <Link to="/contact"><button className="btn-primary">Book an Appointment</button></Link>
           </div>

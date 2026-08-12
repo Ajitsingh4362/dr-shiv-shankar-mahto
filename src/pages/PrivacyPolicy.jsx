@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
       <section style={{ padding: '70px 0' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
           <Section title="1. Introduction">
-            <p>Usha Multi Speciality Dental Clinic ("we", "us", "our"), located in Sitamarhi, Bihar, is committed to protecting the privacy of visitors to our website and patients who use our services. This Privacy Policy explains what information we collect, how we use it, and the choices you have.</p>
+            <p>Mahto Clinic ("we", "us", "our"), located in Sitamarhi, Bihar, is committed to protecting the privacy of visitors to our website and patients who use our services. This Privacy Policy explains what information we collect, how we use it, and the choices you have.</p>
           </Section>
 
           <Section title="2. Information We Collect">
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
             <ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
               <li>Contact details — name, phone number, email address</li>
               <li>Appointment details — preferred service, date, time, and any message you share with us</li>
-              <li>Medical and dental history shared during consultations, for the purpose of providing treatment</li>
+              <li>Medical history shared during consultations, for the purpose of providing treatment</li>
               <li>Payment information processed through our payment gateway partner (Razorpay). We do not store your card, UPI, or bank details on our servers</li>
               <li>Basic technical information such as browser type and device, collected automatically when you visit our website</li>
             </ul>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
             <p>We use the information we collect to:</p>
             <ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
               <li>Schedule, confirm, and manage your appointments</li>
-              <li>Provide dental treatment and maintain accurate medical records</li>
+              <li>Provide medical treatment and maintain accurate medical records</li>
               <li>Send appointment confirmations, reminders, and follow-up communication via call, SMS, or WhatsApp</li>
               <li>Process payments securely through Razorpay</li>
               <li>Respond to your queries and improve our services</li>
@@ -76,8 +76,8 @@ export default function PrivacyPolicy() {
           <Section title="9. Contact Us">
             <p>For any questions about this Privacy Policy or how your information is handled, please contact us:</p>
             <p style={{ marginTop: '10px' }}>
-              Usha Multi Speciality Dental Clinic<br />
-              Near Bhawdepur Chowk, Shiv Mandir, Mata Vaishno Mandir Road, Bhavdepur, Sitamarhi - 843302, Bihar<br />
+              Mahto Clinic<br />
+              Near V Mart, Hotel Minitaj Road, Sitamarhi–Dumra Road, Sitamarhi - 843302, Bihar<br />
               Phone/WhatsApp: +91 89873 67274
             </p>
           </Section>

@@ -40,7 +40,7 @@ export default function Navbar() {
                   letterSpacing: '1px', fontFamily: 'var(--font-body)', fontWeight: 600,
                   padding: '0 28px',
                 }}>
-                  ✦ Usha Multi Speciality Dental Clinic — Book Your Appointment Today — Call +91 89873 67274
+                  ✦ Mahto Clinic — Book Your Appointment Today — Call +91 89873 67274
                 </span>
               ))}
             </div>
@@ -66,8 +66,8 @@ export default function Navbar() {
           {/* Logo Only — No Text */}
           <NavLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img
-              src="/usha-dental-logo.png"
-              alt="Usha Multi Speciality Dental Clinic"
+              src="/clinic-logo.svg"
+              alt="Mahto Clinic"
               style={{
                 height: scrolled ? '62px' : '76px',
                 width: 'auto',
@@ -128,8 +128,8 @@ export default function Navbar() {
       }}>
         {/* Mobile Logo */}
         <img
-          src="/usha-dental-logo.png"
-          alt="Usha Multi Speciality Dental Clinic"
+          src="/clinic-logo.svg"
+          alt="Mahto Clinic"
           style={{ height: '80px', width: 'auto', marginBottom: '8px' }}
         />
 

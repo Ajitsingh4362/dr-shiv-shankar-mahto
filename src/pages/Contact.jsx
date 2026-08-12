@@ -6,8 +6,8 @@ const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
 const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
 const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
 const WHATSAPP = '918987367274'
-const WHATSAPP_API = 'https://dr-suresh-whatsapp.onrender.com'
-const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.ushadental.com*'
+const WHATSAPP_API = 'https://mahto-clinic-whatsapp.onrender.com' // TODO: apna deployed WhatsApp notifier URL daal dena
+const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.mahtoclinic.com*'
 
 function cleanPhone(phone) {
   let p = (phone || '').replace(/[^\d]/g, '')
@@ -19,14 +19,14 @@ function cleanPhone(phone) {
 const RAZORPAY_KEY = 'rzp_test_XXXXXXXXXXXXXXXX'
 
 const PROGRAMS = [
-  'Root Canal Treatment (RCT)',
-  'Cosmetic Dentistry / Smile Makeover',
-  'Dental Implants',
-  'Orthodontics (Braces)',
-  'Pediatric Dentistry',
-  'Emergency Dental Care',
-  'Teeth Cleaning & General Check-up',
   'General Consultation',
+  'General & Minor Surgery',
+  'Fever & Infections',
+  'Diabetes & Hypertension',
+  'Vaccination',
+  'Emergency Care',
+  'Preventive Health Checkup',
+  'Child & Family Care',
 ]
 
 const OPD_TIMINGS = [
@@ -61,9 +61,9 @@ export default function Contact() {
       key: RAZORPAY_KEY,
       amount: 50000, // ₹500 in paise — doctor se confirm karke change karna
       currency: 'INR',
-      name: 'Usha Multi Speciality Dental Clinic',
+      name: 'Mahto Clinic',
       description: form.program || 'Consultation Fee',
-      image: '/usha-dental-logo.png',
+      image: '/clinic-logo.svg',
       prefill: {
         name: form.name,
         email: form.email,
@@ -113,7 +113,7 @@ export default function Contact() {
 
     // Patient ko turant ek WhatsApp confirmation-of-request bhejo (best-effort)
     if (form.phone) {
-      const welcomeMsg = `Hi ${form.name}, thank you for reaching out to Usha Multi Speciality Dental Clinic! We've received your appointment request${form.program ? ` for ${form.program}` : ''}. Our team will review it and you'll get another WhatsApp message here as soon as it's confirmed. \ud83e\uddf7${WHATSAPP_FOOTER}`
+      const welcomeMsg = `Hi ${form.name}, thank you for reaching out to Mahto Clinic! We've received your appointment request${form.program ? ` for ${form.program}` : ''}. Our team will review it and you'll get another WhatsApp message here as soon as it's confirmed. \ud83e\uddf7${WHATSAPP_FOOTER}`
       fetch(`${WHATSAPP_API}/notify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -158,7 +158,7 @@ export default function Contact() {
             Book Your Appointment
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', maxWidth: '520px', lineHeight: '1.85', fontWeight: 300 }}>
-            Don't wait to achieve the healthy, beautiful smile you deserve — book your visit at your convenience.
+            Don't wait to get the care you deserve — book your visit at your convenience.
           </p>
         </div>
       </section>
@@ -173,13 +173,13 @@ export default function Contact() {
               <span className="section-tag">Contact Details</span>
               <div className="gold-line" />
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', color: 'var(--navy-800)', marginBottom: '32px' }}>
-                Usha Multi Speciality Dental Clinic
+                Mahto Clinic
               </h2>
 
               {[
-                { icon: '📍', title: 'Clinic Address', desc: 'Near Bhawdepur Chowk, Shiv Mandir,\nMata Vaishno Mandir Road, Bhavdepur,\nSitamarhi – 843302, Bihar' },
+                { icon: '📍', title: 'Clinic Address', desc: 'Near V Mart, Hotel Minitaj Road,\nSitamarhi–Dumra Road,\nSitamarhi – 843302, Bihar' },
                 { icon: '📞', title: 'Phone & WhatsApp', desc: '+91 89873 67274' },
-                { icon: '✉️', title: 'Email', desc: 'ushadentalclinic@gmail.com' },
+                { icon: '✉️', title: 'Email', desc: 'mahtoclinic.care@gmail.com' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(15, 33, 56,0.08)', alignItems: 'flex-start' }}>
                   <div style={{ width: '44px', height: '44px', background: 'var(--navy-800)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', flexShrink: 0, borderRadius: '2px' }}>{item.icon}</div>
@@ -190,7 +190,7 @@ export default function Contact() {
                 </div>
               ))}
 
-              <a href={'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent("Hello, I'd like to book an appointment at Usha Multi Speciality Dental Clinic.")}
+              <a href={'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent("Hello, I'd like to book an appointment at Mahto Clinic.")}
                 target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginTop: '28px', background: '#25D366', color: '#fff', padding: '13px 24px', borderRadius: '2px', fontSize: '13px', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.5px', textTransform: 'uppercase', boxShadow: '0 4px 16px rgba(37,211,102,0.3)', transition: 'var(--transition)' }}
                 onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
@@ -202,9 +202,9 @@ export default function Contact() {
               {/* Map */}
               <div style={{ marginTop: '32px', borderRadius: '2px', overflow: 'hidden', border: '1px solid rgba(15, 33, 56,0.1)', height: '220px' }}>
                 <iframe
-                  src="https://maps.google.com/maps?q=Usha%20Multi%20Speciality%20Dental%20Clinic%2C%20Bhavdepur%2C%20Sitamarhi%2C%20Bihar%20843302&output=embed"
+                  src="https://maps.google.com/maps?q=Mahto%20Clinic%2C%20Sitamarhi%20Dumra%20Road%2C%20Sitamarhi%2C%20Bihar%20843302&output=embed"
                   width="100%" height="220" style={{ border: 0 }} allowFullScreen="" loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade" title="Usha Multi Speciality Dental Clinic Location" />
+                  referrerPolicy="no-referrer-when-downgrade" title="Mahto Clinic Location" />
               </div>
             </div>
 
@@ -270,16 +270,16 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Treatment Interested In</label>
+                  <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Service Interested In</label>
                   <select name="program" value={form.program} onChange={handleChange} style={{ ...inp, cursor: 'pointer' }}>
-                    <option value="" style={{ background: '#0F2744' }}>Select a treatment...</option>
+                    <option value="" style={{ background: '#0F2744' }}>Select a service...</option>
                     {PROGRAMS.map(p => <option key={p} value={p} style={{ background: '#0F2744' }}>{p}</option>)}
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Dental Concern *</label>
-                  <input name="concern" value={form.concern} onChange={handleChange} placeholder="Brief description of your dental concern" style={inp}
+                  <label style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>Health Concern *</label>
+                  <input name="concern" value={form.concern} onChange={handleChange} placeholder="Brief description of your health concern" style={inp}
                     onFocus={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.6)'}
                     onBlur={e => e.target.style.borderColor = 'rgba(13, 148, 136,0.2)'} />
                 </div>
@@ -366,7 +366,7 @@ export default function Contact() {
                 )}
                 {status === 'error' && (
                   <div style={{ background: 'rgba(180,60,40,0.15)', border: '1px solid rgba(180,60,40,0.3)', borderRadius: '2px', padding: '16px', fontSize: '13px', color: '#f0907a' }}>
-                    ⚠️ Please fill Name, Phone, and Dental Concern — these are required.
+                    ⚠️ Please fill Name, Phone, and Health Concern — these are required.
                   </div>
                 )}
 

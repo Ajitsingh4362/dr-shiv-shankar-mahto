@@ -5,5 +5,5 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJ
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-export const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'UshaDental@2026'
+export const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'MahtoClinic@2026'
 export const ADMIN_PHONE = (import.meta.env.VITE_ADMIN_PHONE || '918987367274').replace(/[^\d]/g, '')

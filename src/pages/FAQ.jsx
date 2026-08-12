@@ -8,14 +8,14 @@ const CAT_COLORS = {
 }
 
 const DEFAULT_FAQS = [
-  { id: 'd1', category: 'General', question: 'What services does Usha Multi Speciality Dental Clinic offer?', answer: 'We offer general dentistry, cosmetic dentistry, orthodontics (braces), dental implants, root canal treatment, pediatric dentistry, and emergency dental care — all under one roof.', visible: true },
-  { id: 'd2', category: 'Treatments', question: 'Is root canal treatment painful?', answer: 'Not with modern techniques. We use proper anaesthesia and pain management, so most patients feel little to no discomfort during the procedure.', visible: true },
-  { id: 'd3', category: 'Treatments', question: 'How long does a dental implant last?', answer: 'With good oral hygiene and regular check-ups, dental implants can last many years — often decades — making them a reliable long-term solution for missing teeth.', visible: true },
+  { id: 'd1', category: 'General', question: 'What services does Mahto Clinic offer?', answer: 'We offer general consultation, minor surgery, treatment for fever and infections, diabetes and hypertension management, vaccination, and emergency care — all under one roof.', visible: true },
+  { id: 'd2', category: 'Treatments', question: 'Is minor surgery done at the clinic painful?', answer: 'Not with proper care. We use appropriate anaesthesia and pain management, so most patients feel little to no discomfort during minor procedures.', visible: true },
+  { id: 'd3', category: 'Treatments', question: 'How do you manage chronic conditions like diabetes?', answer: 'We provide regular monitoring, medication management, and lifestyle guidance, adjusting your treatment plan over time to keep your condition well controlled.', visible: true },
   { id: 'd4', category: 'Appointments', question: 'How do I book an appointment?', answer: 'You can call or WhatsApp us at +91 89873 67274, or fill out the appointment form on our Contact page. Our team will confirm your slot within 24 hours.', visible: true },
   { id: 'd5', category: 'Appointments', question: 'What are your clinic timings?', answer: 'We are open Monday to Saturday, with morning and evening slots. Sundays are for emergencies only. Exact timings are listed on our Contact page.', visible: true },
-  { id: 'd6', category: 'Children', question: 'Do you treat children?', answer: 'Yes, we offer gentle, child-friendly dental care — from routine check-ups and cavity prevention to early orthodontic screening.', visible: true },
-  { id: 'd7', category: 'Emergency', question: 'What should I do for a dental emergency?', answer: 'Call us right away at +91 89873 67274. We accommodate emergency appointments for severe pain, broken teeth, or injuries whenever possible.', visible: true },
-  { id: 'd8', category: 'Treatments', question: 'Do you offer teeth whitening and smile makeovers?', answer: 'Yes, our cosmetic dentistry services include professional teeth whitening, veneers, bonding, and complete smile makeovers tailored to your goals.', visible: true },
+  { id: 'd6', category: 'Children', question: 'Do you treat children?', answer: 'Yes, we offer gentle, child-friendly care — from routine check-ups and vaccination to treatment for common childhood illnesses.', visible: true },
+  { id: 'd7', category: 'Emergency', question: 'What should I do for a medical emergency?', answer: 'Call us right away at +91 89873 67274. We accommodate emergency appointments for sudden illness, injuries, or urgent conditions whenever possible.', visible: true },
+  { id: 'd8', category: 'Treatments', question: 'Do you offer vaccination and preventive health checkups?', answer: 'Yes, we offer immunization for children and adults, along with preventive health checkups to catch issues early.', visible: true },
 ]
 
 function FAQItem({ faq, index }) {
@@ -115,7 +115,7 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', maxWidth: '520px', lineHeight: 1.85, fontFamily: 'var(--font-body)', fontWeight: 300, margin: '0 0 32px' }}>
-            Everything you need to know about our treatments, appointments, and clinic policies.
+            Everything you need to know about our services, appointments, and clinic policies.
           </p>
           <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', background: 'var(--gold)', color: 'var(--navy-800)', borderRadius: '2px', fontSize: '12px', fontWeight: 600, fontFamily: 'var(--font-body)', textDecoration: 'none', letterSpacing: '1px', textTransform: 'uppercase' }}>
             Still have questions? Book a consultation →

@@ -5,7 +5,7 @@ import { supabase } from '../../lib/supabase'
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const TIME_SLOTS = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM']
-const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.ushadental.com*'
+const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.mahtoclinic.com*'
 
 const STATUS_COLORS = {
   confirmed: { bg: 'rgba(30,111,106,0.15)', border: '#1e6f6a', text: '#1e6f6a', dot: '#1e6f6a' },

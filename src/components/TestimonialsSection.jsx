@@ -2,11 +2,11 @@ import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 
 const DEFAULT_TESTIMONIALS = [
-  { id: 't1', name: 'Ravi Kumar', rating: 5, program: 'Root Canal Treatment', location: 'Sitamarhi', avatar_color: '#1e6f6a', photo_url: null, review: 'I was scared of RCT but it was completely painless. The staff explained everything and I felt comfortable throughout. Highly recommend Usha Dental Clinic.' },
-  { id: 't2', name: 'Priya Singh', rating: 5, program: 'Smile Makeover', location: 'Sitamarhi', avatar_color: '#4a3d8f', photo_url: null, review: 'Got my teeth whitening and bonding done here. The results look so natural and everyone at the clinic is very friendly and professional.' },
-  { id: 't3', name: 'Anil Jha', rating: 5, program: 'Dental Implant', location: 'Sitamarhi', avatar_color: '#b9914f', photo_url: null, review: 'Excellent experience with my dental implant. Modern equipment, clean clinic, and the doctors took the time to explain the entire process.' },
-  { id: 't4', name: 'Sunita Devi', rating: 5, program: "Child's First Check-up", location: 'Sitamarhi', avatar_color: '#8f3d3d', photo_url: null, review: 'My daughter was nervous about her first dental visit, but the team was so gentle and patient with her. Now she actually looks forward to check-ups!' },
-  { id: 't5', name: 'Manoj Thakur', rating: 5, program: 'Braces / Orthodontics', location: 'Sitamarhi', avatar_color: '#6b8f3d', photo_url: null, review: 'Started my orthodontic treatment a few months ago and I am already seeing great progress. The clinic is well-equipped and staff is very supportive.' },
+  { id: 't1', name: 'Ravi Kumar', rating: 5, program: 'General Consultation', location: 'Sitamarhi', avatar_color: '#1e6f6a', photo_url: null, review: 'I was worried about my recurring fever but the diagnosis was quick and accurate. The staff explained everything and I felt comfortable throughout. Highly recommend Mahto Clinic.' },
+  { id: 't2', name: 'Priya Singh', rating: 5, program: 'Minor Surgery', location: 'Sitamarhi', avatar_color: '#4a3d8f', photo_url: null, review: 'Got a minor surgical procedure done here. Everything was clean, safe, and the doctor took the time to explain the entire process.' },
+  { id: 't3', name: 'Anil Jha', rating: 5, program: 'Diabetes Management', location: 'Sitamarhi', avatar_color: '#b9914f', photo_url: null, review: 'Excellent experience managing my diabetes here. Well-equipped clinic, and the doctor took the time to explain my treatment plan clearly.' },
+  { id: 't4', name: 'Sunita Devi', rating: 5, program: "Child's Vaccination", location: 'Sitamarhi', avatar_color: '#8f3d3d', photo_url: null, review: 'My daughter was nervous about her vaccination, but the team was so gentle and patient with her. Now she isn\'t scared of visits anymore!' },
+  { id: 't5', name: 'Manoj Thakur', rating: 5, program: 'Hypertension Care', location: 'Sitamarhi', avatar_color: '#6b8f3d', photo_url: null, review: 'Started my blood pressure treatment a few months ago and I am already seeing great progress. The clinic is well-equipped and staff is very supportive.' },
 ]
 
 function initials(name) {
@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
             <span style={{ fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2.5px', textTransform: 'uppercase' }}>Patient Stories</span>
             <div style={{ width: '32px', height: '1px', background: 'var(--gold)' }} />
           </div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 44px)', color: 'var(--gold-pale)', fontWeight: 600, margin: '0 0 12px', letterSpacing: '0.02em' }}>Real Patients. Real Smiles.</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 44px)', color: 'var(--gold-pale)', fontWeight: 600, margin: '0 0 12px', letterSpacing: '0.02em' }}>Real Patients. Real Recoveries.</h2>
           <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-body)', fontWeight: 300 }}>Rated 4.9/5 by our patients in Sitamarhi.</p>
         </div>
 

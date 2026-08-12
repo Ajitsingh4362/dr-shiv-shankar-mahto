@@ -20,7 +20,7 @@ import AdminDevices, { recordSession, checkRevoked } from './admin/AdminDevices'
 
 // Same Render-hosted Baileys service used by the WhatsApp admin tab
 const WHATSAPP_API = 'https://dr-suresh-whatsapp.onrender.com'
-const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.ushadental.com*'
+const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.mahtoclinic.com*'
 
 function AdminHeader() {
   const [pending, setPending] = useState([])
@@ -109,11 +109,11 @@ function AdminHeader() {
     const dateStr = new Date(f.follow_up_date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long' })
 
     let line
-    if (daysAway <= 0) line = `Today is your follow-up date with Dr. Shiv Shankar Mahto at Usha Multi Speciality Dental Clinic.`
+    if (daysAway <= 0) line = `Today is your follow-up date with Dr. Shiv Shankar Mahto at Mahto Clinic.`
     else if (daysAway === 1) line = `This is a reminder that your follow-up with Dr. Shiv Shankar Mahto is tomorrow, ${dateStr}.`
     else line = `This is a reminder that your follow-up with Dr. Shiv Shankar Mahto is scheduled on ${dateStr}.`
 
-    const msg = encodeURIComponent(`Hi ${f.patients.name}, this is Usha Multi Speciality Dental Clinic. ${line} Please let us know if this works for you, or if you'd like to reschedule. 🦷${WHATSAPP_FOOTER}`)
+    const msg = encodeURIComponent(`Hi ${f.patients.name}, this is Mahto Clinic. ${line} Please let us know if this works for you, or if you'd like to reschedule. 🦷${WHATSAPP_FOOTER}`)
     window.open(`https://wa.me/${cleanPhone(f.patients.phone)}?text=${msg}`, '_blank')
     // Remove from today's list, but it comes back tomorrow if the follow-up date hasn't passed yet
     setFollowUps(prev => prev.filter(x => x.id !== f.id))
@@ -299,7 +299,7 @@ function AdminHeader() {
 
 export default function Admin() {
   const [authed, setAuthed] = useState(false)
-  const [email, setEmail] = useState('admin@ushamultispecialitydentalclinic.com')
+  const [email, setEmail] = useState('admin@mahtoclinic.com')
   const [pw, setPw] = useState('')
   const [error, setError] = useState('')
   const [loggingIn, setLoggingIn] = useState(false)
@@ -377,8 +377,8 @@ export default function Admin() {
     return (
       <div className="admin-login">
         <div className="admin-login-box">
-          <img src="/usha-dental-logo.png" alt="Usha Multi Speciality Dental Clinic" style={{ height: '70px', width: 'auto', display: 'block', margin: '0 auto 12px' }} />
-          <p className="admin-login-logo">Usha Multi Speciality Dental Clinic</p>
+          <img src="/clinic-logo.png" alt="Mahto Clinic" style={{ height: '70px', width: 'auto', display: 'block', margin: '0 auto 12px' }} />
+          <p className="admin-login-logo">Mahto Clinic</p>
           <h2>Admin Login</h2>
           <input
             type="email"
@@ -451,8 +451,8 @@ export default function Admin() {
 
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <Link to="/admin" className="admin-sidebar-brand" onClick={() => setSidebarOpen(false)}>
-          <img src="/usha-dental-logo.png" alt="Usha Multi Speciality Dental Clinic" className="admin-sidebar-logo-img" />
-          <p className="admin-sidebar-logo">Usha Multi Speciality Dental Clinic</p>
+          <img src="/clinic-logo.png" alt="Mahto Clinic" className="admin-sidebar-logo-img" />
+          <p className="admin-sidebar-logo">Mahto Clinic</p>
         </Link>
         <nav className="admin-nav">
           {navGroups.map(group => (

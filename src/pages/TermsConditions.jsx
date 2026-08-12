@@ -28,7 +28,7 @@ export default function TermsConditions() {
       <section style={{ padding: '70px 0' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
           <Section title="1. Acceptance of Terms">
-            <p>By accessing or using the Usha Multi Speciality Dental Clinic website, or by booking an appointment or availing our services, you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our website or services.</p>
+            <p>By accessing or using the Mahto Clinic website, or by booking an appointment or availing our services, you agree to be bound by these Terms & Conditions. If you do not agree, please do not use our website or services.</p>
           </Section>
 
           <Section title="2. Appointments & Services">
@@ -36,11 +36,11 @@ export default function TermsConditions() {
           </Section>
 
           <Section title="3. Accuracy of Information">
-            <p>You agree to provide accurate and complete information, including medical and dental history, when booking an appointment or during consultation. Inaccurate information may affect the quality and safety of the treatment provided.</p>
+            <p>You agree to provide accurate and complete information, including your medical history, when booking an appointment or during consultation. Inaccurate information may affect the quality and safety of the treatment provided.</p>
           </Section>
 
           <Section title="4. Not a Substitute for In-Person Diagnosis">
-            <p>Content on this website, including descriptions of treatments and services, is provided for general informational purposes only and does not constitute medical advice. Any dental condition should be evaluated in person by Dr. Shiv Shankar Mahto or Dr. Preeti Rajguru before treatment.</p>
+            <p>Content on this website, including descriptions of treatments and services, is provided for general informational purposes only and does not constitute medical advice. Any medical condition should be evaluated in person by Dr. Shiv Shankar Mahto before treatment.</p>
           </Section>
 
           <Section title="5. Payments">
@@ -52,11 +52,11 @@ export default function TermsConditions() {
           </Section>
 
           <Section title="7. Intellectual Property">
-            <p>All content on this website — including text, images, and logos — is the property of Usha Multi Speciality Dental Clinic unless otherwise stated, and may not be reproduced without prior written permission.</p>
+            <p>All content on this website — including text, images, and logos — is the property of Mahto Clinic unless otherwise stated, and may not be reproduced without prior written permission.</p>
           </Section>
 
           <Section title="8. Limitation of Liability">
-            <p>While we strive to provide accurate information and quality care, Usha Multi Speciality Dental Clinic shall not be liable for any indirect or incidental damages arising from the use of this website, to the extent permitted by applicable law.</p>
+            <p>While we strive to provide accurate information and quality care, Mahto Clinic shall not be liable for any indirect or incidental damages arising from the use of this website, to the extent permitted by applicable law.</p>
           </Section>
 
           <Section title="9. Governing Law">
@@ -69,8 +69,8 @@ export default function TermsConditions() {
 
           <Section title="11. Contact Us">
             <p>
-              Usha Multi Speciality Dental Clinic<br />
-              Near Bhawdepur Chowk, Shiv Mandir, Mata Vaishno Mandir Road, Bhavdepur, Sitamarhi - 843302, Bihar<br />
+              Mahto Clinic<br />
+              Near V Mart, Hotel Minitaj Road, Sitamarhi–Dumra Road, Sitamarhi - 843302, Bihar<br />
               Phone/WhatsApp: +91 89873 67274
             </p>
           </Section>

@@ -41,7 +41,7 @@ const { useSupabaseAuthState } = require('./supabaseAuthState')
 const PORT = process.env.PORT || 3001
 // Appended to the two automatic cron-sent reminders below — matches the
 // same footer the admin panel adds to every message it sends directly.
-const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.ushadental.com*'
+const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.mahtoclinic.com*'
 let sock = null
 let clearAuthState = null // set once useSupabaseAuthState() resolves
 let isReady = false
@@ -292,11 +292,11 @@ async function checkFollowUpsAndNotify() {
     const dateStr = new Date(row.follow_up_date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long' })
 
     let line
-    if (daysAway <= 0) line = `Today is your follow-up date with Dr. Suresh Kumar at Usha Multi Speciality Dental Clinic.`
-    else if (daysAway === 1) line = `This is a reminder that your follow-up with Dr. Suresh Kumar is tomorrow, ${dateStr}.`
-    else line = `This is a reminder that your follow-up with Dr. Suresh Kumar is scheduled on ${dateStr}.`
+    if (daysAway <= 0) line = `Today is your follow-up date with Dr. Shiv Shankar Mahto at Mahto Clinic.`
+    else if (daysAway === 1) line = `This is a reminder that your follow-up with Dr. Shiv Shankar Mahto is tomorrow, ${dateStr}.`
+    else line = `This is a reminder that your follow-up with Dr. Shiv Shankar Mahto is scheduled on ${dateStr}.`
 
-    const msg = `Hi ${patient.name}, this is Usha Multi Speciality Dental Clinic. ${line} Please let us know if this works for you, or if you'd like to reschedule.${WHATSAPP_FOOTER}`
+    const msg = `Hi ${patient.name}, this is Mahto Clinic. ${line} Please let us know if this works for you, or if you'd like to reschedule.${WHATSAPP_FOOTER}`
 
     try {
       await sendWhatsAppMessage(cleanPhone(patient.phone), msg)
@@ -348,7 +348,7 @@ async function checkAppointmentRemindersAndNotify() {
   for (const appt of appts) {
     if (!appt.phone) continue
     const timeStr = appt.preferred_time ? ` at ${appt.preferred_time}` : ''
-    const msg = `Hi ${appt.name}, this is a reminder from Usha Multi Speciality Dental Clinic \u2014 your appointment with Dr. Suresh Kumar for ${appt.service || 'your consultation'} is tomorrow${timeStr}. See you soon!${WHATSAPP_FOOTER}`
+    const msg = `Hi ${appt.name}, this is a reminder from Mahto Clinic \u2014 your appointment with Dr. Shiv Shankar Mahto for ${appt.service || 'your consultation'} is tomorrow${timeStr}. See you soon!${WHATSAPP_FOOTER}`
 
     try {
       await sendWhatsAppMessage(cleanPhone(appt.phone), msg)
@@ -400,7 +400,7 @@ async function checkBirthdaysAndNotify() {
   let sentCount = 0
   for (const patient of birthdays) {
     if (!patient.phone) continue
-    const msg = `Hi ${patient.name}, wishing you a very Happy Birthday from all of us at Usha Multi Speciality Dental Clinic! 🎂 May you have a wonderful year ahead filled with health and happy smiles. 🦷${WHATSAPP_FOOTER}`
+    const msg = `Hi ${patient.name}, wishing you a very Happy Birthday from all of us at Mahto Clinic! 🎂 May you have a wonderful year ahead filled with health and happy smiles. 🦷${WHATSAPP_FOOTER}`
     try {
       await sendWhatsAppMessage(cleanPhone(patient.phone), msg)
       sentCount++
@@ -427,23 +427,23 @@ async function checkBirthdaysAndNotify() {
 // sources. When extending this list for a new year, verify dates against a
 // current Hindu panchang / Islamic calendar site rather than guessing.
 const FESTIVALS = [
-  { month: 1, day: 1, name: 'New Year', message: (n) => `Hi ${n}, Usha Multi Speciality Dental Clinic wishes you a very Happy New Year! 🎉 May this year bring you good health and happy smiles.` },
-  { month: 1, day: 14, name: 'Makar Sankranti', message: (n) => `Hi ${n}, wishing you and your family a very Happy Makar Sankranti! 🪁 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { month: 1, day: 26, name: 'Republic Day', message: (n) => `Hi ${n}, wishing you a very Happy Republic Day! 🇮🇳 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { month: 8, day: 15, name: 'Independence Day', message: (n) => `Hi ${n}, wishing you a very Happy Independence Day! 🇮🇳 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { month: 12, day: 25, name: 'Christmas', message: (n) => `Hi ${n}, wishing you and your family a very Merry Christmas! 🎄 From all of us at Usha Multi Speciality Dental Clinic.` },
+  { month: 1, day: 1, name: 'New Year', message: (n) => `Hi ${n}, Mahto Clinic wishes you a very Happy New Year! 🎉 May this year bring you good health and happy smiles.` },
+  { month: 1, day: 14, name: 'Makar Sankranti', message: (n) => `Hi ${n}, wishing you and your family a very Happy Makar Sankranti! 🪁 From all of us at Mahto Clinic.` },
+  { month: 1, day: 26, name: 'Republic Day', message: (n) => `Hi ${n}, wishing you a very Happy Republic Day! 🇮🇳 From all of us at Mahto Clinic.` },
+  { month: 8, day: 15, name: 'Independence Day', message: (n) => `Hi ${n}, wishing you a very Happy Independence Day! 🇮🇳 From all of us at Mahto Clinic.` },
+  { month: 12, day: 25, name: 'Christmas', message: (n) => `Hi ${n}, wishing you and your family a very Merry Christmas! 🎄 From all of us at Mahto Clinic.` },
 
   // 2026-specific (lunar/lunisolar) — will need next year's dates added for 2027
-  { year: 2026, month: 8, day: 26, name: 'Eid-e-Milad', message: (n) => `Hi ${n}, wishing you and your family a blessed Eid-e-Milad! 🌙 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 8, day: 28, name: 'Raksha Bandhan', message: (n) => `Hi ${n}, wishing you and your family a very Happy Raksha Bandhan! 🎀 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 9, day: 4, name: 'Janmashtami', message: (n) => `Hi ${n}, wishing you and your family a very Happy Janmashtami! 🦚 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 9, day: 14, name: 'Ganesh Chaturthi', message: (n) => `Hi ${n}, wishing you and your family a very Happy Ganesh Chaturthi! 🐘 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 10, day: 20, name: 'Dussehra', message: (n) => `Hi ${n}, wishing you and your family a very Happy Dussehra! 🏹 From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 11, day: 8, name: 'Diwali', message: (n) => `Hi ${n}, wishing you and your family a very Happy Diwali! ✨🪔 May this festival of lights bring joy, prosperity, and good health to your home. From all of us at Usha Multi Speciality Dental Clinic.` },
-  { year: 2026, month: 11, day: 15, name: 'Chhath Puja', message: (n) => `Hi ${n}, wishing you and your family a blessed Chhath Puja! 🙏 May Chhathi Maiya bless your family with health and happiness. From all of us at Usha Multi Speciality Dental Clinic.` },
+  { year: 2026, month: 8, day: 26, name: 'Eid-e-Milad', message: (n) => `Hi ${n}, wishing you and your family a blessed Eid-e-Milad! 🌙 From all of us at Mahto Clinic.` },
+  { year: 2026, month: 8, day: 28, name: 'Raksha Bandhan', message: (n) => `Hi ${n}, wishing you and your family a very Happy Raksha Bandhan! 🎀 From all of us at Mahto Clinic.` },
+  { year: 2026, month: 9, day: 4, name: 'Janmashtami', message: (n) => `Hi ${n}, wishing you and your family a very Happy Janmashtami! 🦚 From all of us at Mahto Clinic.` },
+  { year: 2026, month: 9, day: 14, name: 'Ganesh Chaturthi', message: (n) => `Hi ${n}, wishing you and your family a very Happy Ganesh Chaturthi! 🐘 From all of us at Mahto Clinic.` },
+  { year: 2026, month: 10, day: 20, name: 'Dussehra', message: (n) => `Hi ${n}, wishing you and your family a very Happy Dussehra! 🏹 From all of us at Mahto Clinic.` },
+  { year: 2026, month: 11, day: 8, name: 'Diwali', message: (n) => `Hi ${n}, wishing you and your family a very Happy Diwali! ✨🪔 May this festival of lights bring joy, prosperity, and good health to your home. From all of us at Mahto Clinic.` },
+  { year: 2026, month: 11, day: 15, name: 'Chhath Puja', message: (n) => `Hi ${n}, wishing you and your family a blessed Chhath Puja! 🙏 May Chhathi Maiya bless your family with health and happiness. From all of us at Mahto Clinic.` },
 
   // 2027 — predicted/approximate for the Islamic-calendar ones; Holi date is solid
-  { year: 2027, month: 3, day: 22, name: 'Holi', message: (n) => `Hi ${n}, wishing you and your family a very Happy Holi! 🌈 From all of us at Usha Multi Speciality Dental Clinic.` },
+  { year: 2027, month: 3, day: 22, name: 'Holi', message: (n) => `Hi ${n}, wishing you and your family a very Happy Holi! 🌈 From all of us at Mahto Clinic.` },
 ]
 
 async function checkFestivalsAndNotify() {

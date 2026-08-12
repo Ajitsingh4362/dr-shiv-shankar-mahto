@@ -1,7 +1,7 @@
 {
-  "name": "Usha Dental Admin",
-  "short_name": "Usha Admin",
-  "description": "Usha Multi Speciality Dental Clinic — Admin Dashboard",
+  "name": "Mahto Clinic Admin",
+  "short_name": "Mahto Admin",
+  "description": "Mahto Clinic — Admin Dashboard",
   "start_url": "/admin",
   "scope": "/",
   "id": "/admin",

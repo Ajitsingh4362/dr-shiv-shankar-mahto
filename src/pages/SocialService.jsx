@@ -15,7 +15,7 @@ export default function SocialService() {
             Social Service
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', maxWidth: '600px', lineHeight: '1.9', fontWeight: 300 }}>
-            Beyond the clinic, Usha Multi Speciality Dental Clinic believes in giving back to the community of Sitamarhi through dental health awareness and outreach.
+            Beyond the clinic, Mahto Clinic believes in giving back to the community of Sitamarhi through health awareness and outreach.
           </p>
         </div>
       </section>
@@ -25,9 +25,9 @@ export default function SocialService() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px', maxWidth: '960px', margin: '0 auto' }}>
             {[
-              { icon: '🦷', title: 'Free Dental Check-up Camps', desc: 'Periodic free check-up camps for underserved communities in and around Sitamarhi.' },
-              { icon: '🏫', title: 'School Oral Health Awareness', desc: 'Visits to local schools to teach children proper brushing habits and the basics of oral hygiene.' },
-              { icon: '🤝', title: 'Community Outreach', desc: 'Supporting local initiatives focused on health awareness and accessible dental care.' },
+              { icon: '🩺', title: 'Free Health Check-up Camps', desc: 'Periodic free check-up camps for underserved communities in and around Sitamarhi.' },
+              { icon: '🏫', title: 'School Health Awareness', desc: 'Visits to local schools to teach children basic hygiene and preventive health habits.' },
+              { icon: '🤝', title: 'Community Outreach', desc: 'Supporting local initiatives focused on health awareness and accessible healthcare.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 100}>
                 <div style={{ background: 'var(--white)', borderRadius: '8px', padding: '32px 26px', textAlign: 'center', border: '1px solid rgba(13, 148, 136,0.2)', height: '100%' }}>

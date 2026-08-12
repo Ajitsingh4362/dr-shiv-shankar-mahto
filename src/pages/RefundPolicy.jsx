@@ -28,7 +28,7 @@ export default function RefundPolicy() {
       <section style={{ padding: '70px 0' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
           <Section title="1. Overview">
-            <p>This policy explains how Usha Multi Speciality Dental Clinic handles cancellations, rescheduling, and refunds for appointments and treatments booked or paid for through our website or in person.</p>
+            <p>This policy explains how Mahto Clinic handles cancellations, rescheduling, and refunds for appointments and treatments booked or paid for through our website or in person.</p>
           </Section>
 
           <Section title="2. Appointment Cancellations">
@@ -45,7 +45,7 @@ export default function RefundPolicy() {
           </Section>
 
           <Section title="4. Non-Refundable Situations">
-            <p>Once a dental treatment or procedure has been fully carried out, the amount paid for that specific treatment is non-refundable, as the service has already been delivered.</p>
+            <p>Once a treatment or procedure has been fully carried out, the amount paid for that specific treatment is non-refundable, as the service has already been delivered.</p>
           </Section>
 
           <Section title="5. How to Request a Refund">
@@ -58,8 +58,8 @@ export default function RefundPolicy() {
 
           <Section title="7. Contact Us">
             <p>
-              Usha Multi Speciality Dental Clinic<br />
-              Near Bhawdepur Chowk, Shiv Mandir, Mata Vaishno Mandir Road, Bhavdepur, Sitamarhi - 843302, Bihar<br />
+              Mahto Clinic<br />
+              Near V Mart, Hotel Minitaj Road, Sitamarhi–Dumra Road, Sitamarhi - 843302, Bihar<br />
               Phone/WhatsApp: +91 89873 67274
             </p>
           </Section>

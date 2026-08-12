@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 const QUALS = [
-  { icon: '🎓', year: 'Foundation', title: 'BDS — Bachelor of Dental Surgery', sub: 'Core clinical training in dental medicine and surgery' },
-  { icon: '🦷', year: 'Clinical', title: 'General & Family Dentistry', sub: 'Routine care, fillings, extractions, and preventive dentistry' },
-  { icon: '😁', year: 'Advanced', title: 'Cosmetic & Restorative Dentistry', sub: 'Smile makeovers, veneers, crowns, and bridges' },
-  { icon: '📐', year: 'Advanced', title: 'Orthodontics & Implantology', sub: 'Braces, aligners, and dental implant procedures' },
-  { icon: '🧒', year: 'Specialised', title: 'Pediatric Dentistry', sub: 'Gentle, child-friendly dental care' },
+  { icon: '🎓', year: 'Foundation', title: 'MBBS — Bachelor of Medicine, Bachelor of Surgery', sub: 'Core clinical training in general medicine and surgery' },
+  { icon: '🩺', year: 'Clinical', title: 'General & Family Medicine', sub: 'Routine care, diagnosis, and preventive healthcare' },
+  { icon: '🔬', year: 'Advanced', title: 'General & Minor Surgery', sub: 'Skilled, precise surgical care for minor procedures' },
+  { icon: '❤️', year: 'Advanced', title: 'Chronic Disease Management', sub: 'Diabetes, hypertension, and long-term condition care' },
+  { icon: '💉', year: 'Specialised', title: 'Vaccination & Preventive Care', sub: 'Immunization and health screening for all ages' },
 ]
 
 export default function About() {
@@ -24,39 +24,32 @@ export default function About() {
             <span style={{ fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2.5px', textTransform: 'uppercase' }}>About</span>
           </div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(38px, 5vw, 68px)', color: 'var(--white)', fontWeight: 600, marginBottom: '20px' }}>
-            Dr. Shiv Shankar Mahto & Dr. Preeti Rajguru
+            Dr. Shiv Shankar Mahto
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--gold)', fontFamily: 'var(--font-display)', fontStyle: 'italic', marginBottom: '16px' }}>
-            Gentle, Modern Dental Care for the Whole Family.
+            Trusted, Modern Healthcare for the Whole Family.
           </p>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', maxWidth: '580px', lineHeight: '1.8', fontWeight: 300 }}>
-            Dr. Shiv Shankar Mahto and Dr. Preeti Rajguru (MDS) lead Usha Multi Speciality Dental Clinic, Sitamarhi.
+            Dr. Shiv Shankar Mahto (MBBS) leads Mahto Clinic, Sitamarhi.
           </p>
         </div>
       </section>
 
-      {/* Meet Our Doctors */}
+      {/* Meet the Doctor */}
       <section style={{ padding: '90px 0', background: 'var(--white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <span className="section-tag">Our Doctors</span>
+            <span className="section-tag">Your Doctor</span>
             <div className="gold-line center" />
-            <h2 className="section-title">Meet the Team</h2>
+            <h2 className="section-title">Meet Dr. Shiv Shankar Mahto</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '32px', maxWidth: '640px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '160px', height: '160px', borderRadius: '50%', margin: '0 auto 18px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
-                <img src="/dr-suresh-kumar.jpg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/doctor-avatar.svg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--navy-800)', fontWeight: 600 }}>Dr. Shiv Shankar Mahto</div>
-              <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>Consultant Implantologist</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '160px', height: '160px', borderRadius: '50%', margin: '0 auto 18px', overflow: 'hidden', border: '3px solid var(--gold)' }}>
-                <img src="/dr-preeti-rajguru.jpg" alt="Dr. Preeti Rajguru" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--navy-800)', fontWeight: 600 }}>Dr. Preeti Rajguru</div>
-              <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>MDS</div>
+              <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>MBBS · General Physician &amp; Surgeon</div>
             </div>
           </div>
         </div>
@@ -70,19 +63,19 @@ export default function About() {
             {/* Card */}
             <div style={{ background: 'var(--navy-800)', borderRadius: '2px', padding: '40px', border: '1px solid rgba(13, 148, 136,0.15)', position: 'sticky', top: '100px' }}>
               <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '2px solid rgba(13, 148, 136,0.3)' }}>
-                <img src="/dr-suresh-kumar.jpg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/doctor-avatar.svg" alt="Dr. Shiv Shankar Mahto" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ textAlign: 'center', marginBottom: '28px' }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--gold-pale)', fontWeight: 600 }}>Dr. Shiv Shankar Mahto</div>
-                <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '6px' }}>Usha Multi Speciality Dental Clinic</div>
+                <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '6px' }}>Mahto Clinic</div>
               </div>
               <div style={{ borderTop: '1px solid rgba(13, 148, 136,0.15)', paddingTop: '24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {[
-                  { label: 'Qualification', value: 'Consultant Implantologist' },
-                  { label: 'Established', value: '2010' },
+                  { label: 'Qualification', value: 'MBBS' },
+                  { label: 'Designation', value: 'General Physician & Surgeon' },
                   { label: 'Clinic', value: 'Sitamarhi, Bihar' },
-                  { label: 'Focus', value: 'Family & Cosmetic Dentistry' },
-                  { label: 'Specialization', value: 'Multi-Speciality Dental Care' },
+                  { label: 'Focus', value: 'Family & Surgical Care' },
+                  { label: 'Specialization', value: 'General Medicine' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '1px' }}>{item.label}</span>
@@ -100,27 +93,27 @@ export default function About() {
               <span className="section-tag">His Story</span>
               <div className="gold-line" />
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3vw, 40px)', color: 'var(--navy-800)', marginBottom: '24px', fontWeight: 600 }}>
-                Dedicated to Your Dental Health
+                Dedicated to Your Health
               </h2>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '20px' }}>
-                Dr. Shiv Shankar Mahto leads Usha Multi Speciality Dental Clinic in Sitamarhi, offering complete dental care under one roof — from routine check-ups to advanced procedures — with a focus on painless treatment and patient comfort.
+                Dr. Shiv Shankar Mahto leads Mahto Clinic in Sitamarhi, offering complete general healthcare under one roof — from routine check-ups to minor surgery — with a focus on careful diagnosis and patient comfort.
               </p>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '20px' }}>
-                The clinic is equipped with modern technology to ensure precise diagnosis and effective treatment, covering general dentistry, cosmetic dentistry, orthodontics, implantology, and pediatric dentistry.
+                The clinic is equipped to ensure precise diagnosis and effective treatment, covering general medicine, minor surgery, chronic disease management, vaccination, and emergency care.
               </p>
               <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.95', marginBottom: '36px' }}>
-                Dr. Shiv Shankar Mahto is committed to painless, patient-friendly dentistry — using modern equipment and techniques so every visit is as comfortable as possible.
+                Dr. Shiv Shankar Mahto is committed to patient-friendly healthcare — taking the time to listen, diagnose carefully, and treat every patient with attention and respect.
               </p>
 
               <div style={{ background: 'var(--navy-800)', borderLeft: '3px solid var(--gold)', padding: '24px 28px', marginBottom: '36px' }}>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--gold-pale)', fontStyle: 'italic', lineHeight: '1.6' }}>
-                  "Our patients are our priority — we offer quality dental care with a focus on pain-free procedures and long-term oral health."
+                  "Our patients are our priority — we offer quality medical and surgical care with a focus on accurate diagnosis and lasting health."
                 </p>
-                <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', marginTop: '12px', letterSpacing: '1px' }}>— DR. SURESH KUMAR</p>
+                <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', marginTop: '12px', letterSpacing: '1px' }}>— DR. SHIV SHANKAR MAHTO</p>
               </div>
 
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                {['General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Implantology', 'Pediatric Dentistry', 'Emergency Care', 'Root Canal Specialist', 'Family Dentistry'].map((tag, i) => (
+                {['General Medicine', 'Minor Surgery', 'Chronic Disease Care', 'Vaccination', 'Emergency Care', 'Preventive Checkups', 'Family Medicine', 'Diabetes & BP Management'].map((tag, i) => (
                   <span key={i} style={{ background: 'rgba(15, 33, 56,0.06)', border: '1px solid rgba(15, 33, 56,0.12)', color: 'var(--navy-800)', fontSize: '11px', padding: '5px 14px', borderRadius: '2px', fontWeight: 500, letterSpacing: '0.5px' }}>{tag}</span>
                 ))}
               </div>
@@ -135,7 +128,7 @@ export default function About() {
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <span className="section-tag">Credentials</span>
             <div className="gold-line center" />
-            <h2 className="section-title">Academic & Clinical Qualifications</h2>
+            <h2 className="section-title">Academic &amp; Clinical Qualifications</h2>
           </div>
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             {QUALS.map((q, i) => (
@@ -160,8 +153,8 @@ export default function About() {
       {/* CTA */}
       <section style={{ background: 'var(--navy-800)', padding: '80px 0', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 46px)', color: 'var(--white)', marginBottom: '16px' }}>Ready to Begin Your Healing Journey?</h2>
-          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', marginBottom: '32px' }}>A personalised consultation is the first step toward lasting transformation.</p>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 46px)', color: 'var(--white)', marginBottom: '16px' }}>Ready to Begin Your Health Journey?</h2>
+          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', marginBottom: '32px' }}>A personalised consultation is the first step toward lasting health.</p>
           <Link to="/contact"><button className="btn-primary">Book a Consultation</button></Link>
         </div>
       </section>

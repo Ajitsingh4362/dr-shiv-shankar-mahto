@@ -1,0 +1,36 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16324f"/>
+      <stop offset="100%" stop-color="#0f2138"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#avatarBg)"/>
+
+  <!-- coat shoulders -->
+  <path d="M60,300 C60,230 100,205 150,205 C200,205 240,230 240,300 Z" fill="#e8edf0"/>
+  <path d="M150,205 L136,222 L150,240 L164,222 Z" fill="#0d9488"/>
+
+  <!-- neck -->
+  <rect x="132" y="168" width="36" height="46" rx="14" fill="#c99b78"/>
+  <!-- head -->
+  <circle cx="150" cy="128" r="58" fill="#d8ab86"/>
+  <!-- hair -->
+  <path d="M92,120 C88,80 116,60 150,60 C184,60 212,80 208,120 C208,96 190,78 150,78 C110,78 92,96 92,120 Z" fill="#2b2320"/>
+  <!-- glasses -->
+  <g fill="none" stroke="#0f2138" stroke-width="4">
+    <circle cx="128" cy="132" r="18"/>
+    <circle cx="176" cy="132" r="18"/>
+    <line x1="146" y1="132" x2="158" y2="132"/>
+  </g>
+
+  <!-- stethoscope around neck -->
+  <path d="M110,210 C110,240 130,252 150,252 C170,252 190,240 190,210" fill="none" stroke="#0d9488" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="150" cy="256" r="12" fill="#0d9488"/>
+
+  <!-- initials chip -->
+  <g transform="translate(150,290)">
+    <rect x="-46" y="-16" width="92" height="30" rx="8" fill="#0f2138" stroke="#14b8a6" stroke-opacity="0.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#5eead4">SSM</text>
+  </g>
+</svg>

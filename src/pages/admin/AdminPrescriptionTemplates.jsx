@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 
-const CATEGORIES = ['Antibiotic', 'Painkiller', 'Mouthwash/Antiseptic', 'Post-Extraction', 'Post-RCT', 'Pediatric', 'General']
+const CATEGORIES = ['Antibiotic', 'Painkiller', 'Antiseptic', 'Post-Surgery', 'Chronic Care', 'Pediatric', 'General']
 const DOSAGES = ['250mg', '500mg', '650mg', '1 tab', '1 cap', '5ml', '10ml', 'Other']
 const FREQUENCIES = ['Once daily', 'Twice daily (1-0-1)', 'Thrice daily (1-1-1)', '4 times daily', 'SOS (as needed)', 'Bedtime only']
 const TIMINGS = ['After food', 'Before food', 'Anytime']
 const FOLLOW_UPS = ['3 days', '1 week', '2 weeks', '4 weeks', '3 months', '6 months']
-const COMMON_TAGS = ['Root Canal', 'Cavity', 'Gum Disease', 'Tooth Pain', 'Orthodontics', 'Implant', 'Cosmetic', 'Whitening', 'Pediatric', 'Emergency', 'Extraction', 'Sensitivity', 'Wisdom Tooth', 'Bad Breath', 'Bleeding Gums', 'Bruxism', 'Post-Surgery', 'Denture', 'Braces', 'Follow-up']
+const COMMON_TAGS = ['Fever', 'Infection', 'Diabetes', 'Hypertension', 'Surgery', 'Vaccination', 'Cough & Cold', 'Allergy', 'Pediatric', 'Emergency', 'Post-Surgery', 'Chronic Care', 'Follow-up']
 
 const EMPTY_MED = { name: '', dosage: '500mg', frequency: 'Thrice daily (1-1-1)', timing: 'After food', duration: '5 days', notes: '' }
 const EMPTY_TEMPLATE = { name: '', category: 'General', condition_tags: [], medicines: [{ ...EMPTY_MED }], instructions: '', follow_up_duration: '1 week' }

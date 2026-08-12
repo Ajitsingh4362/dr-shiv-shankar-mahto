@@ -10,12 +10,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img
-              src="/usha-dental-logo.png"
-              alt="Usha Multi Speciality Dental Clinic"
+              src="/clinic-logo.svg"
+              alt="Mahto Clinic"
               style={{ height: '96px', width: 'auto', marginBottom: '16px', objectFit: 'contain' }}
             />
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', maxWidth: '240px' }}>
-              Complete dental care in Sitamarhi — painless procedures, modern technology, care for the whole family.
+              Complete general healthcare in Sitamarhi — careful diagnosis, skilled surgical care, and attention for the whole family.
             </p>
             <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
               <a href="https://wa.me/918987367274" target="_blank" rel="noopener noreferrer"
@@ -52,12 +52,12 @@ export default function Footer() {
           <div>
             <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '18px' }}>Services</div>
             {[
-              'Root Canal Treatment',
-              'Cosmetic Dentistry',
-              'Dental Implants',
-              'Orthodontics (Braces)',
-              'Child Dentistry',
-              'Emergency Dental Care'
+              'General Consultation',
+              'General & Minor Surgery',
+              'Fever & Infections',
+              'Diabetes & Hypertension',
+              'Vaccination',
+              'Emergency Care'
             ].map(s => (
               <div key={s} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', marginBottom: '10px' }}>{s}</div>
             ))}
@@ -67,9 +67,9 @@ export default function Footer() {
           <div>
             <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '18px' }}>Contact</div>
             {[
-              { icon: '📍', text: 'Near Bhawdepur Chowk, Shiv Mandir,\nMata Vaishno Mandir Road, Bhavdepur,\nSitamarhi – 843302, Bihar' },
+              { icon: '📍', text: 'Near V Mart, Hotel Minitaj Road,\nSitamarhi–Dumra Road,\nSitamarhi – 843302, Bihar' },
               { icon: '📞', text: '+91 89873 67274' },
-              { icon: '✉️', text: 'ushadentalclinic@gmail.com' },
+              { icon: '✉️', text: 'mahtoclinic.care@gmail.com' },
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '14px', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>{item.icon}</span>
@@ -81,7 +81,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid rgba(13, 148, 136,0.1)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>© {new Date().getFullYear()} Usha Multi Speciality Dental Clinic. Dr. Shiv Shankar Mahto. All rights reserved.</p>
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>© {new Date().getFullYear()} Mahto Clinic. Dr. Shiv Shankar Mahto. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap', alignItems: 'center' }}>
             <NavLink to="/privacy-policy" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</NavLink>
             <NavLink to="/terms-conditions" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Terms & Conditions</NavLink>

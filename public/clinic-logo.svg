@@ -1,0 +1,30 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <circle cx="120" cy="120" r="112" fill="#0f2138"/>
+  <circle cx="120" cy="120" r="112" fill="none" stroke="url(#logoRing)" stroke-width="4"/>
+
+  <!-- text ring -->
+  <defs>
+    <path id="topArc" d="M 30,120 A 90,90 0 0 1 210,120"/>
+  </defs>
+  <text font-family="Jost, sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="#5eead4">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">MAHTO CLINIC</textPath>
+  </text>
+
+  <!-- cross -->
+  <g transform="translate(120,132)">
+    <rect x="-15" y="-46" width="30" height="92" rx="7" fill="#5eead4"/>
+    <rect x="-46" y="-15" width="92" height="30" rx="7" fill="#5eead4"/>
+  </g>
+
+  <!-- pulse line -->
+  <path d="M40,182 H90 L104,164 L118,196 L132,178 L142,182 H200" fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+  <!-- estd -->
+  <text x="120" y="212" text-anchor="middle" font-family="Jost, sans-serif" font-size="11" letter-spacing="2" fill="#9fb3c8" font-weight="600">DR. SHIV SHANKAR MAHTO</text>
+</svg>

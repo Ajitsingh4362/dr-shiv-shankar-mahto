@@ -32,26 +32,26 @@ export default function Gallery() {
             <div style={{ width: '32px', height: '1px', background: 'var(--gold)' }} />
             <span style={{ fontSize: '11px', fontFamily: 'var(--font-body)', fontWeight: 600, color: 'var(--gold)', letterSpacing: '2.5px', textTransform: 'uppercase' }}>Gallery</span>
           </div>
-          <h1>Our Clinic & Patient Smiles</h1>
+          <h1>Our Clinic & Patient Care</h1>
           <p style={{ maxWidth: '640px', lineHeight: '1.9' }}>
-            A look inside Usha Multi Speciality Dental Clinic — our facility, equipment, treatments in progress, and the smiles we've helped restore.
+            A look inside Mahto Clinic — our facility, our team at work, and the patients we've helped care for.
           </p>
           <p style={{ maxWidth: '600px', lineHeight: '1.9', marginTop: '16px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-body)', fontWeight: 300 }}>
-            From routine check-ups to complete smile makeovers, every image reflects our commitment to comfortable, high-quality dental care.
+            From routine check-ups to minor surgery, every image reflects our commitment to comfortable, high-quality healthcare.
           </p>
         </div>
       </section>
 
       {/* Featured Banner */}
       <section style={{ padding: '0' }}>
-        <img src="/clinic-banner-2.png" alt="Usha Multi Speciality Dental Clinic — Premium Care for Healthy Smiles" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <img src="/clinic-showcase.svg" alt="Mahto Clinic — Trusted Family Healthcare" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </section>
 
       {/* Gallery thank you strip */}
       <section style={{ background: 'var(--gold)', padding: '28px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(14px, 2vw, 18px)', color: 'var(--navy-800)', fontWeight: 600, margin: 0, lineHeight: 1.6 }}>
-            Every smile tells a story — thank you for trusting us with your dental care.
+            Every recovery tells a story — thank you for trusting us with your care.
           </p>
         </div>
       </section>

@@ -5,22 +5,22 @@ import { generatePatientPDF, generatePatientPDFBlob } from '../../lib/generatePa
 import { generateInvoicePDF } from '../../lib/generateInvoicePDF'
 
 const TABS = ['Overview', 'Medical History', 'Consultations', 'Billing', 'Notes', 'Documents', 'Appointments']
-const TAGS = ['Root Canal', 'Orthodontics', 'Implant', 'Cosmetic', 'Pediatric', 'VIP', 'Follow-up Due']
+const TAGS = ['Surgery', 'Chronic Care', 'Vaccination', 'Emergency', 'Pediatric', 'VIP', 'Follow-up Due']
 const AVATAR_COLORS = ['#b9914f', '#1e6f6a', '#4a3d8f', '#8f3d3d', '#3d6b8f', '#6b8f3d', '#8f6b3d']
 const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-const WHATSAPP_API = 'https://dr-suresh-whatsapp.onrender.com'
+const WHATSAPP_API = 'https://mahto-clinic-whatsapp.onrender.com' // TODO: apna deployed WhatsApp notifier URL daal dena
 // Appended to every automatic WhatsApp message sent from this app. WhatsApp
 // renders *text* wrapped in single asterisks as bold, and still auto-links
 // the URL inside it.
-const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.ushadental.com*'
+const WHATSAPP_FOOTER = '\n\n*Book your appointment on www.mahtoclinic.com*'
 
 // ─── Medicine Builder (quick-tap Rx, no free typing needed) ───
-const DENTAL_MEDICINES = [
-  'Amoxicillin', 'Amoxicillin + Clavulanate (Augmentin)', 'Metronidazole', 'Azithromycin', 'Clindamycin',
-  'Ibuprofen', 'Diclofenac', 'Aceclofenac + Paracetamol', 'Paracetamol', 'Ketorolac',
-  'Chlorhexidine Mouthwash', 'Betadine Mouthwash', 'Hydrogen Peroxide Rinse',
-  'Pantoprazole', 'Vitamin C Tablet', 'Calcium + Vitamin D3', 'Sensodent-K Toothpaste',
-  'Clove Oil (Topical)', 'Lignocaine Gel (Topical)', 'Tranexamic Acid',
+const CLINIC_MEDICINES = [
+  'Amoxicillin', 'Amoxicillin + Clavulanate (Augmentin)', 'Azithromycin', 'Ciprofloxacin', 'Metronidazole',
+  'Ibuprofen', 'Diclofenac', 'Aceclofenac + Paracetamol', 'Paracetamol', 'Mefenamic Acid',
+  'Metformin', 'Glimepiride', 'Amlodipine', 'Telmisartan', 'Atorvastatin',
+  'Pantoprazole', 'ORS Sachets', 'Vitamin C Tablet', 'Calcium + Vitamin D3', 'Multivitamin',
+  'Cetirizine', 'Levocetirizine', 'Domperidone', 'Ondansetron', 'Tranexamic Acid',
 ]
 const QUICK_DOSAGES = ['250mg', '500mg', '625mg', '650mg', '1 tab', '5ml', '10ml']
 const QUICK_FREQUENCIES = [
@@ -36,29 +36,29 @@ const QUICK_DURATIONS = ['3 days', '5 days', '7 days', '10 days', '15 days']
 
 // ─── Quick-fill for Chief Complaint / Observations (tap instead of type) ───
 const CONDITION_TEMPLATES = {
-  'Root Canal': {
-    complaint: 'Severe, throbbing tooth pain, worse at night; sensitivity to hot and cold.',
-    observations: 'Deep caries extending to pulp; tooth tender on percussion. X-ray advised.',
+  Surgery: {
+    complaint: 'Localised swelling / lump; needs evaluation for minor surgical procedure.',
+    observations: 'Swelling noted on examination; site prepared and evaluated for minor surgery.',
   },
-  Orthodontics: {
-    complaint: 'Crooked / crowded teeth; concerned about bite alignment.',
-    observations: 'Malocclusion noted; crowding in upper/lower arch. Orthodontic assessment recommended.',
+  'Chronic Care': {
+    complaint: 'Known case of diabetes / hypertension; here for routine follow-up and monitoring.',
+    observations: 'Vitals recorded; blood sugar / BP reviewed. Medication adjusted as needed.',
   },
-  Implant: {
-    complaint: 'Missing tooth; wants a permanent replacement option.',
-    observations: 'Edentulous space noted; bone support to be confirmed via X-ray/CBCT before implant planning.',
+  Vaccination: {
+    complaint: 'Due for scheduled immunization; no acute complaints.',
+    observations: 'Vitals normal; vaccine administered as per schedule. Advised on next dose.',
   },
-  Cosmetic: {
-    complaint: 'Unhappy with tooth colour/shape; wants a brighter, more even smile.',
-    observations: 'Mild discolouration/staining noted; discussed whitening and veneer/bonding options.',
+  Emergency: {
+    complaint: 'Sudden onset of acute symptoms; needs urgent evaluation.',
+    observations: 'Vitals checked on arrival; stabilised and evaluated for further management.',
   },
   Pediatric: {
-    complaint: 'Child complains of tooth pain; parent concerned about cavity in milk tooth.',
-    observations: 'Carious lesion noted in deciduous tooth; child cooperative during examination.',
+    complaint: 'Child brought in with fever / cold; parent concerned.',
+    observations: 'Child examined; temperature and general condition noted. Cooperative during examination.',
   },
 }
-const COMPLAINT_PHRASES = ['Tooth pain', 'Sensitivity to hot/cold', 'Swelling in gums', 'Bleeding gums', 'Bad breath', 'Broken tooth', 'Loose tooth', 'Pain while chewing']
-const OBSERVATION_PHRASES = ['Visible cavity', 'Gum inflammation', 'Plaque/tartar buildup', 'Tooth mobility', 'X-ray advised', 'Referred for extraction', 'Healing well', 'No abnormality detected']
+const COMPLAINT_PHRASES = ['Fever', 'Body ache', 'Cough & cold', 'Headache', 'Abdominal pain', 'Vomiting', 'Weakness', 'Loss of appetite']
+const OBSERVATION_PHRASES = ['Vitals stable', 'Mild fever noted', 'Throat congestion', 'Tenderness on palpation', 'Lab test advised', 'Referred to specialist', 'Recovering well', 'No abnormality detected']
 
 function appendPhrase(existing, phrase) {
   const trimmed = (existing || '').trim()
@@ -144,7 +144,7 @@ function MedicineChipRow({ med, idx, onChange, onDelete, isOnly }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
         <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-display)', flexShrink: 0 }}>{idx + 1}</div>
         <input
-          list="dental-medicine-list"
+          list="clinic-medicine-list"
           value={med.name}
           onChange={e => s('name', e.target.value)}
           placeholder="Type or pick medicine name..."
@@ -234,7 +234,7 @@ export default function AdminPatientProfile() {
       // Phir WhatsApp kholo with message
       const phone = (patient.phone || '').replace(/[^\d]/g, '')
       const msg = encodeURIComponent(
-        `Dear ${patient.name},\n\nYour health report from Usha Multi Speciality Dental Clinic has been downloaded on your device.\n\nPlease find it in your Downloads folder and attach it here if needed.\n\nFor appointments: ushamultispecialitydentalclinic.com\n\n— Dr. Shiv Shankar Mahto, Usha Multi Speciality Dental Clinic`
+        `Dear ${patient.name},\n\nYour health report from Mahto Clinic has been downloaded on your device.\n\nPlease find it in your Downloads folder and attach it here if needed.\n\nFor appointments: mahtoclinic.com\n\n— Dr. Shiv Shankar Mahto, Mahto Clinic`
       )
       setTimeout(() => {
         window.open(`https://wa.me/${phone}?text=${msg}`, '_blank')
@@ -425,7 +425,7 @@ export default function AdminPatientProfile() {
 
       // Welcome message
       if (patient.phone) {
-        const welcomeMsg = `Hi ${patient.name}, welcome to Usha Multi Speciality Dental Clinic! Your patient record has been created. We look forward to taking care of your dental health. \ud83e\uddf7${WHATSAPP_FOOTER}`
+        const welcomeMsg = `Hi ${patient.name}, welcome to Mahto Clinic! Your patient record has been created. We look forward to taking care of your health. \ud83e\uddf7${WHATSAPP_FOOTER}`
         const phoneToSend = cleanPhone(patient.phone)
         fetch(`${WHATSAPP_API}/notify`, {
           method: 'POST',
@@ -514,7 +514,7 @@ export default function AdminPatientProfile() {
   }
 
   function buildPrescriptionWhatsAppMessage(consult, prescriptionText) {
-    const lines = [`Hi ${patient.name}, here is your prescription from Usha Multi Speciality Dental Clinic 🦷`]
+    const lines = [`Hi ${patient.name}, here is your prescription from Mahto Clinic 🦷`]
     if (consult.chief_complaint) lines.push(`\n📝 Reason: ${consult.chief_complaint}`)
     lines.push(`\n💊 Prescription:\n${prescriptionText}`)
     if (consult.follow_up_date) lines.push(`\n📅 Follow-up: ${fmtDate(consult.follow_up_date)}${consult.follow_up_notes ? ` — ${consult.follow_up_notes}` : ''}`)
@@ -577,7 +577,7 @@ export default function AdminPatientProfile() {
 
   function buildInvoiceWhatsAppMessage(inv) {
     const due = Math.max(inv.total_amount - inv.paid_amount, 0)
-    const lines = [`Hi ${patient.name}, here is your invoice from Usha Multi Speciality Dental Clinic 🦷`]
+    const lines = [`Hi ${patient.name}, here is your invoice from Mahto Clinic 🦷`]
     lines.push(`\n🧾 Invoice: ${inv.invoice_number}`)
     lines.push(`📅 Date: ${fmtDate(inv.date)}`)
     lines.push(`\nItems:`)
@@ -1022,8 +1022,8 @@ export default function AdminPatientProfile() {
                   <MedicineChipRow key={idx} med={med} idx={idx} onChange={updateNewConsultMed} onDelete={removeNewConsultMed} isOnly={newConsult.medicines.length === 1} />
                 ))}
                 <button type="button" className="admin-btn-outline admin-btn-sm" onClick={addNewConsultMed}>+ Add Another Medicine</button>
-                <datalist id="dental-medicine-list">
-                  {DENTAL_MEDICINES.map(m => <option key={m} value={m} />)}
+                <datalist id="clinic-medicine-list">
+                  {CLINIC_MEDICINES.map(m => <option key={m} value={m} />)}
                 </datalist>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -1092,7 +1092,7 @@ export default function AdminPatientProfile() {
               {newInvoice.items.map((item, idx) => (
                 <div key={idx} style={{ display: 'flex', gap: '8px', marginBottom: '8px', alignItems: 'center' }}>
                   <input
-                    placeholder="Description (e.g. RCT - Molar)"
+                    placeholder="Description (e.g. Wound Suturing)"
                     value={item.description}
                     onChange={e => setInvoiceItem(idx, 'description', e.target.value)}
                     style={{ flex: 3, padding: '9px 12px', border: '1px solid rgba(15, 33, 56,0.12)', borderRadius: '2px', fontSize: '0.85rem', fontFamily: 'var(--font-body)', outline: 'none' }}
