@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
+import { api, uploadImage } from '../../lib/api'
 
 export default function AdminGallery() {
   const [items, setItems] = useState([])
@@ -11,9 +11,9 @@ export default function AdminGallery() {
   useEffect(() => { fetchAll() }, [])
 
   async function fetchAll() {
-    const [{ data: g }, { data: c }] = await Promise.all([
-      supabase.from('gallery').select('*').order('sort_order'),
-      supabase.from('gallery_categories').select('*').order('sort_order'),
+    const [g, c] = await Promise.all([
+      api.get('/api/gallery?all=1'),
+      api.get('/api/gallery-categories'),
     ])
     setItems(g || [])
     setCats(c || [])
@@ -25,18 +25,18 @@ export default function AdminGallery() {
     if (!files.length) return
     setUploading(true)
     for (const file of files) {
-      const ext = file.name.split('.').pop()
-      const path = `gallery/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`
-      const { error } = await supabase.storage.from('gallery-images').upload(path, file)
-      if (!error) {
-        const { data } = supabase.storage.from('gallery-images').getPublicUrl(path)
-        await supabase.from('gallery').insert({
-          image_url: data.publicUrl,
+      try {
+        const publicUrl = await uploadImage(file, 'gallery')
+        await api.post('/api/gallery', {
+          image_url: publicUrl,
           title: file.name.replace(/\.[^.]+$/, ''),
           category: cats[0]?.slug || 'general',
           sort_order: items.length,
           visible: true,
         })
+      } catch (err) {
+        console.error('Gallery upload failed', err)
+        alert('Upload failed for ' + file.name)
       }
     }
     setUploading(false)
@@ -45,19 +45,19 @@ export default function AdminGallery() {
 
   async function updateItem(id, patch) {
     setItems(prev => prev.map(i => i.id === id ? { ...i, ...patch } : i))
-    await supabase.from('gallery').update(patch).eq('id', id)
+    await api.put(`/api/gallery?id=${id}`, patch)
   }
 
   async function deleteItem(id) {
     if (!confirm('Delete this image?')) return
-    await supabase.from('gallery').delete().eq('id', id)
+    await api.del(`/api/gallery?id=${id}`)
     fetchAll()
   }
 
   async function addCategory() {
     if (!newCat.trim()) return
     const slug = newCat.toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-')
-    await supabase.from('gallery_categories').insert({ name: newCat.trim(), slug, sort_order: cats.length })
+    await api.post('/api/gallery-categories', { name: newCat.trim(), slug, sort_order: cats.length })
     setNewCat('')
     fetchAll()
   }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../../lib/supabase'
+import { api } from '../../lib/api'
 
 export default function AdminBlogList() {
   const [posts, setPosts] = useState([])
@@ -9,14 +9,14 @@ export default function AdminBlogList() {
   useEffect(() => { fetchPosts() }, [])
 
   async function fetchPosts() {
-    const { data } = await supabase.from('blog_posts').select('id,title,slug,published,published_at,created_at').order('created_at', { ascending: false })
+    const data = await api.get('/api/blog-posts?all=1').catch(() => [])
     setPosts(data || [])
     setLoading(false)
   }
 
   async function remove(id) {
     if (!confirm('Delete this post permanently?')) return
-    await supabase.from('blog_posts').delete().eq('id', id)
+    await api.del(`/api/blog-posts?id=${id}`)
     fetchPosts()
   }
 

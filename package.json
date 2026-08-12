@@ -13,7 +13,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
     "@emailjs/browser": "^4.3.3",
-    "@supabase/supabase-js": "^2.45.4"
+    "@supabase/supabase-js": "^2.45.4",
+    "@neondatabase/serverless": "^0.10.4",
+    "@neondatabase/neon-js": "^0.6.2-beta",
+    "jose": "^5.9.6",
+    "@aws-sdk/client-s3": "^3.700.0",
+    "@aws-sdk/s3-request-presigner": "^3.700.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

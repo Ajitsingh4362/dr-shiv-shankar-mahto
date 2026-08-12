@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
+import { authClient } from '../../lib/authClient'
+import { api } from '../../lib/api'
 
 function AccountSection() {
   const [email, setEmail] = useState('')
   const [newEmail, setNewEmail] = useState('')
+  const [currentPw, setCurrentPw] = useState('')
   const [newPw, setNewPw] = useState('')
   const [confirmPw, setConfirmPw] = useState('')
   const [msg, setMsg] = useState('')
@@ -11,9 +13,9 @@ function AccountSection() {
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      setEmail(data.user?.email || '')
-      setNewEmail(data.user?.email || '')
+    authClient.getSession().then(({ data }) => {
+      setEmail(data?.user?.email || '')
+      setNewEmail(data?.user?.email || '')
     })
   }, [])
 
@@ -21,7 +23,8 @@ function AccountSection() {
     setErr(''); setMsg('')
     if (!newEmail || newEmail === email) return
     setSaving(true)
-    const { error } = await supabase.auth.updateUser({ email: newEmail })
+    // Better Auth's changeEmail flow (Neon Auth is built on Better Auth)
+    const { error } = await authClient.changeEmail({ newEmail })
     setSaving(false)
     if (error) setErr(error.message)
     else setMsg('Confirmation link sent to your new email — click it to finish the change.')
@@ -29,13 +32,14 @@ function AccountSection() {
 
   async function updatePassword() {
     setErr(''); setMsg('')
+    if (!currentPw) { setErr('Enter your current password.'); return }
     if (newPw.length < 8) { setErr('Password should be at least 8 characters.'); return }
     if (newPw !== confirmPw) { setErr('Passwords do not match.'); return }
     setSaving(true)
-    const { error } = await supabase.auth.updateUser({ password: newPw })
+    const { error } = await authClient.changePassword({ newPassword: newPw, currentPassword: currentPw })
     setSaving(false)
     if (error) setErr(error.message)
-    else { setMsg('Password updated ✓'); setNewPw(''); setConfirmPw('') }
+    else { setMsg('Password updated ✓'); setCurrentPw(''); setNewPw(''); setConfirmPw('') }
   }
 
   return (
@@ -51,6 +55,10 @@ function AccountSection() {
         Update Email
       </button>
 
+      <div className="admin-field">
+        <label>Current Password</label>
+        <input type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} />
+      </div>
       <div className="admin-field">
         <label>New Password</label>
         <input type="password" value={newPw} onChange={e => setNewPw(e.target.value)} placeholder="At least 8 characters" />
@@ -75,15 +83,18 @@ export default function AdminSettings() {
   const [msg, setMsg] = useState('')
 
   useEffect(() => {
-    supabase.from('popup_settings').select('*').single().then(({ data }) => setSettings(data))
+    api.get('/api/popup-settings').then(data => setSettings(data)).catch(() => {})
   }, [])
 
   async function save() {
     setSaving(true)
-    const { id, ...rest } = settings
-    await supabase.from('popup_settings').update({ ...rest, updated_at: new Date().toISOString() }).eq('id', id)
+    try {
+      await api.put('/api/popup-settings', settings)
+      setMsg('Saved ✓')
+    } catch (err) {
+      setMsg('Error: ' + err.message)
+    }
     setSaving(false)
-    setMsg('Saved ✓')
     setTimeout(() => setMsg(''), 2000)
   }
 
@@ -108,8 +119,8 @@ export default function AdminSettings() {
           </label>
 
           <div className="admin-field">
-            <label>Delay before showing (seconds)</label>
-            <input type="number" min="0" max="60" value={settings.delay_seconds} onChange={e => setSettings(s => ({ ...s, delay_seconds: parseInt(e.target.value) || 0 }))} />
+            <label>Delay before showing (milliseconds)</label>
+            <input type="number" min="0" max="60000" step="500" value={settings.delay_ms} onChange={e => setSettings(s => ({ ...s, delay_ms: parseInt(e.target.value) || 0 }))} />
           </div>
 
           <div className="admin-field">
@@ -118,8 +129,8 @@ export default function AdminSettings() {
           </div>
 
           <div className="admin-field">
-            <label>Popup Subtitle</label>
-            <input value={settings.subtitle} onChange={e => setSettings(s => ({ ...s, subtitle: e.target.value }))} />
+            <label>Popup Message</label>
+            <input value={settings.message} onChange={e => setSettings(s => ({ ...s, message: e.target.value }))} />
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 import { Link } from 'react-router-dom'
 
 const CAT_COLORS = {
@@ -62,12 +62,17 @@ export default function FAQPage() {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    supabase.from('faqs').select('*').eq('visible', true).order('sort_order').order('created_at')
-      .then(({ data }) => {
+    api.get('/api/faqs')
+      .then(data => {
         const list = (data && data.length > 0) ? data : DEFAULT_FAQS
         setFaqs(list)
         const cats = ['All', ...new Set(list.map(f => f.category))]
         setCategories(cats)
+        setLoading(false)
+      })
+      .catch(() => {
+        setFaqs(DEFAULT_FAQS)
+        setCategories(['All', ...new Set(DEFAULT_FAQS.map(f => f.category))])
         setLoading(false)
       })
 

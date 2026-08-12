@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 
 export default function ConsultationPopup({ onClose }) {
-  const [settings, setSettings] = useState({ title: 'Book Your Consultation', subtitle: 'Take the first step towards holistic healing' })
+  const [settings, setSettings] = useState({ title: 'Book Your Consultation', message: 'Take the first step towards better health' })
+  const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    supabase.from('popup_settings').select('*').single().then(({ data }) => {
-      if (data) setSettings(data)
-    })
+    api.get('/api/popup-settings').then(data => {
+      if (data) {
+        if (data.enabled === false) { setHidden(true); return }
+        setSettings(data)
+      }
+    }).catch(() => {})
   }, [])
+
+  if (hidden) return null
 
   return (
     <div className="popup-overlay" onClick={onClose}>
@@ -28,7 +34,7 @@ export default function ConsultationPopup({ onClose }) {
           <img src="/clinic-logo.png" alt="Mahto Clinic" style={{ height: '130px', width: 'auto', objectFit: 'contain', margin: '0 auto' }} />
         </div>
         <h2 className="popup-title">{settings.title}</h2>
-        <p className="popup-sub">{settings.subtitle}</p>
+        <p className="popup-sub">{settings.message}</p>
         <Link to="/contact" onClick={onClose} className="btn-primary popup-btn">Book Now</Link>
         <button className="popup-skip" onClick={onClose}>Maybe later</button>
       </div>

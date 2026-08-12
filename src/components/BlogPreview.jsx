@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 
 export default function BlogPreview() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    supabase.from('blog_posts').select('id,title,slug,excerpt,cover_image,published_at')
-      .eq('published', true).order('published_at', { ascending: false }).limit(3)
-      .then(({ data }) => setPosts(data || []))
+    api.get('/api/blog-posts').then(rows => setPosts((rows || []).slice(0, 3))).catch(() => {})
   }, [])
 
   if (!posts.length) return null

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
+import { api } from '../../lib/api'
 
-const CATEGORIES = ['General', 'Homeopathy', 'Consultation', 'Programs', 'Lifestyle', 'Other']
+const CATEGORIES = ['General', 'Treatments', 'Appointments', 'Emergency', 'Children', 'Other']
 
 const EMPTY = { question: '', answer: '', category: 'General', visible: true }
 
@@ -18,7 +18,7 @@ export default function AdminFAQ() {
   useEffect(() => { fetchFaqs() }, [])
 
   async function fetchFaqs() {
-    const { data } = await supabase.from('faqs').select('*').order('sort_order').order('created_at')
+    const data = await api.get('/api/faqs?all=1').catch(() => [])
     setFaqs(data || [])
     setLoading(false)
   }
@@ -34,9 +34,9 @@ export default function AdminFAQ() {
     setSaving(true)
     if (editing === 'new') {
       const maxOrder = faqs.length > 0 ? Math.max(...faqs.map(f => f.sort_order || 0)) + 1 : 0
-      await supabase.from('faqs').insert({ ...form, sort_order: maxOrder })
+      await api.post('/api/faqs', { ...form, sort_order: maxOrder })
     } else {
-      await supabase.from('faqs').update(form).eq('id', editing)
+      await api.put(`/api/faqs?id=${editing}`, form)
     }
     setSaving(false)
     closeForm()
@@ -45,12 +45,12 @@ export default function AdminFAQ() {
 
   async function remove(id) {
     if (!confirm('Delete this FAQ?')) return
-    await supabase.from('faqs').delete().eq('id', id)
+    await api.del(`/api/faqs?id=${id}`)
     fetchFaqs()
   }
 
   async function toggle(id, visible) {
-    await supabase.from('faqs').update({ visible }).eq('id', id)
+    await api.put(`/api/faqs?id=${id}`, { visible })
     setFaqs(prev => prev.map(f => f.id === id ? { ...f, visible } : f))
   }
 
@@ -58,7 +58,7 @@ export default function AdminFAQ() {
     if (i === 0) return
     const updated = [...filtered]
     ;[updated[i - 1], updated[i]] = [updated[i], updated[i - 1]]
-    await Promise.all(updated.map((f, idx) => supabase.from('faqs').update({ sort_order: idx }).eq('id', f.id)))
+    await Promise.all(updated.map((f, idx) => api.put(`/api/faqs?id=${f.id}`, { sort_order: idx })))
     fetchFaqs()
   }
 
@@ -66,13 +66,13 @@ export default function AdminFAQ() {
     if (i === filtered.length - 1) return
     const updated = [...filtered]
     ;[updated[i], updated[i + 1]] = [updated[i + 1], updated[i]]
-    await Promise.all(updated.map((f, idx) => supabase.from('faqs').update({ sort_order: idx }).eq('id', f.id)))
+    await Promise.all(updated.map((f, idx) => api.put(`/api/faqs?id=${f.id}`, { sort_order: idx })))
     fetchFaqs()
   }
 
   const filtered = faqs.filter(f => filterCat === 'all' || f.category === filterCat)
 
-  const catColors = { General: '#1e6f6a', Homeopathy: '#4a3d8f', Consultation: '#b9914f', Programs: '#8f3d3d', Lifestyle: '#6b8f3d', Other: '#666' }
+  const catColors = { General: '#1e6f6a', Treatments: '#4a3d8f', Appointments: '#b9914f', Emergency: '#8f3d3d', Children: '#6b8f3d', Other: '#666' }
 
   return (
     <div className="admin-panel">

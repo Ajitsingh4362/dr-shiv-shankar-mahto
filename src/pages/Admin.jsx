@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, NavLink, Link, Navigate, useNavigate } from 'react-router-dom'
+import { authClient } from '../lib/authClient'
+// NOTE: `supabase` is still used below for appointments/patient_consultations —
+// those tables move to Neon in Phase 2. Only login/session now uses authClient.
 import { supabase } from '../lib/supabase'
 import AdminBlogList from './admin/AdminBlogList'
 import AdminBlogEditor from './admin/AdminBlogEditor'
@@ -310,14 +313,10 @@ export default function Admin() {
   const [showIosHelp, setShowIosHelp] = useState(false)
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setAuthed(!!session)
+    authClient.getSession().then(({ data }) => {
+      setAuthed(!!(data?.session && data?.user))
       setChecked(true)
-    })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setAuthed(!!session)
-    })
-    return () => subscription.unsubscribe()
+    }).catch(() => setChecked(true))
   }, [])
 
   // PWA install: Android/Chrome apna prompt deta hai (beforeinstallprompt),
@@ -349,24 +348,26 @@ export default function Admin() {
   // Every 15s, check if this device's session was remotely logged out.
   useEffect(() => {
     if (!authed) return
-    const interval = setInterval(() => { checkRevoked() }, 15000)
+    const interval = setInterval(() => { try { checkRevoked() } catch {} }, 15000)
     return () => clearInterval(interval)
   }, [authed])
 
   async function login() {
     setLoggingIn(true)
     setError('')
-    const { error } = await supabase.auth.signInWithPassword({ email, password: pw })
+    const { error } = await authClient.signIn.email({ email, password: pw })
     if (error) {
       setError('Incorrect email or password')
     } else {
-      recordSession()
+      setAuthed(true)
+      try { recordSession() } catch {}
     }
     setLoggingIn(false)
   }
 
   async function logout() {
-    await supabase.auth.signOut()
+    await authClient.signOut()
+    setAuthed(false)
     localStorage.removeItem('admin_session_id')
     setPw('')
   }

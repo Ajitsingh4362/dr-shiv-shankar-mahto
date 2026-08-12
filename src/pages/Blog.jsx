@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 
 export default function Blog() {
   const ref = useRef(null)
@@ -12,13 +12,13 @@ export default function Blog() {
   useEffect(() => {
     if (ref.current) ref.current.classList.add('page-enter')
     Promise.all([
-      supabase.from('blog_posts').select('*').eq('published', true).order('published_at', { ascending: false }),
-      supabase.from('blog_categories').select('*').order('name'),
-    ]).then(([{ data: p }, { data: c }]) => {
+      api.get('/api/blog-posts'),
+      api.get('/api/blog-categories'),
+    ]).then(([p, c]) => {
       setPosts(p || [])
       setCats(c || [])
       setLoading(false)
-    })
+    }).catch(() => setLoading(false))
   }, [])
 
   const fmt = d => new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 
 export default function BlogPost() {
   const ref = useRef(null)
@@ -11,12 +11,12 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (ref.current) ref.current.classList.add('page-enter')
-    supabase.from('blog_posts').select('*').eq('slug', slug).eq('published', true).single()
-      .then(({ data }) => {
+    api.get(`/api/blog-posts?slug=${encodeURIComponent(slug)}`)
+      .then(data => {
         if (!data) setNotFound(true)
         else setPost(data)
         setLoading(false)
-      })
+      }).catch(() => { setNotFound(true); setLoading(false) })
   }, [slug])
 
   const fmt = d => new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -39,7 +39,7 @@ export default function BlogPost() {
         <header className="blog-post-header">
           <p className="blog-post-date">{fmt(post.published_at)}</p>
           <h1>{post.title}</h1>
-          <p className="blog-post-author">By {post.author}</p>
+          <p className="blog-post-author">By Dr. Shiv Shankar Mahto</p>
         </header>
         <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>

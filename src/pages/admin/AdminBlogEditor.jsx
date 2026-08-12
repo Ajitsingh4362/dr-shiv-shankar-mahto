@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { supabase } from '../../lib/supabase'
+import { api, uploadImage } from '../../lib/api'
 import RichEditor from '../../components/RichEditor'
 
 function slugify(str) {
@@ -27,9 +27,9 @@ export default function AdminBlogEditor() {
   const [slugTouched, setSlugTouched] = useState(false)
 
   useEffect(() => {
-    supabase.from('blog_categories').select('*').order('name').then(({ data }) => setCategories(data || []))
+    api.get('/api/blog-categories').then(data => setCategories(data || [])).catch(() => {})
     if (!isNew) {
-      supabase.from('blog_posts').select('*').eq('id', id).single().then(({ data }) => {
+      api.get(`/api/blog-posts?id=${id}&all=1`).then(data => {
         if (data) {
           setTitle(data.title)
           setSlug(data.slug)
@@ -40,7 +40,7 @@ export default function AdminBlogEditor() {
           setPublished(data.published)
         }
         setLoading(false)
-      })
+      }).catch(() => setLoading(false))
     }
   }, [id])
 
@@ -49,20 +49,19 @@ export default function AdminBlogEditor() {
     if (!slugTouched) setSlug(slugify(v))
   }
 
-  async function uploadToStorage(file, prefix) {
-    const ext = file.name.split('.').pop()
-    const path = `${prefix}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`
-    const { error } = await supabase.storage.from('blog-images').upload(path, file)
-    if (error) return null
-    const { data } = supabase.storage.from('blog-images').getPublicUrl(path)
-    return data.publicUrl
+  async function uploadToStorage(file) {
+    try {
+      return await uploadImage(file, 'blog')
+    } catch {
+      return null
+    }
   }
 
   async function handleCoverUpload(e) {
     const file = e.target.files[0]
     if (!file) return
     setUploading(true)
-    const url = await uploadToStorage(file, 'covers')
+    const url = await uploadToStorage(file)
     if (url) setCoverImage(url)
     setUploading(false)
   }
@@ -80,21 +79,21 @@ export default function AdminBlogEditor() {
       cover_image: coverImage || null,
       category: category || null,
       published: publishState,
-      published_at: publishState ? new Date().toISOString() : null,
     }
 
-    let error
-    if (isNew) {
-      const res = await supabase.from('blog_posts').insert(payload).select().single()
-      error = res.error
-      if (!error) navigate(`/admin/posts/${res.data.id}`, { replace: true })
-    } else {
-      const res = await supabase.from('blog_posts').update(payload).eq('id', id)
-      error = res.error
+    try {
+      if (isNew) {
+        const created = await api.post('/api/blog-posts', payload)
+        navigate(`/admin/posts/${created.id}`, { replace: true })
+      } else {
+        await api.put(`/api/blog-posts?id=${id}`, payload)
+      }
+      setMsg(publishState ? 'Published ✓' : 'Saved ✓')
+    } catch (err) {
+      setMsg(`Error: ${err.message}`)
     }
 
     setSaving(false)
-    setMsg(error ? `Error: ${error.message}` : (publishState ? 'Published ✓' : 'Saved ✓'))
     setTimeout(() => setMsg(''), 2500)
   }
 
@@ -155,7 +154,7 @@ export default function AdminBlogEditor() {
 
         <div className="admin-field">
           <label>Content</label>
-          <RichEditor value={content} onChange={setContent} onImageUpload={(f) => uploadToStorage(f, 'content')} placeholder="Write your article..." />
+          <RichEditor value={content} onChange={setContent} onImageUpload={(f) => uploadToStorage(f)} placeholder="Write your article..." />
         </div>
       </div>
     </div>

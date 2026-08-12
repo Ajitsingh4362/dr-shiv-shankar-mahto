@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../../lib/supabase'
+import { api, uploadImage } from '../../lib/api'
 
 const PROGRAMS = [
   'General Consultation',
@@ -42,7 +42,7 @@ export default function AdminTestimonials() {
   useEffect(() => { fetchList() }, [])
 
   async function fetchList() {
-    const { data } = await supabase.from('testimonials').select('*').order('sort_order').order('created_at')
+    const data = await api.get('/api/testimonials?all=1').catch(() => [])
     setList(data || [])
     setLoading(false)
   }
@@ -56,24 +56,28 @@ export default function AdminTestimonials() {
   async function save() {
     if (!form.name || !form.review) { setMsg('Name and review required'); return }
     setSaving(true)
-    if (editing === 'new') {
-      await supabase.from('testimonials').insert({ ...form, sort_order: list.length })
-    } else {
-      await supabase.from('testimonials').update(form).eq('id', editing)
+    try {
+      if (editing === 'new') {
+        await api.post('/api/testimonials', { ...form, sort_order: list.length })
+      } else {
+        await api.put(`/api/testimonials?id=${editing}`, form)
+      }
+      closeForm()
+      fetchList()
+    } catch (err) {
+      setMsg(err.message)
     }
     setSaving(false)
-    closeForm()
-    fetchList()
   }
 
   async function remove(id) {
     if (!confirm('Delete this testimonial?')) return
-    await supabase.from('testimonials').delete().eq('id', id)
+    await api.del(`/api/testimonials?id=${id}`)
     fetchList()
   }
 
   async function toggle(id, key, val) {
-    await supabase.from('testimonials').update({ [key]: val }).eq('id', id)
+    await api.put(`/api/testimonials?id=${id}`, { [key]: val })
     setList(prev => prev.map(t => t.id === id ? { ...t, [key]: val } : t))
   }
 
@@ -82,7 +86,7 @@ export default function AdminTestimonials() {
     const updated = [...list]
     ;[updated[i - 1], updated[i]] = [updated[i], updated[i - 1]]
     setList(updated)
-    await Promise.all(updated.map((t, idx) => supabase.from('testimonials').update({ sort_order: idx }).eq('id', t.id)))
+    await Promise.all(updated.map((t, idx) => api.put(`/api/testimonials?id=${t.id}`, { sort_order: idx })))
   }
 
   async function moveDown(i) {
@@ -90,18 +94,18 @@ export default function AdminTestimonials() {
     const updated = [...list]
     ;[updated[i], updated[i + 1]] = [updated[i + 1], updated[i]]
     setList(updated)
-    await Promise.all(updated.map((t, idx) => supabase.from('testimonials').update({ sort_order: idx }).eq('id', t.id)))
+    await Promise.all(updated.map((t, idx) => api.put(`/api/testimonials?id=${t.id}`, { sort_order: idx })))
   }
 
   async function uploadPhoto(e) {
     const file = e.target.files[0]
     if (!file) return
     setUploading(true)
-    const path = `testimonials/${Date.now()}-${file.name}`
-    const { error } = await supabase.storage.from('gallery-images').upload(path, file)
-    if (!error) {
-      const { data } = supabase.storage.from('gallery-images').getPublicUrl(path)
-      setF('photo_url', data.publicUrl)
+    try {
+      const publicUrl = await uploadImage(file, 'gallery')
+      setF('photo_url', publicUrl)
+    } catch (err) {
+      alert('Photo upload failed')
     }
     setUploading(false)
   }

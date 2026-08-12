@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 
 const DEFAULT_TESTIMONIALS = [
   { id: 't1', name: 'Ravi Kumar', rating: 5, program: 'General Consultation', location: 'Sitamarhi', avatar_color: '#1e6f6a', photo_url: null, review: 'I was worried about my recurring fever but the diagnosis was quick and accurate. The staff explained everything and I felt comfortable throughout. Highly recommend Mahto Clinic.' },
@@ -30,10 +30,9 @@ export default function TestimonialsSection() {
   const timerRef = useRef(null)
 
   useEffect(() => {
-    supabase.from('testimonials').select('*')
-      .eq('visible', true).eq('featured', true)
-      .order('sort_order').limit(6)
-      .then(({ data }) => setTestimonials((data && data.length > 0) ? data : DEFAULT_TESTIMONIALS))
+    api.get('/api/testimonials?featured=1').then(rows => {
+      setTestimonials((rows && rows.length > 0) ? rows.slice(0, 6) : DEFAULT_TESTIMONIALS)
+    }).catch(() => setTestimonials(DEFAULT_TESTIMONIALS))
   }, [])
 
   useEffect(() => {

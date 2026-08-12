@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { supabase } from '../lib/supabase'
+import { api } from '../lib/api'
 import Reveal from '../components/Reveal'
 
 export default function Gallery() {
@@ -13,13 +13,13 @@ export default function Gallery() {
   useEffect(() => {
     if (ref.current) ref.current.classList.add('page-enter')
     Promise.all([
-      supabase.from('gallery').select('*').eq('visible', true).order('sort_order'),
-      supabase.from('gallery_categories').select('*').order('sort_order'),
-    ]).then(([{ data: g }, { data: c }]) => {
+      api.get('/api/gallery'),
+      api.get('/api/gallery-categories'),
+    ]).then(([g, c]) => {
       setItems(g || [])
       setCats(c || [])
       setLoading(false)
-    })
+    }).catch(() => setLoading(false))
   }, [])
 
   const shown = active === 'all' ? items : items.filter(i => i.category === active)
